@@ -98,7 +98,7 @@
       </div>
       <div class="col-md-4">
         <div class="box-simple box-dark same-height boxshdservice">
-          <div class="icon"><i class="fa fa-print"></i></div>
+          <div class="icon"><i class="fas fa-phone-volume"></i></div>
           <h4>Contact Center Service Solutions</h4>
           <p>We provide exceptional experiences to your customers. Our agents are trained to not only resolve customer's current issue, but also any downstream issues.</p>
         </div>
@@ -114,21 +114,21 @@
     <div class="row same-height">
       <div class="col-md-4">
         <div class="box-simple box-dark same-height boxshdservice">
-          <div class="icon"><i class="fa fa-desktop"></i></div>
+          <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
           <h4>Customer Service Learning Center</h4>
           <p>Develop and train your team with Global Alih Daya Learning Center. </p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="box-simple box-dark same-height boxshdservice">
-          <div class="icon"><i class="fa fa-print"></i></div>
+          <div class="icon"><i class="fas fa-chalkboard"></i></div>
           <h4>Learning Center</h4>
           <p>A learning center is a self-contained section of the classroom in which students engage in independent and self-directed learning activities.</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="box-simple box-dark same-height boxshdservice">
-          <div class="icon"><i class="fa fa-globe"></i></div>
+          <div class="icon"><i class="fas fa-street-view"></i></div>
           <h4>Customer Experience Management</h4>
           <p>Need a customer service team – without having to invest in technology, facilities and people?</p>
         </div>

@@ -1,6 +1,6 @@
     /*
     Flaticon icon font: Flaticon
-    Creation date: 05/07/2018 08:17
+    Creation date: 26/07/2018 08:51
     */
 
     @font-face {
@@ -36,76 +36,104 @@
   font-smoothing: antialiased;
     }
 
-    .flaticon-001-wifi-router:before { content: "\f100"; }
-.flaticon-002-wireless:before { content: "\f101"; }
-.flaticon-003-update:before { content: "\f102"; }
-.flaticon-004-tech-service:before { content: "\f103"; }
-.flaticon-005-system:before { content: "\f104"; }
-.flaticon-006-syncing:before { content: "\f105"; }
-.flaticon-007-server:before { content: "\f106"; }
-.flaticon-008-search:before { content: "\f107"; }
-.flaticon-009-optimization:before { content: "\f108"; }
-.flaticon-010-diskette:before { content: "\f109"; }
-.flaticon-011-routing:before { content: "\f10a"; }
-.flaticon-012-plug-in:before { content: "\f10b"; }
-.flaticon-013-files-and-folders-1:before { content: "\f10c"; }
-.flaticon-014-conection:before { content: "\f10d"; }
-.flaticon-015-hosting:before { content: "\f10e"; }
-.flaticon-016-hardware:before { content: "\f10f"; }
-.flaticon-017-network:before { content: "\f110"; }
-.flaticon-018-global-network:before { content: "\f111"; }
-.flaticon-019-file-sharing:before { content: "\f112"; }
-.flaticon-020-sharing-file:before { content: "\f113"; }
-.flaticon-021-files-and-folders:before { content: "\f114"; }
-.flaticon-022-distribution:before { content: "\f115"; }
-.flaticon-023-database:before { content: "\f116"; }
-.flaticon-024-data-transfer:before { content: "\f117"; }
-.flaticon-025-hierarchical-structure:before { content: "\f118"; }
-.flaticon-026-storage:before { content: "\f119"; }
-.flaticon-027-data-sharing:before { content: "\f11a"; }
-.flaticon-028-data:before { content: "\f11b"; }
-.flaticon-029-processing:before { content: "\f11c"; }
-.flaticon-030-connection:before { content: "\f11d"; }
-.flaticon-031-connection-error:before { content: "\f11e"; }
-.flaticon-032-cloud-storage:before { content: "\f11f"; }
-.flaticon-033-cloud-computing:before { content: "\f120"; }
-.flaticon-034-backup-1:before { content: "\f121"; }
-.flaticon-035-backup:before { content: "\f122"; }
-.flaticon-036-access-denied:before { content: "\f123"; }
+    .flaticon-001-video-call:before { content: "\f100"; }
+.flaticon-002-phone-call-13:before { content: "\f101"; }
+.flaticon-003-hot:before { content: "\f102"; }
+.flaticon-004-24-hours-1:before { content: "\f103"; }
+.flaticon-005-telemarketer-3:before { content: "\f104"; }
+.flaticon-006-contact-1:before { content: "\f105"; }
+.flaticon-007-phone-call-12:before { content: "\f106"; }
+.flaticon-008-smartphone:before { content: "\f107"; }
+.flaticon-009-phone-call-11:before { content: "\f108"; }
+.flaticon-010-phone-call-10:before { content: "\f109"; }
+.flaticon-011-telemarketer-2:before { content: "\f10a"; }
+.flaticon-012-phone-call-9:before { content: "\f10b"; }
+.flaticon-013-telemarketer-1:before { content: "\f10c"; }
+.flaticon-014-internet:before { content: "\f10d"; }
+.flaticon-015-24-hours:before { content: "\f10e"; }
+.flaticon-016-phone-call-8:before { content: "\f10f"; }
+.flaticon-017-email:before { content: "\f110"; }
+.flaticon-018-earth-grid:before { content: "\f111"; }
+.flaticon-019-contact:before { content: "\f112"; }
+.flaticon-020-telemarketer:before { content: "\f113"; }
+.flaticon-021-list:before { content: "\f114"; }
+.flaticon-022-calendar:before { content: "\f115"; }
+.flaticon-023-headset-4:before { content: "\f116"; }
+.flaticon-024-headset-3:before { content: "\f117"; }
+.flaticon-025-network-1:before { content: "\f118"; }
+.flaticon-026-phone-call-7:before { content: "\f119"; }
+.flaticon-027-call-center:before { content: "\f11a"; }
+.flaticon-028-pin:before { content: "\f11b"; }
+.flaticon-029-hand-shake:before { content: "\f11c"; }
+.flaticon-030-network:before { content: "\f11d"; }
+.flaticon-031-phone-call-6:before { content: "\f11e"; }
+.flaticon-032-mail:before { content: "\f11f"; }
+.flaticon-033-clipboard:before { content: "\f120"; }
+.flaticon-034-headset-2:before { content: "\f121"; }
+.flaticon-035-idea:before { content: "\f122"; }
+.flaticon-036-phone-call-5:before { content: "\f123"; }
+.flaticon-037-help:before { content: "\f124"; }
+.flaticon-038-phone-call-4:before { content: "\f125"; }
+.flaticon-039-phone-call-3:before { content: "\f126"; }
+.flaticon-040-lifesaver:before { content: "\f127"; }
+.flaticon-041-note:before { content: "\f128"; }
+.flaticon-042-search:before { content: "\f129"; }
+.flaticon-043-call:before { content: "\f12a"; }
+.flaticon-044-phonebook:before { content: "\f12b"; }
+.flaticon-045-phone-call-2:before { content: "\f12c"; }
+.flaticon-046-chat:before { content: "\f12d"; }
+.flaticon-047-headset-1:before { content: "\f12e"; }
+.flaticon-048-phone-call-1:before { content: "\f12f"; }
+.flaticon-049-headset:before { content: "\f130"; }
+.flaticon-050-phone-call:before { content: "\f131"; }
     
-    $font-Flaticon-001-wifi-router: "\f100";
-    $font-Flaticon-002-wireless: "\f101";
-    $font-Flaticon-003-update: "\f102";
-    $font-Flaticon-004-tech-service: "\f103";
-    $font-Flaticon-005-system: "\f104";
-    $font-Flaticon-006-syncing: "\f105";
-    $font-Flaticon-007-server: "\f106";
-    $font-Flaticon-008-search: "\f107";
-    $font-Flaticon-009-optimization: "\f108";
-    $font-Flaticon-010-diskette: "\f109";
-    $font-Flaticon-011-routing: "\f10a";
-    $font-Flaticon-012-plug-in: "\f10b";
-    $font-Flaticon-013-files-and-folders-1: "\f10c";
-    $font-Flaticon-014-conection: "\f10d";
-    $font-Flaticon-015-hosting: "\f10e";
-    $font-Flaticon-016-hardware: "\f10f";
-    $font-Flaticon-017-network: "\f110";
-    $font-Flaticon-018-global-network: "\f111";
-    $font-Flaticon-019-file-sharing: "\f112";
-    $font-Flaticon-020-sharing-file: "\f113";
-    $font-Flaticon-021-files-and-folders: "\f114";
-    $font-Flaticon-022-distribution: "\f115";
-    $font-Flaticon-023-database: "\f116";
-    $font-Flaticon-024-data-transfer: "\f117";
-    $font-Flaticon-025-hierarchical-structure: "\f118";
-    $font-Flaticon-026-storage: "\f119";
-    $font-Flaticon-027-data-sharing: "\f11a";
-    $font-Flaticon-028-data: "\f11b";
-    $font-Flaticon-029-processing: "\f11c";
-    $font-Flaticon-030-connection: "\f11d";
-    $font-Flaticon-031-connection-error: "\f11e";
-    $font-Flaticon-032-cloud-storage: "\f11f";
-    $font-Flaticon-033-cloud-computing: "\f120";
-    $font-Flaticon-034-backup-1: "\f121";
-    $font-Flaticon-035-backup: "\f122";
-    $font-Flaticon-036-access-denied: "\f123";
+    $font-Flaticon-001-video-call: "\f100";
+    $font-Flaticon-002-phone-call-13: "\f101";
+    $font-Flaticon-003-hot: "\f102";
+    $font-Flaticon-004-24-hours-1: "\f103";
+    $font-Flaticon-005-telemarketer-3: "\f104";
+    $font-Flaticon-006-contact-1: "\f105";
+    $font-Flaticon-007-phone-call-12: "\f106";
+    $font-Flaticon-008-smartphone: "\f107";
+    $font-Flaticon-009-phone-call-11: "\f108";
+    $font-Flaticon-010-phone-call-10: "\f109";
+    $font-Flaticon-011-telemarketer-2: "\f10a";
+    $font-Flaticon-012-phone-call-9: "\f10b";
+    $font-Flaticon-013-telemarketer-1: "\f10c";
+    $font-Flaticon-014-internet: "\f10d";
+    $font-Flaticon-015-24-hours: "\f10e";
+    $font-Flaticon-016-phone-call-8: "\f10f";
+    $font-Flaticon-017-email: "\f110";
+    $font-Flaticon-018-earth-grid: "\f111";
+    $font-Flaticon-019-contact: "\f112";
+    $font-Flaticon-020-telemarketer: "\f113";
+    $font-Flaticon-021-list: "\f114";
+    $font-Flaticon-022-calendar: "\f115";
+    $font-Flaticon-023-headset-4: "\f116";
+    $font-Flaticon-024-headset-3: "\f117";
+    $font-Flaticon-025-network-1: "\f118";
+    $font-Flaticon-026-phone-call-7: "\f119";
+    $font-Flaticon-027-call-center: "\f11a";
+    $font-Flaticon-028-pin: "\f11b";
+    $font-Flaticon-029-hand-shake: "\f11c";
+    $font-Flaticon-030-network: "\f11d";
+    $font-Flaticon-031-phone-call-6: "\f11e";
+    $font-Flaticon-032-mail: "\f11f";
+    $font-Flaticon-033-clipboard: "\f120";
+    $font-Flaticon-034-headset-2: "\f121";
+    $font-Flaticon-035-idea: "\f122";
+    $font-Flaticon-036-phone-call-5: "\f123";
+    $font-Flaticon-037-help: "\f124";
+    $font-Flaticon-038-phone-call-4: "\f125";
+    $font-Flaticon-039-phone-call-3: "\f126";
+    $font-Flaticon-040-lifesaver: "\f127";
+    $font-Flaticon-041-note: "\f128";
+    $font-Flaticon-042-search: "\f129";
+    $font-Flaticon-043-call: "\f12a";
+    $font-Flaticon-044-phonebook: "\f12b";
+    $font-Flaticon-045-phone-call-2: "\f12c";
+    $font-Flaticon-046-chat: "\f12d";
+    $font-Flaticon-047-headset-1: "\f12e";
+    $font-Flaticon-048-phone-call-1: "\f12f";
+    $font-Flaticon-049-headset: "\f130";
+    $font-Flaticon-050-phone-call: "\f131";
