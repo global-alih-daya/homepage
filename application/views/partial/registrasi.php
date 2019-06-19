@@ -1,6 +1,6 @@
 <!-- section Register -->
-<section class="bg-white bar">
-    <div class="container zoome boxshdregister">
+<section style="background: url(<?php echo base_url() ?>/assets/img/cc02.jpg) center top no-repeat; background-size: cover;" class="bar no-mb bg-fixed relative-positioned">
+    <div class="container zoome boxshdregister bg-white">
         
         <div class="heading text-center">
             <h2>Registrasi</h2>

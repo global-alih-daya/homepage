@@ -15,7 +15,7 @@
                   <ul class="dropdown-menu megamenu">
                     <li>
                       <div class="row">
-                        <!-- <div class="col-lg-3"><img src="<?php echo base_url('assets/img/callcenter1.png')?>" alt="" class="img-fluid d-none d-lg-block circleborder"></div> -->
+                        <div class="col-lg-3"><img src="<?php echo base_url('assets/img/callcenter1.png')?>" alt="" class="img-fluid d-none d-lg-block"></div>
                         <div class="col-lg-3 col-md-6">
                           <h5>Partner</h5>
                           <ul class="list-unstyled mb-3">
@@ -31,6 +31,13 @@
                           </ul>
                         </div>
                         <div class="col-lg-3 col-md-6">
+                          <h5>Kontak Kami</h5>
+                          <ul class="list-unstyled mb-3">
+                            <li class="nav-item"><a href="#" class="nav-link">Link 1</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Link 2</a></li>
+                          </ul>
+                        </div>
+                        <!-- <div class="col-lg-3 col-md-6">
                           <h5>Layanan</h5>
                           <ul class="list-unstyled mb-3">
                             <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal">Helpdesk / Service Desk</a></li>
@@ -41,6 +48,14 @@
                             <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal">Customer Experience Management</a></li>   
                           </ul>
                         </div>
+                        <div class="col-lg-3 col-md-6">
+                          <h5>Produk</h5>
+                          <ul class="list-unstyled mb-3">
+                            <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal">Produk #1</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal">Produk #2</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal">Produk #3</a></li> 
+                          </ul>
+                        </div> -->
                       </div>
                     </li>
                   </ul>
