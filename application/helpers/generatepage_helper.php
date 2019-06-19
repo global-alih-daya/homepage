@@ -74,6 +74,7 @@ if( !function_exists('generate_page') ) {
 			//print_r($data_menu);die;
 			//print_r($user_type);die;
 		$data['menu'] = $ci->load->view('default/V_Menu' ,$data_menu, true);
+		$data['modal'] = $ci->load->view('default/V_Modal', '', true);
 		//print_r($data['menu']);die;
 		$data['footer'] = $ci->load->view('default/V_Footer', '', true);
 		$data['javascript'] = $ci->load->view('default/V_JavaScript', '', true);

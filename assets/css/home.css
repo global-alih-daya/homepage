@@ -93,7 +93,7 @@
 
 iframe {
     width: 400px !important;
-    height: 100px;
+    height: 100px !important;
 }
 
 .modal-header {
@@ -103,3 +103,19 @@ iframe {
 .modal-footer {
     border-top: 0 none;
 }
+
+.modal-content  {
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important; 
+}
+
+.circleborder {
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background: url(URL) no-repeat;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    }

@@ -5,17 +5,17 @@
             <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggler btn-template-outlined"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
             <div id="navigation" class="navbar-collapse collapse">
               <ul class="nav navbar-nav ml-auto">
-                <?=generate_navlink($path_page,'#toop','Beranda');?>
-                <?=generate_navlink($path_page,'#about','Tentang Kami');?>
-                <?=generate_navlink($path_page,'#service','Layanan');?>
-                <?=generate_navlink($path_page,'#product','Produk');?>
-                <?=generate_navlink($path_page,'#faq','FAQ');?>
-               
+              <li class="nav-item"><a href="<?php echo base_url() ?>#toop" class="js-scroll-trigger">Beranda <b class="caret"></b></a></li>
+              <li class="nav-item"><a href="<?php echo base_url() ?>#about" class="js-scroll-trigger">Tentang Kami <b class="caret"></b></a></li>
+              <li class="nav-item"><a href="<?php echo base_url() ?>#service" class="js-scroll-trigger">Layanan <b class="caret"></b></a></li>
+              <li class="nav-item"><a href="<?php echo base_url() ?>#product" class="js-scroll-trigger">Produk <b class="caret"></b></a></li>
+              <li class="nav-item"><a href="<?php echo base_url() ?>#faq" class="js-scroll-trigger">FAQ <b class="caret"></b></a></li>
+    
                 <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" class="dropdown-toggle text-danger">Gabung Sekarang!<b class="caret"></b></a>
                   <ul class="dropdown-menu megamenu">
                     <li>
                       <div class="row">
-                        <div class="col-lg-6"><img src="<?php echo base_url('assets/img/callcenter1.png')?>" alt="" class="img-fluid d-none d-lg-block" width="500"></div>
+                        <!-- <div class="col-lg-3"><img src="<?php echo base_url('assets/img/callcenter1.png')?>" alt="" class="img-fluid d-none d-lg-block circleborder"></div> -->
                         <div class="col-lg-3 col-md-6">
                           <h5>Partner</h5>
                           <ul class="list-unstyled mb-3">
@@ -28,6 +28,17 @@
                           <ul class="list-unstyled mb-3">
                             <li class="nav-item"><a href="<?php base_url();?>ujicoba" class="nav-link">Uji Coba Gratis</a></li>
                             <li class="nav-item"><a href="#" class="nav-link">Harga</a></li>
+                          </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <h5>Layanan</h5>
+                          <ul class="list-unstyled mb-3">
+                            <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal">Helpdesk / Service Desk</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal">Contact Center Service Solutions</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal">Human Capital Management</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal">Customer Service Learning Center</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal">Learning Center</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal">Customer Experience Management</a></li>   
                           </ul>
                         </div>
                       </div>

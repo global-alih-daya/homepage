@@ -28,7 +28,7 @@
             </div>
           </div>
         </div>
-        <div class="item">
+        <!-- <div class="item">
           <div class="row">
             <div class="col-md-5 text-right">
               <h1>24/7 Atau Overflow Call Center</h1>
@@ -36,8 +36,8 @@
             </div>
             <div class="col-md-7"><img src="<?php echo base_url() ?>/assets/img/template-easy-customize.png" alt="" class="img-fluid"></div>
           </div>
-        </div>
-        <div class="item">
+        </div> -->
+        <!-- <div class="item">
           <div class="row">
             <div class="col-md-7"><img src="<?php echo base_url() ?>/assets/img/template-easy-code.png" alt="" class="img-fluid"></div>
             <div class="col-md-5">
@@ -48,7 +48,7 @@
               </ul>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -61,20 +61,16 @@
     <div class="heading text-center">
       <h2>tentang kami</h2>
     </div>
-    <p class="lead text-center">Global Alih Daya instantly turns your browser into a complete outbound and inbound call
-      center. GAD Started Operation in Indonesia 1 March 2018.</p>
+    <p class="lead text-center">PT. Global Alih Daya is subsidiary PT. Intelix Global Crossing, is local Software Development Company, since 2001, Jakarta (HO), Bandung, Surabaya offices. ISO 9001:2015 - Service Quality</p>
     <div class="row">
       <div class="col-lg-6">
         <!-- Vision Text -->
         <h3 class="gad-title text-left" data-aos="fade-left"><em>Our Vision</em></h3>
-        <cite data-aos="fade-left">"To become an international service excellence standard BPO and ICT, delivering total
-          solution to our customers, sharing mutual benefit to our partners and providing a good place to work for our
-          employees”</cite>
+        <cite data-aos="fade-left">"To be a company engaged in the leading service services in Indonesia and the world, and can create jobs for Indonesian community”</cite>
         <hr style="margin-bottom: 40px;">
         <!-- Mission Text -->
         <h3 class="gad-title text-right" data-aos="fade-right"><em>Our Mission</em></h3>
-        <cite data-aos="fade-right">"To deliver service excellence in a standarized, effective, efficient and courteous
-          manner that brings satisfaction to our clients and their customers, partners and employees”</cite>
+        <cite data-aos="fade-right">"Provide and Developing the best contact center services cheaply easily and quickly to build with high quality”</cite>
       </div>
       <div class="col-lg">
         <div class="d-flex justify-content-center" style="margin-top: 80px;">
@@ -91,27 +87,27 @@
     <div class="heading text-center">
       <h2>layanan</h2>
     </div>
+    <p class="lead">Fast Delivery, Low Cost, High Quality.</p>
     <div class="row same-height">
       <div class="col-md-4">
         <div class="box-simple box-dark same-height boxshdservice">
           <div class="icon"><i class="fa fa-desktop"></i></div>
-          <h4>Inbound</h4>
-          <p>Memberikan bantuan status pesanan, menangani memesan masalah, pendaftaran, pemesanan, dan banyak lagi.</p>
+          <h4>Helpdesk / Service Desk</h4>
+          <p>A help desk, in the context of IT, is a department inside an organization that is responsible for answering the technical questions of its users.</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="box-simple box-dark same-height boxshdservice">
           <div class="icon"><i class="fa fa-print"></i></div>
-          <h4>Helpdesk</h4>
-          <p>Memecahkan masalah dan memecahkan masalah teknis internal.</p>
+          <h4>Contact Center Service Solutions</h4>
+          <p>We provide exceptional experiences to your customers. Our agents are trained to not only resolve customer's current issue, but also any downstream issues.</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="box-simple box-dark same-height boxshdservice">
           <div class="icon"><i class="fa fa-globe"></i></div>
-          <h4>SEO and SEM</h4>
-          <p>Am terminated it excellence invitation projection as. She graceful shy believed distance use nay. Lively is
-            people so basket ladies window expect.</p>
+          <h4>Human Capital Management</h4>
+          <p>Human capital management (HCM) is a set of practices related to people resource management.</p>
         </div>
       </div>
     </div>
@@ -119,25 +115,22 @@
       <div class="col-md-4">
         <div class="box-simple box-dark same-height boxshdservice">
           <div class="icon"><i class="fa fa-desktop"></i></div>
-          <h4>Webdesign</h4>
-          <p>Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life
-            us beast good yielding. Have bring.</p>
+          <h4>Customer Service Learning Center</h4>
+          <p>Develop and train your team with Global Alih Daya Learning Center. </p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="box-simple box-dark same-height boxshdservice">
           <div class="icon"><i class="fa fa-print"></i></div>
-          <h4>Print</h4>
-          <p>Advantage old had otherwise sincerity dependent additions. It in adapted natural hastily is justice. Six
-            draw you him full not mean evil. Prepare garrets it expense windows shewing do.</p>
+          <h4>Learning Center</h4>
+          <p>A learning center is a self-contained section of the classroom in which students engage in independent and self-directed learning activities.</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="box-simple box-dark same-height boxshdservice">
           <div class="icon"><i class="fa fa-globe"></i></div>
-          <h4>SEO and SEM</h4>
-          <p>Am terminated it excellence invitation projection as. She graceful shy believed distance use nay. Lively is
-            people so basket ladies window expect.</p>
+          <h4>Customer Experience Management</h4>
+          <p>Need a customer service team – without having to invest in technology, facilities and people?</p>
         </div>
       </div>
     </div>
@@ -165,11 +158,11 @@
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
-                    <h3><a href="portfolio-detail.html" class="color-white">Nama Produk</a></h3>
+                    <h3><a href="#" class="color-white">Nama Produk</a></h3>
                   </div>
                   <div class="text">
                     <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-                    <p class="buttons"><a href="portfolio-detail.html"
+                    <p class="buttons"><a href="#"
                         class="btn btn-template-outlined-white">Lihat</a><a href="#"
                         class="btn btn-template-outlined-white">Website</a></p>
                   </div>
@@ -184,11 +177,11 @@
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
-                    <h3><a href="portfolio-detail.html" class="color-white">Nama Produk</a></h3>
+                    <h3><a href="#" class="color-white">Nama Produk</a></h3>
                   </div>
                   <div class="text">
                     <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-                    <p class="buttons"><a href="portfolio-detail.html"
+                    <p class="buttons"><a href="#"
                         class="btn btn-template-outlined-white">Lihat</a><a href="#"
                         class="btn btn-template-outlined-white">Website</a></p>
                   </div>
@@ -203,11 +196,11 @@
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
-                    <h3><a href="portfolio-detail.html" class="color-white">Nama Produk</a></h3>
+                    <h3><a href="#" class="color-white">Nama Produk</a></h3>
                   </div>
                   <div class="text">
                     <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-                    <p class="buttons"><a href="portfolio-detail.html"
+                    <p class="buttons"><a href="#"
                         class="btn btn-template-outlined-white">Lihat</a><a href="#"
                         class="btn btn-template-outlined-white">Website</a></p>
                   </div>
@@ -222,11 +215,11 @@
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
-                    <h3><a href="portfolio-detail.html" class="color-white">Nama Produk</a></h3>
+                    <h3><a href="#" class="color-white">Nama Produk</a></h3>
                   </div>
                   <div class="text">
                     <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-                    <p class="buttons"><a href="portfolio-detail.html"
+                    <p class="buttons"><a href="#"
                         class="btn btn-template-outlined-white">Lihat</a><a href="#"
                         class="btn btn-template-outlined-white">Website</a></p>
                   </div>
@@ -241,11 +234,11 @@
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
-                    <h3><a href="portfolio-detail.html" class="color-white">Nama Produk</a></h3>
+                    <h3><a href="#" class="color-white">Nama Produk</a></h3>
                   </div>
                   <div class="text">
                     <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-                    <p class="buttons"><a href="portfolio-detail.html"
+                    <p class="buttons"><a href="#"
                         class="btn btn-template-outlined-white">Lihat</a><a href="#"
                         class="btn btn-template-outlined-white">Website</a></p>
                   </div>
@@ -260,11 +253,11 @@
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
-                    <h3><a href="portfolio-detail.html" class="color-white">Nama Produk</a></h3>
+                    <h3><a href="#" class="color-white">Nama Produk</a></h3>
                   </div>
                   <div class="text">
                     <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-                    <p class="buttons"><a href="portfolio-detail.html"
+                    <p class="buttons"><a href="#"
                         class="btn btn-template-outlined-white">Lihat</a><a href="#"
                         class="btn btn-template-outlined-white">Website</a></p>
                   </div>
@@ -279,11 +272,11 @@
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
-                    <h3><a href="portfolio-detail.html" class="color-white">Nama Produk</a></h3>
+                    <h3><a href="#" class="color-white">Nama Produk</a></h3>
                   </div>
                   <div class="text">
                     <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-                    <p class="buttons"><a href="portfolio-detail.html"
+                    <p class="buttons"><a href="#"
                         class="btn btn-template-outlined-white">Lihat</a><a href="#"
                         class="btn btn-template-outlined-white">Website</a></p>
                   </div>
@@ -298,11 +291,11 @@
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
-                    <h3><a href="portfolio-detail.html" class="color-white">Nama Produk</a></h3>
+                    <h3><a href="#" class="color-white">Nama Produk</a></h3>
                   </div>
                   <div class="text">
                     <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-                    <p class="buttons"><a href="portfolio-detail.html"
+                    <p class="buttons"><a href="#"
                         class="btn btn-template-outlined-white">Lihat</a><a href="#"
                         class="btn btn-template-outlined-white">Website</a></p>
                   </div>
