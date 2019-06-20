@@ -1,4 +1,4 @@
-<section style="background: url('<?php echo base_url() ?>/assets/img/bg-slide.jpg') center center repeat; background-size: cover;" class="relative-positioned">
+<section style="background: url('//assets/img/bg-slide.jpg') center center repeat; background-size: cover;" class="relative-positioned">
   <!-- Carousel Start-->
   <div class="home-carousel">
     <div class="dark-mask mask-primary"></div>
@@ -82,7 +82,7 @@
 </section>
 
 <!-- section service -->
-<section style="background: url('<?php echo base_url() ?>/assets/img/cc06.jpg') center top no-repeat; background-size: cover;" class="bar padding-big text-md-center" id="service">
+<section style="background: url('//assets/img/cc06.jpg') center top no-repeat; background-size: cover;" class="bar padding-big text-md-center" id="service">
   <div class="container bg-white boxshd zoome">
     <div class="heading text-center">
       <h2>layanan</h2>
