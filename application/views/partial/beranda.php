@@ -72,7 +72,7 @@
         <h3 class="gad-title text-right" data-aos="fade-right"><em>Our Mission</em></h3>
         <cite data-aos="fade-right">"Provide and Developing the best contact center services cheaply easily and quickly to build with high quality”</cite>
       </div>
-      <div class="col-lg">
+      <div class="col-lg" data-aos="fade-left" data-aos-duration="1500">
         <div class="d-flex justify-content-center" style="margin-top: 80px;">
           <img src="<?php echo base_url('assets/img/logo-wide_gad.png')?>" style="height: 50%; width:50%;">
         </div>
@@ -82,7 +82,7 @@
 </section>
 
 <!-- section service -->
-<section class="bar bg-blue-gad padding-big text-md-center" id="service">
+<section style="background: url('<?php echo base_url() ?>/assets/img/cc06.jpg') center top no-repeat; background-size: cover;" class="bar padding-big text-md-center" id="service">
   <div class="container bg-white boxshd zoome">
     <div class="heading text-center">
       <h2>layanan</h2>
@@ -90,21 +90,21 @@
     <p class="lead">Fast Delivery, Low Cost, High Quality.</p>
     <div class="row same-height">
       <div class="col-md-4">
-        <div class="box-simple box-dark same-height boxshdservice">
+        <div class="box-simple box-dark same-height boxshdservice" data-aos="flip-left" data-aos-duration="1500">
           <div class="icon"><i class="fa fa-desktop"></i></div>
           <h4>Helpdesk / Service Desk</h4>
           <p>A help desk, in the context of IT, is a department inside an organization that is responsible for answering the technical questions of its users.</p>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="box-simple box-dark same-height boxshdservice">
+        <div class="box-simple box-dark same-height boxshdservice" data-aos="flip-left" data-aos-duration="2000">
           <div class="icon"><i class="fas fa-phone-volume"></i></div>
           <h4>Contact Center Service Solutions</h4>
           <p>We provide exceptional experiences to your customers. Our agents are trained to not only resolve customer's current issue, but also any downstream issues.</p>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="box-simple box-dark same-height boxshdservice">
+        <div class="box-simple box-dark same-height boxshdservice" data-aos="flip-left" data-aos-duration="2500">
           <div class="icon"><i class="fa fa-globe"></i></div>
           <h4>Human Capital Management</h4>
           <p>Human capital management (HCM) is a set of practices related to people resource management.</p>
@@ -113,21 +113,21 @@
     </div>
     <div class="row same-height">
       <div class="col-md-4">
-        <div class="box-simple box-dark same-height boxshdservice">
+        <div class="box-simple box-dark same-height boxshdservice" data-aos="flip-left" data-aos-duration="3000">
           <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
           <h4>Customer Service Learning Center</h4>
           <p>Develop and train your team with Global Alih Daya Learning Center. </p>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="box-simple box-dark same-height boxshdservice">
+        <div class="box-simple box-dark same-height boxshdservice" data-aos="flip-left" data-aos-duration="3500">
           <div class="icon"><i class="fas fa-chalkboard"></i></div>
           <h4>Learning Center</h4>
           <p>A learning center is a self-contained section of the classroom in which students engage in independent and self-directed learning activities.</p>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="box-simple box-dark same-height boxshdservice">
+        <div class="box-simple box-dark same-height boxshdservice" data-aos="flip-left" data-aos-duration="3500">
           <div class="icon"><i class="fas fa-street-view"></i></div>
           <h4>Customer Experience Management</h4>
           <p>Need a customer service team – without having to invest in technology, facilities and people?</p>

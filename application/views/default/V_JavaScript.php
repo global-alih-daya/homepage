@@ -11,7 +11,12 @@
 <script src="<?php echo base_url('assets/vendor/jquery.scrollto/jquery.scrollTo.min.js')?>"></script>
 <script src="<?php echo base_url('assets/js/front.js')?>"></script>
 <script src="https://blackrockdigital.github.io/startbootstrap-scrolling-nav/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="<?php echo base_url('assets/js/gad.js')?>"></script>
+
+<script>
+  AOS.init();
+</script>
 
 <script>
 $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di load)

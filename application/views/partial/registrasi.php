@@ -1,5 +1,5 @@
 <!-- section Register -->
-<section style="background: url(<?php echo base_url() ?>/assets/img/cc03.jpg) center top no-repeat; background-size: cover;" class="bar no-mb bg-fixed relative-positioned">
+<section style="background: url(<?php echo base_url() ?>/assets/img/bg-slide2.jpg) center top no-repeat; background-size: cover;" class="bar no-mb bg-fixed relative-positioned">
     <div class="container zoome boxshdregister bg-white">
         
         <div class="heading text-center">
@@ -9,7 +9,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <?php echo $this->session->flashdata('message');?>
-                <form action="<?php echo base_url('Dashboard/add') ?>" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+                <?php if(isset($error)){print $error;}?>
+                <form action="<?php echo base_url('Dashboard/add') ?>" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -70,22 +71,26 @@
                                 </select>
                             </div>
                         </div>
-
                         <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Verifikasi</label>
-                                <?php echo $recaptcha_html;?>
-                                <?php echo form_error('g-recaptcha-response'); ?>
+                            <div class="form-group files">
+                                <label>Unggah cv terbaru anda </label>
+                                <input type="file" class="form-control" name="cv_file" id="cv_file">
                             </div>
                         </div>
                         <!-- <div class="col-md-12">
-                            <div class="form-group files">
-                                <label>Unggah CV anda </label>
-                                <input type="file" class="form-control" multiple="">
+                            <div class="form-group">
+                                <label>Verifikasi</label>
+                                <?php //echo $recaptcha_html;?>
+                                <?php //echo form_error('g-recaptcha-response'); ?>
                             </div>
                         </div> -->
-                        <div class="col-md-12" style="padding-top: 20px;">
-                            <p class="text-lead text-center text-muted">Dengan mengklik tombol Daftar atau menggunakan layanan kami, Anda setuju untuk terikat oleh Ketentuan Penggunaan dan Kebijakan Privasi kami, yang menetapkan hak-hak yang Anda miliki sehubungan dengan data Anda.</p>
+                        <div class="col-md-12" style="padding-bottom: 20px;">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="syaratcheck">
+                                <label class="custom-control-label lead" for="syaratcheck" name="syaratcheck">Dengan mengklik tombol Daftar atau menggunakan layanan kami,
+                                Anda setuju untuk terikat oleh Ketentuan Penggunaan dan Kebijakan Privasi kami, yang menetapkan hak-hak
+                                yang Anda miliki sehubungan dengan data Anda.</label>
+                            </div>
                         </div>
                         <div class="col-md-12 text-center">
                             <button type="submit" class="btn btn-info btn-block" value="Save"><i class="fa fa-envelope-o"></i>

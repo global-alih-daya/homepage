@@ -18,24 +18,24 @@
               <hr class="d-block d-lg-none">
             </div>
             <div class="col-lg-3">
-              <h4 class="h6">Blog</h4>
+              <h4 class="h6">GAD News</h4>
               <ul class="list-unstyled footer-blog-list">
                 <li class="d-flex align-items-center">
                   <div class="image"><img src="//placehold.it/150x150" alt="..." class="img-fluid"></div>
                   <div class="text">
-                    <h5 class="mb-0"> <a href="#">Blog post name</a></h5>
+                    <h5 class="mb-0"> <a href="#">News #1</a></h5>
                   </div>
                 </li>
                 <li class="d-flex align-items-center">
                   <div class="image"><img src="//placehold.it/150x150" alt="..." class="img-fluid"></div>
                   <div class="text">
-                    <h5 class="mb-0"> <a href="#">Blog post name</a></h5>
+                    <h5 class="mb-0"> <a href="#">News #2</a></h5>
                   </div>
                 </li>
                 <li class="d-flex align-items-center">
                   <div class="image"><img src="//placehold.it/150x150" alt="..." class="img-fluid"></div>
                   <div class="text">
-                    <h5 class="mb-0"> <a href="#">Very very long blog post name</a></h5>
+                    <h5 class="mb-0"> <a href="#">News #3</a></h5>
                   </div>
                 </li>
               </ul>

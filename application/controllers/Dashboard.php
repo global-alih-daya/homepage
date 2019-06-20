@@ -72,26 +72,7 @@ class Dashboard extends CI_Controller {
 
   	public function add() {
 
-		$firstname=$this->input->post('firstname');
-		$lastname=$this->input->post('lastname');
-		$email=$this->input->post('email');
-		$no_hp=$this->input->post('no_hp');
-		$address=$this->input->post('address');
-		$provinsi=$this->input->post('provinsi');
-		$kota=$this->input->post('kota');
-		$job_interested=$this->input->post('job_interested');
-	
-		$data = array(
-			'firstname' => $firstname,
-			'lastname' => $lastname,
-			'email' => $email,
-			'no_hp' => $no_hp,
-			'address' => $address,
-			'provinsi' => $provinsi,
-			'kota' => $kota,
-			'job_interested' => $job_interested
-		);
-
+		//validasi form input
 		$this->form_validation->set_rules('firstname', 'firstname', 'required|alpha',
 			array(
 				'required' => 'Mohon masukkan Nama Awal anda.' ,
@@ -104,21 +85,70 @@ class Dashboard extends CI_Controller {
 		$this->form_validation->set_rules('provinsi', 'provinsi', 'required');
 		$this->form_validation->set_rules('kota', 'kota', 'required');
 		$this->form_validation->set_rules('job_interested', 'job_interested', 'required');
-		$this->form_validation->set_rules('g-recaptcha-response', '<strong>Captcha</strong>', 'callback_getResponseCaptcha');
+		$this->form_validation->set_rules('syaratcheck', 'syaratcheck', 'required');
+		//$this->form_validation->set_rules('g-recaptcha-response', '<strong>Captcha</strong>', 'callback_getResponseCaptcha');
+
         //set message form validation
-        $this->form_validation->set_message('required', '{field} is required.');
-		$this->form_validation->set_message('callback_getResponseCaptcha',' {field} {g-recaptcha-response} harus diisi. ');
+        //$this->form_validation->set_message('required', '{field} is required.');
+		//$this->form_validation->set_message('callback_getResponseCaptcha',' {field} {g-recaptcha-response} harus diisi. ');
 		
-		if($this->form_validation->run() != FALSE) {
+		//cek apakah form sudah tervalidasi dengan benar
+		if($this->form_validation->run() == FALSE) {
 			echo $this->session->set_flashdata('message','<div role="alert" class="alert alert-danger alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Kesalahan! Mohon periksa kembali data yang anda masukan.</div>');
 			redirect(base_url('registrasi'));
 			$this->load->view('recaptcha');
 		} else {
-			echo $this->session->set_flashdata('message', '<div role="alert" class="alert alert-success alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Selamat! Anda telah berhasil mendaftar. Anda akan dihubungi dalam waktu dekat.</div>');
-			$save =$this->M_Registrasi->save('registrasi_baru',$data);
-			redirect(base_url('registrasi'));
-		}
+			
+			// mendapatkan data dari input form
+			$firstname=$this->input->post('firstname');
+			$lastname=$this->input->post('lastname');
+			$email=$this->input->post('email');
+			$no_hp=$this->input->post('no_hp');
+			$address=$this->input->post('address');
+			$provinsi=$this->input->post('provinsi');
+			$kota=$this->input->post('kota');
+			$job_interested=$this->input->post('job_interested');
 
+			//konfigurasi upload file untuk CV
+			$config['upload_path']          = APPPATH. '../assets/uploads/userregistration/';
+			$config['allowed_types']        = 'pdf|jpg|docx';
+			$config['max_size']             = 0;
+
+			//load library upload
+			$this->load->library('upload', $config);
+
+			if ( ! $this->upload->do_upload('cv_file')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);die;
+				echo $this->session->set_flashdata('message','<div role="alert" class="alert alert-danger alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Kesalahan! Mohon periksa kembali data yang anda masukan.</div>');
+				//$this->load->view('recaptcha');
+			}else{
+				//hasil dari input dijadikan array
+				$data = array(
+					'firstname' => $firstname,
+					'lastname' => $lastname,
+					'email' => $email,
+					'no_hp' => $no_hp,
+					'address' => $address,
+					'provinsi' => $provinsi,
+					'kota' => $kota,
+					'job_interested' => $job_interested
+				);
+
+				$upload_data = $this->upload->data();
+				$data['cv_file'] =  $upload_data['file_name'];
+
+				//print_r($data);die;
+				
+				//pesan berhasil
+				echo $this->session->set_flashdata('message', '<div role="alert" class="alert alert-success alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Selamat! Anda telah berhasil mendaftar. Anda akan dihubungi dalam waktu dekat.</div>');
+				
+				//simpan ke model
+				$save =$this->M_Registrasi->save('registrasi_baru',$data);
+				//reload halaman
+				redirect(base_url('registrasi'));
+			}
+		}
 	}
 
 	public function add_company()
@@ -152,15 +182,15 @@ class Dashboard extends CI_Controller {
 		$this->form_validation->set_rules('company_address', 'company_address', 'required');
 		$this->form_validation->set_rules('provinsi', 'provinsi', 'required');
 		$this->form_validation->set_rules('kota', 'kota', 'required');
-		$this->form_validation->set_rules('g-recaptcha-response', '<strong>Captcha</strong>', 'callback_getResponseCaptcha');
+		//$this->form_validation->set_rules('g-recaptcha-response', '<strong>Captcha</strong>', 'callback_getResponseCaptcha');
         //set message form validation
-        $this->form_validation->set_message('required', '{field} is required.');
-		$this->form_validation->set_message('callback_getResponseCaptcha',' {field} {g-recaptcha-response} harus diisi. ');
+        //$this->form_validation->set_message('required', '{field} is required.');
+		//$this->form_validation->set_message('callback_getResponseCaptcha',' {field} {g-recaptcha-response} harus diisi. ');
 		
 		if($this->form_validation->run() != FALSE) {
 			echo $this->session->set_flashdata('message','<div role="alert" class="alert alert-danger alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Kesalahan! Mohon periksa kembali data yang anda masukan.</div>');
 			redirect(base_url('ujicoba'));
-			$this->load->view('recaptcha');
+			//$this->load->view('recaptcha');
 		} else {
 			echo $this->session->set_flashdata('message', '<div role="alert" class="alert alert-success alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Selamat! Anda telah berhasil mendaftar program uji coba. Anda akan dihubungi dalam waktu dekat.</div>');
 			$save =$this->M_Registrasi->save('registrasi_ujicoba',$data);

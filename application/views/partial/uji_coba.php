@@ -1,6 +1,6 @@
 <!-- section Register -->
-<section class="bg-white bar">
-  <div class="container zoome boxshdregister">
+<section style="background: url(<?php echo base_url() ?>/assets/img/cc06.jpg) center top no-repeat; background-size: cover;" class="bar no-mb bg-fixed relative-positioned">
+  <div class="container zoome boxshdregister bg-white">
 
     <div class="heading text-center">
       <h2>Registrasi</h2>
@@ -62,17 +62,20 @@
                 </select>
               </div>
             </div>
-            <div class="col-md-12">
+            <!-- <div class="col-md-12">
               <div class="form-group">
                 <label>Verifikasi</label>
-                <?php echo $recaptcha_html;?>
-                <?php echo form_error('g-recaptcha-response'); ?>
+                <?php //echo $recaptcha_html;?>
+                <?php //echo form_error('g-recaptcha-response'); ?>
               </div>
-            </div>
-            <div class="col-md-12" style="padding-top: 20px;">
-              <p class="text-lead text-center text-muted">Dengan mengklik tombol Daftar atau menggunakan layanan kami,
+            </div> -->
+            <div class="col-md-12" style="padding-bottom: 20px;">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="syaratcheck">
+                <label class="custom-control-label lead" for="syaratcheck">Dengan mengklik tombol Daftar atau menggunakan layanan kami,
                 Anda setuju untuk terikat oleh Ketentuan Penggunaan dan Kebijakan Privasi kami, yang menetapkan hak-hak
-                yang Anda miliki sehubungan dengan data Anda.</p>
+                yang Anda miliki sehubungan dengan data Anda.</label>
+              </div>
             </div>
             <div class="col-md-12 text-center">
               <button type="submit" class="btn btn-info btn-block" value="Save"><i class="fa fa-envelope-o"></i>
