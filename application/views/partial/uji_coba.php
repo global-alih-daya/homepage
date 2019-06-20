@@ -71,7 +71,7 @@
             </div> -->
             <div class="col-md-12" style="padding-bottom: 20px;">
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="syaratcheck">
+                <input type="checkbox" class="custom-control-input" name="syaratcheck" id="syaratcheck">
                 <label class="custom-control-label lead" for="syaratcheck">Dengan mengklik tombol Daftar atau menggunakan layanan kami,
                 Anda setuju untuk terikat oleh Ketentuan Penggunaan dan Kebijakan Privasi kami, yang menetapkan hak-hak
                 yang Anda miliki sehubungan dengan data Anda.</label>

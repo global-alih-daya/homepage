@@ -78,25 +78,32 @@ class Dashboard extends CI_Controller {
 				'required' => 'Mohon masukkan Nama Awal anda.' ,
 				'alpha' => 'Mohon input menggunakan Alfanumerik saja.' )
 		);
-		$this->form_validation->set_rules('lastname', 'lastname', 'alpha');
-		$this->form_validation->set_rules('email', 'email', 'required|valid_email|trim');
-		$this->form_validation->set_rules('no_hp', 'no_hp', 'required|max_length[13]|min_length[9]');
-		$this->form_validation->set_rules('address', 'address', 'required');
-		$this->form_validation->set_rules('provinsi', 'provinsi', 'required');
-		$this->form_validation->set_rules('kota', 'kota', 'required');
+		$this->form_validation->set_rules('lastname', 'lastname', 'alpha|xss_clean');
+		$this->form_validation->set_rules('email', 'email', 'required|valid_email|trim|xss_clean');
+		$this->form_validation->set_rules('no_hp', 'no_hp', 'required|max_length[13]|min_length[9]|xss_clean');
+		$this->form_validation->set_rules('address', 'address', 'required|xss_clean');
+		$this->form_validation->set_rules('provinsi', 'provinsi', 'required|xss_clean');
+		$this->form_validation->set_rules('kota', 'kota', 'required|xss_clean');
 		$this->form_validation->set_rules('job_interested', 'job_interested', 'required');
-		$this->form_validation->set_rules('syaratcheck', 'syaratcheck', 'required');
+		$this->form_validation->set_rules('syaratcheck', 'syaratcheck', 'callback_accept_terms');
 		//$this->form_validation->set_rules('g-recaptcha-response', '<strong>Captcha</strong>', 'callback_getResponseCaptcha');
 
         //set message form validation
         //$this->form_validation->set_message('required', '{field} is required.');
 		//$this->form_validation->set_message('callback_getResponseCaptcha',' {field} {g-recaptcha-response} harus diisi. ');
 		
+		//terima persyaratan
+		if(!$this->input->post('syaratcheck')){
+			echo $this->session->set_flashdata('message','<div role="alert" class="alert alert-danger alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Kesalahan! Mohon terima persyaratan kami.</div>');
+			redirect(base_url('registrasi'));
+			//$this->load->view('recaptcha');
+		}
+
 		//cek apakah form sudah tervalidasi dengan benar
-		if($this->form_validation->run() == FALSE) {
+		if($this->form_validation->run() != FALSE) {
 			echo $this->session->set_flashdata('message','<div role="alert" class="alert alert-danger alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Kesalahan! Mohon periksa kembali data yang anda masukan.</div>');
 			redirect(base_url('registrasi'));
-			$this->load->view('recaptcha');
+			//$this->load->view('recaptcha');
 		} else {
 			
 			// mendapatkan data dari input form
@@ -119,8 +126,9 @@ class Dashboard extends CI_Controller {
 
 			if ( ! $this->upload->do_upload('cv_file')){
 				$error = array('error' => $this->upload->display_errors());
-				print_r($error);die;
-				echo $this->session->set_flashdata('message','<div role="alert" class="alert alert-danger alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Kesalahan! Mohon periksa kembali data yang anda masukan.</div>');
+				//print_r($error);die;
+				echo $this->session->set_flashdata('message','<div role="alert" class="alert alert-danger alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Kesalahan! Mohon masukkan CV anda.</div>');
+				redirect(base_url('registrasi'));
 				//$this->load->view('recaptcha');
 			}else{
 				//hasil dari input dijadikan array
@@ -182,10 +190,19 @@ class Dashboard extends CI_Controller {
 		$this->form_validation->set_rules('company_address', 'company_address', 'required');
 		$this->form_validation->set_rules('provinsi', 'provinsi', 'required');
 		$this->form_validation->set_rules('kota', 'kota', 'required');
+		$this->form_validation->set_rules('syaratcheck', 'syaratcheck', 'callback_accept_terms');
+
 		//$this->form_validation->set_rules('g-recaptcha-response', '<strong>Captcha</strong>', 'callback_getResponseCaptcha');
         //set message form validation
         //$this->form_validation->set_message('required', '{field} is required.');
 		//$this->form_validation->set_message('callback_getResponseCaptcha',' {field} {g-recaptcha-response} harus diisi. ');
+
+		//terima persyaratan
+		if(!$this->input->post('syaratcheck')){
+			echo $this->session->set_flashdata('message','<div role="alert" class="alert alert-danger alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Kesalahan! Mohon terima persyaratan kami.</div>');
+			redirect(base_url('ujicoba'));
+			//$this->load->view('recaptcha');
+		}
 		
 		if($this->form_validation->run() != FALSE) {
 			echo $this->session->set_flashdata('message','<div role="alert" class="alert alert-danger alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Kesalahan! Mohon periksa kembali data yang anda masukan.</div>');
