@@ -1,5 +1,5 @@
 <!-- section Register -->
-<section style="background: url(<?php echo base_url() ?>/assets/img/bg-slide2.jpg) center top no-repeat; background-size: cover;" class="bar no-mb bg-fixed relative-positioned">
+<section style="background: url(https://www.gad.co.id/assets/img/bg-slide2.jpg) center top no-repeat; background-size: cover;" class="bar no-mb bg-fixed relative-positioned">
     <div class="container zoome boxshdregister bg-white">
         
         <div class="heading text-center">
