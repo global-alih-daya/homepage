@@ -154,7 +154,7 @@
       <div class="row portfolio text-center no-space">
         <div class="col-md-3">
           <div class="box-image">
-            <div class="image"><img src="<?php echo base_url()?>/assets/img/portfolio-1.jpg" alt="" class="img-fluid">
+            <div class="image"><img src="/assets/img/portfolio-1.jpg" alt="" class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
@@ -173,7 +173,7 @@
         </div>
         <div class="col-md-3">
           <div class="box-image">
-            <div class="image"><img src="<?php echo base_url()?>/assets/img/portfolio-2.jpg" alt="" class="img-fluid">
+            <div class="image"><img src="/assets/img/portfolio-2.jpg" alt="" class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
@@ -192,7 +192,7 @@
         </div>
         <div class="col-md-3">
           <div class="box-image">
-            <div class="image"><img src="<?php echo base_url()?>/assets/img/portfolio-3.jpg" alt="" class="img-fluid">
+            <div class="image"><img src="/assets/img/portfolio-3.jpg" alt="" class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
@@ -211,7 +211,7 @@
         </div>
         <div class="col-md-3">
           <div class="box-image">
-            <div class="image"><img src="<?php echo base_url()?>/assets/img/portfolio-4.jpg" alt="" class="img-fluid">
+            <div class="image"><img src="/assets/img/portfolio-4.jpg" alt="" class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
@@ -230,7 +230,7 @@
         </div>
         <div class="col-md-3">
           <div class="box-image">
-            <div class="image"><img src="<?php echo base_url()?>/assets/img/portfolio-5.jpg" alt="" class="img-fluid">
+            <div class="image"><img src="/assets/img/portfolio-5.jpg" alt="" class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
@@ -249,7 +249,7 @@
         </div>
         <div class="col-md-3">
           <div class="box-image">
-            <div class="image"><img src="<?php echo base_url()?>/assets/img/portfolio-6.jpg" alt="" class="img-fluid">
+            <div class="image"><img src="/assets/img/portfolio-6.jpg" alt="" class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
@@ -268,7 +268,7 @@
         </div>
         <div class="col-md-3">
           <div class="box-image">
-            <div class="image"><img src="<?php echo base_url()?>/assets/img/portfolio-7.jpg" alt="" class="img-fluid">
+            <div class="image"><img src="/assets/img/portfolio-7.jpg" alt="" class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
@@ -287,7 +287,7 @@
         </div>
         <div class="col-md-3">
           <div class="box-image">
-            <div class="image"><img src="<?php echo base_url()?>/assets/img/portfolio-9.jpg" alt="" class="img-fluid">
+            <div class="image"><img src="/assets/img/portfolio-9.jpg" alt="" class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
