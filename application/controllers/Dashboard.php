@@ -124,6 +124,7 @@ class Dashboard extends CI_Controller {
 			//load library upload
 			$this->load->library('upload', $config);
 
+			//cek apakah file berhasil di upload
 			if ( ! $this->upload->do_upload('cv_file')){
 				$error = array('error' => $this->upload->display_errors());
 				//print_r($error);die;
@@ -143,6 +144,7 @@ class Dashboard extends CI_Controller {
 					'job_interested' => $job_interested
 				);
 
+				//upload file dari hasil input ke folder assets/uploads/userregistration
 				$upload_data = $this->upload->data();
 				$data['cv_file'] =  $upload_data['file_name'];
 
@@ -151,7 +153,7 @@ class Dashboard extends CI_Controller {
 				//pesan berhasil
 				echo $this->session->set_flashdata('message', '<div role="alert" class="alert alert-success alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Selamat! Anda telah berhasil mendaftar. Anda akan dihubungi dalam waktu dekat.</div>');
 				
-				//simpan ke model
+				//simpan ke model untuk di input ke db
 				$save =$this->M_Registrasi->save('registrasi_baru',$data);
 				//reload halaman
 				redirect(base_url('registrasi'));
