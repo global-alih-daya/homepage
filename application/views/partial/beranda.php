@@ -7,7 +7,7 @@
         <div class="item">
           <div class="row">
             <div class="col-md-5 text-right">
-              <!-- <p><img src="<?php echo base_url() ?>/assets/img/logo.png" alt="" class="ml-auto"></p> -->
+              <!-- <p><img src="<?php //echo base_url() ?>/assets/img/logo.png" alt="" class="ml-auto"></p> -->
               <h1>Made for modern teams</h1>
               <p>A computer, a headset, and an internet connection are all you need to start talking today.</p>
             </div>
