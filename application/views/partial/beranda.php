@@ -11,12 +11,12 @@
               <h1>Made for modern teams</h1>
               <p>A computer, a headset, and an internet connection are all you need to start talking today.</p>
             </div>
-            <div class="col-md-7 text-center"><img src="<?php echo base_url() ?>/assets/img/distribution.png" alt="" class="img-fluid"></div>
+            <div class="col-md-7 text-center"><img src="<?=base_url()?>/assets/img/distribution.png" alt="" class="img-fluid"></div>
           </div>
         </div>
         <div class="item">
           <div class="row">
-            <div class="col-md-7 text-center"><img src="<?php echo base_url() ?>/assets/img/slidea-1.png" alt="" class="img-fluid"></div>
+            <div class="col-md-7 text-center"><img src="<?=base_url()?>/assets/img/slidea-1.png" alt="" class="img-fluid"></div>
             <div class="col-md-5">
               <h2>Agen berbasis rumah</h2>
               <ul class="list-unstyled">
@@ -154,7 +154,7 @@
       <div class="row portfolio text-center no-space">
         <div class="col-md-3">
           <div class="box-image">
-            <div class="image"><img src="/assets/img/portfolio-1.jpg" alt="" class="img-fluid">
+            <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-1.jpg" alt="" class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
@@ -173,7 +173,7 @@
         </div>
         <div class="col-md-3">
           <div class="box-image">
-            <div class="image"><img src="/assets/img/portfolio-2.jpg" alt="" class="img-fluid">
+            <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-2.jpg" alt="" class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
@@ -192,7 +192,7 @@
         </div>
         <div class="col-md-3">
           <div class="box-image">
-            <div class="image"><img src="/assets/img/portfolio-3.jpg" alt="" class="img-fluid">
+            <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-3.jpg" alt="" class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
@@ -211,7 +211,7 @@
         </div>
         <div class="col-md-3">
           <div class="box-image">
-            <div class="image"><img src="/assets/img/portfolio-4.jpg" alt="" class="img-fluid">
+            <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-4.jpg" alt="" class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
@@ -230,7 +230,7 @@
         </div>
         <div class="col-md-3">
           <div class="box-image">
-            <div class="image"><img src="/assets/img/portfolio-5.jpg" alt="" class="img-fluid">
+            <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-5.jpg" alt="" class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
@@ -249,7 +249,7 @@
         </div>
         <div class="col-md-3">
           <div class="box-image">
-            <div class="image"><img src="/assets/img/portfolio-6.jpg" alt="" class="img-fluid">
+            <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-6.jpg" alt="" class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
@@ -268,7 +268,7 @@
         </div>
         <div class="col-md-3">
           <div class="box-image">
-            <div class="image"><img src="/assets/img/portfolio-7.jpg" alt="" class="img-fluid">
+            <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-7.jpg" alt="" class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
@@ -287,7 +287,7 @@
         </div>
         <div class="col-md-3">
           <div class="box-image">
-            <div class="image"><img src="/assets/img/portfolio-9.jpg" alt="" class="img-fluid">
+            <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-9.jpg" alt="" class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center">
                 <div class="content">
                   <div class="name mb-small">
