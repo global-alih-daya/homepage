@@ -117,174 +117,172 @@
 </section>
 
 <!-- section product -->
-<section id="product">
+<section class="bar" id="product">
   <div class="container zoome">
-    <section class="bar">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="heading text-center">
-            <h2>Produk</h2>
-          </div>
-          <p class="lead">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-            Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
-            egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="heading text-center">
+          <h2>Produk</h2>
         </div>
+        <p class="lead">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+          Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
+          egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
       </div>
-      <div class="row portfolio text-center no-space">
-        <div class="col-md-3">
-          <div class="box-image">
-            <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-1.jpg" alt="" class="img-fluid">
-              <div class="overlay d-flex align-items-center justify-content-center">
-                <div class="content">
-                  <div class="name mb-small">
-                    <h3><a href="#" class="color-white">Nama Produk</a></h3>
-                  </div>
-                  <div class="text">
-                    <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-                    <p class="buttons"><a href="#"
-                        class="btn btn-template-outlined-white">Lihat</a><a href="#"
-                        class="btn btn-template-outlined-white">Website</a></p>
-                  </div>
+    </div>
+    <div class="row portfolio text-center no-space">
+      <div class="col-md-3">
+        <div class="box-image">
+          <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-1.jpg" alt="" class="img-fluid">
+            <div class="overlay d-flex align-items-center justify-content-center">
+              <div class="content">
+                <div class="name mb-small">
+                  <h3><a href="#" class="color-white">Nama Produk</a></h3>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="box-image">
-            <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-2.jpg" alt="" class="img-fluid">
-              <div class="overlay d-flex align-items-center justify-content-center">
-                <div class="content">
-                  <div class="name mb-small">
-                    <h3><a href="#" class="color-white">Nama Produk</a></h3>
-                  </div>
-                  <div class="text">
-                    <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-                    <p class="buttons"><a href="#"
-                        class="btn btn-template-outlined-white">Lihat</a><a href="#"
-                        class="btn btn-template-outlined-white">Website</a></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="box-image">
-            <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-3.jpg" alt="" class="img-fluid">
-              <div class="overlay d-flex align-items-center justify-content-center">
-                <div class="content">
-                  <div class="name mb-small">
-                    <h3><a href="#" class="color-white">Nama Produk</a></h3>
-                  </div>
-                  <div class="text">
-                    <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-                    <p class="buttons"><a href="#"
-                        class="btn btn-template-outlined-white">Lihat</a><a href="#"
-                        class="btn btn-template-outlined-white">Website</a></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="box-image">
-            <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-4.jpg" alt="" class="img-fluid">
-              <div class="overlay d-flex align-items-center justify-content-center">
-                <div class="content">
-                  <div class="name mb-small">
-                    <h3><a href="#" class="color-white">Nama Produk</a></h3>
-                  </div>
-                  <div class="text">
-                    <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-                    <p class="buttons"><a href="#"
-                        class="btn btn-template-outlined-white">Lihat</a><a href="#"
-                        class="btn btn-template-outlined-white">Website</a></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="box-image">
-            <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-5.jpg" alt="" class="img-fluid">
-              <div class="overlay d-flex align-items-center justify-content-center">
-                <div class="content">
-                  <div class="name mb-small">
-                    <h3><a href="#" class="color-white">Nama Produk</a></h3>
-                  </div>
-                  <div class="text">
-                    <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-                    <p class="buttons"><a href="#"
-                        class="btn btn-template-outlined-white">Lihat</a><a href="#"
-                        class="btn btn-template-outlined-white">Website</a></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="box-image">
-            <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-6.jpg" alt="" class="img-fluid">
-              <div class="overlay d-flex align-items-center justify-content-center">
-                <div class="content">
-                  <div class="name mb-small">
-                    <h3><a href="#" class="color-white">Nama Produk</a></h3>
-                  </div>
-                  <div class="text">
-                    <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-                    <p class="buttons"><a href="#"
-                        class="btn btn-template-outlined-white">Lihat</a><a href="#"
-                        class="btn btn-template-outlined-white">Website</a></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="box-image">
-            <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-7.jpg" alt="" class="img-fluid">
-              <div class="overlay d-flex align-items-center justify-content-center">
-                <div class="content">
-                  <div class="name mb-small">
-                    <h3><a href="#" class="color-white">Nama Produk</a></h3>
-                  </div>
-                  <div class="text">
-                    <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-                    <p class="buttons"><a href="#"
-                        class="btn btn-template-outlined-white">Lihat</a><a href="#"
-                        class="btn btn-template-outlined-white">Website</a></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="box-image">
-            <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-9.jpg" alt="" class="img-fluid">
-              <div class="overlay d-flex align-items-center justify-content-center">
-                <div class="content">
-                  <div class="name mb-small">
-                    <h3><a href="#" class="color-white">Nama Produk</a></h3>
-                  </div>
-                  <div class="text">
-                    <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-                    <p class="buttons"><a href="#"
-                        class="btn btn-template-outlined-white">Lihat</a><a href="#"
-                        class="btn btn-template-outlined-white">Website</a></p>
-                  </div>
+                <div class="text">
+                  <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+                  <p class="buttons"><a href="#"
+                      class="btn btn-template-outlined-white">Lihat</a><a href="#"
+                      class="btn btn-template-outlined-white">Website</a></p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+      <div class="col-md-3">
+        <div class="box-image">
+          <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-2.jpg" alt="" class="img-fluid">
+            <div class="overlay d-flex align-items-center justify-content-center">
+              <div class="content">
+                <div class="name mb-small">
+                  <h3><a href="#" class="color-white">Nama Produk</a></h3>
+                </div>
+                <div class="text">
+                  <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+                  <p class="buttons"><a href="#"
+                      class="btn btn-template-outlined-white">Lihat</a><a href="#"
+                      class="btn btn-template-outlined-white">Website</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="box-image">
+          <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-3.jpg" alt="" class="img-fluid">
+            <div class="overlay d-flex align-items-center justify-content-center">
+              <div class="content">
+                <div class="name mb-small">
+                  <h3><a href="#" class="color-white">Nama Produk</a></h3>
+                </div>
+                <div class="text">
+                  <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+                  <p class="buttons"><a href="#"
+                      class="btn btn-template-outlined-white">Lihat</a><a href="#"
+                      class="btn btn-template-outlined-white">Website</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="box-image">
+          <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-4.jpg" alt="" class="img-fluid">
+            <div class="overlay d-flex align-items-center justify-content-center">
+              <div class="content">
+                <div class="name mb-small">
+                  <h3><a href="#" class="color-white">Nama Produk</a></h3>
+                </div>
+                <div class="text">
+                  <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+                  <p class="buttons"><a href="#"
+                      class="btn btn-template-outlined-white">Lihat</a><a href="#"
+                      class="btn btn-template-outlined-white">Website</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="box-image">
+          <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-5.jpg" alt="" class="img-fluid">
+            <div class="overlay d-flex align-items-center justify-content-center">
+              <div class="content">
+                <div class="name mb-small">
+                  <h3><a href="#" class="color-white">Nama Produk</a></h3>
+                </div>
+                <div class="text">
+                  <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+                  <p class="buttons"><a href="#"
+                      class="btn btn-template-outlined-white">Lihat</a><a href="#"
+                      class="btn btn-template-outlined-white">Website</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="box-image">
+          <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-6.jpg" alt="" class="img-fluid">
+            <div class="overlay d-flex align-items-center justify-content-center">
+              <div class="content">
+                <div class="name mb-small">
+                  <h3><a href="#" class="color-white">Nama Produk</a></h3>
+                </div>
+                <div class="text">
+                  <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+                  <p class="buttons"><a href="#"
+                      class="btn btn-template-outlined-white">Lihat</a><a href="#"
+                      class="btn btn-template-outlined-white">Website</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="box-image">
+          <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-7.jpg" alt="" class="img-fluid">
+            <div class="overlay d-flex align-items-center justify-content-center">
+              <div class="content">
+                <div class="name mb-small">
+                  <h3><a href="#" class="color-white">Nama Produk</a></h3>
+                </div>
+                <div class="text">
+                  <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+                  <p class="buttons"><a href="#"
+                      class="btn btn-template-outlined-white">Lihat</a><a href="#"
+                      class="btn btn-template-outlined-white">Website</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="box-image">
+          <div class="image"><img src="<?=base_url()?>/assets/img/portfolio-9.jpg" alt="" class="img-fluid">
+            <div class="overlay d-flex align-items-center justify-content-center">
+              <div class="content">
+                <div class="name mb-small">
+                  <h3><a href="#" class="color-white">Nama Produk</a></h3>
+                </div>
+                <div class="text">
+                  <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+                  <p class="buttons"><a href="#"
+                      class="btn btn-template-outlined-white">Lihat</a><a href="#"
+                      class="btn btn-template-outlined-white">Website</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
