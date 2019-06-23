@@ -56,6 +56,7 @@
           <img src="<?php echo base_url('assets/img/logo-wide_gad.png')?>" style="height: 50%; width:50%;" alt="Global Alih Daya Company Logo">
         </div>
       </div>
+    </div>
   </div>
 </section>
 
@@ -284,6 +285,7 @@
         </div>
       </div>
     </section>
+  </div>
 </section>
 
 <!-- section FAQ -->
