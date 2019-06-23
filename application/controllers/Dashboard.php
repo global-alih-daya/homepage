@@ -71,6 +71,8 @@ class Dashboard extends CI_Controller {
   	}
 
   	public function add() {
+		$this->load->library('email');
+		$this->load->config('email');
 
 		//validasi form input
 		$this->form_validation->set_rules('firstname', 'firstname', 'required|alpha',
@@ -115,6 +117,7 @@ class Dashboard extends CI_Controller {
 			$provinsi=$this->input->post('provinsi');
 			$kota=$this->input->post('kota');
 			$job_interested=$this->input->post('job_interested');
+			$refid = 'GADPTR-' . mt_rand() . '-' . $job_interested . '-' . uniqid();
 
 			//konfigurasi upload file untuk CV
 			$config['upload_path']          = APPPATH. '../assets/uploads/userregistration/';
@@ -148,8 +151,67 @@ class Dashboard extends CI_Controller {
 				$upload_data = $this->upload->data();
 				$data['cv_file'] =  $upload_data['file_name'];
 
-				//print_r($data);die;
-				
+				$from = $this->config->item('smtp_user');
+				$to = $email;
+				$subject = 'GAD Partner Registration';
+				$message = 
+				/*-----------email body starts-----------*/
+'<h3>Terimakasih telah mendaftar menjadi partner kami, '.$firstname.'!</h3>
+</br>		  
+<p>Anda akan dihubungi oleh tim kami untuk verifikasi data dalam waktu dekat,<br>
+Berikut sebagian salinan data anda yang telah kami rekam :</p>
+</br>
+<table style="width: 769.2px;">
+<tbody>
+<tr style="height: 21px;">
+<td style="width: 187px; height: 21px;">Nama Lengkap</td>
+<td style="width: 10px; height: 21px;">:</td>
+<td style="width: 741.2px; height: 21px;">&nbsp; ' . $firstname . ' ' . $lastname . '</td>
+</tr>
+<tr style="height: 22px;">
+<td style="width: 187px; height: 22px;">Email</td>
+<td style="width: 10px; height: 22px;">:</td>
+<td style="width: 741.2px; height: 22px;">&nbsp; ' . $email . '</td>
+</tr>
+<tr style="height: 22px;">
+<td style="width: 187px; height: 22px;">No HP/Whatsapp&nbsp;</td>
+<td style="width: 10px; height: 22px;">:</td>
+<td style="width: 741.2px; height: 22px;">&nbsp; ' . $no_hp . '</td>
+</tr>
+<tr style="height: 14.6px;">
+<td style="width: 187px; height: 14.6px;">Alamat Tempat tinggal&nbsp;</td>
+<td style="width: 10px; height: 14.6px;">:</td>
+<td style="width: 741.2px; height: 14.6px;">&nbsp; ' . $address . '</td>
+</tr>
+<tr style="height: 22px;">
+<td style="width: 187px; height: 22px;">Pekerjaan dipilih</td>
+<td style="width: 10px; height: 22px;">:</td>
+<td style="width: 741.2px; height: 22px;">&nbsp; ' . $job_interested . '</td>
+</tr>
+<tr style="height: 22px;">
+<td style="width: 187px; height: 22px;">Ref ID&nbsp;</td>
+<td style="width: 10px; height: 22px;">:&nbsp;</td>
+<td style="width: 741.2px; height: 22px;">&nbsp; ' . $refid . '</td>
+</tr>
+</tbody>
+</table>
+<p>Silahkan hubungi kami melalui kontak dibawah ini jika ada pertanyaan :</p>
+</br>
+<p>Telp 	: 021 - xxxxxxx<br>
+Email	: info@gad.co.id</p>
+</br>
+</br>
+</br>
+<p>Terima kasih,<br>
+<b>PT. Global Alih Daya</b></p>';
+				/*-----------email body ends-----------*/
+
+				$this->email->from($from, 'GAD Partner');
+				$this->email->to($email);
+				$this->email->subject($subject);
+				$this->email->message($message);
+				$this->email->send();
+
 				//pesan berhasil
 				echo $this->session->set_flashdata('message', '<div role="alert" class="alert alert-success alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Selamat! Anda telah berhasil mendaftar. Anda akan dihubungi dalam waktu dekat.</div>');
 				

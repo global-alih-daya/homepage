@@ -68,10 +68,11 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label for="job_interested">Pekerjaan yang diinginkan</label>
-                <select id="job_interested" name="job_interested" class="custom-select">
+                <select id="job_interested" name="job_interested" class="custom-select" onchange="getText(this)">
                   <option value="1" selected>Inbound</option>
                   <option value="2">Outbound</option>
                 </select>
+                <input type="hidden" name="txt_holder" id="txt_holder">
               </div>
             </div>
             <div class="col-md-12">

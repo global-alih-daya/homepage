@@ -47,3 +47,10 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
     });
 });
 </script>
+
+<script>
+function getText(element) {
+  var textHolder = element.options[element.selectedIndex].text
+  document.getElementById("txt_holder").value = textHolder;
+  }
+</script>
