@@ -56,8 +56,7 @@
           <img src="<?php echo base_url('assets/img/logo-wide_gad.png')?>" style="height: 50%; width:50%;" alt="Global Alih Daya Company Logo">
         </div>
       </div>
-
-    </div>
+  </div>
 </section>
 
 <!-- section service -->
@@ -115,6 +114,7 @@
     </div>
   </div>
 </section>
+
 <!-- section product -->
 <section id="product">
   <div class="container zoome">
@@ -285,6 +285,7 @@
       </div>
     </section>
 </section>
+
 <!-- section FAQ -->
 <section id="faq" class="bar bg-blue-gad padding-big text-md-center">
   <div class="container zoome bg-white boxshdfaq">
@@ -388,4 +389,5 @@
       <p class="text-muted">In case you haven't found the answer for your question please feel free to <a
           href="contact.html">contact us</a>, our customer support will be happy to help you.</p>
     </div>
+  </div>
 </section>

@@ -29,10 +29,10 @@
         </div>
       </div>
     </div>
+  </div>
 </section>
 
 <section>
-  <!-- Outbound Modal -->
   <div class="modal fade bd-example-modal-lg" id="OutboundRegModal" tabindex="-1" role="dialog"
     aria-labelledby="OutboundRegModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -61,4 +61,5 @@
         </div>
       </div>
     </div>
+  </div>
 </section>
