@@ -28,27 +28,6 @@
             </div>
           </div>
         </div>
-        <!-- <div class="item">
-          <div class="row">
-            <div class="col-md-5 text-right">
-              <h1>24/7 Atau Overflow Call Center</h1>
-              <p>Memilih lembaga pusat panggilan untuk memberikan 100% dari kebutuhan pusat panggilan inbound atau menangani panggilan setelah jam, meluap atau musim ramai.</p>
-            </div>
-            <div class="col-md-7"><img src="<?php echo base_url() ?>/assets/img/template-easy-customize.png" alt="" class="img-fluid"></div>
-          </div>
-        </div> -->
-        <!-- <div class="item">
-          <div class="row">
-            <div class="col-md-7"><img src="<?php echo base_url() ?>/assets/img/template-easy-code.png" alt="" class="img-fluid"></div>
-            <div class="col-md-5">
-              <h1>Easy to customize</h1>
-              <ul class="list-unstyled">
-                <li>7 preprepared colour variations.</li>
-                <li>Easily to change fonts</li>
-              </ul>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
   </div>
@@ -74,7 +53,7 @@
       </div>
       <div class="col-lg" data-aos="fade-left" data-aos-duration="1500">
         <div class="d-flex justify-content-center" style="margin-top: 80px;">
-          <img src="<?php echo base_url('assets/img/logo-wide_gad.png')?>" style="height: 50%; width:50%;">
+          <img src="<?php echo base_url('assets/img/logo-wide_gad.png')?>" style="height: 50%; width:50%;" alt="Global Alih Daya Company Logo">
         </div>
       </div>
 
@@ -137,8 +116,7 @@
   </div>
 </section>
 <!-- section product -->
-<section id="product"></section>
-<div>
+<section id="product">
   <div class="container zoome">
     <section class="bar">
       <div class="row">
@@ -306,8 +284,7 @@
         </div>
       </div>
     </section>
-  </div>
-</div>
+</section>
 <!-- section FAQ -->
 <section id="faq" class="bar bg-blue-gad padding-big text-md-center">
   <div class="container zoome bg-white boxshdfaq">
@@ -371,10 +348,10 @@
         </div>
         <div class="card card-primary">
           <div id="headingFour" role="tab" class="card-header">
-            <h5 class="mb-0 mt-0"><a data-toggle="collapse" href="#collapseFive" aria-expanded="false"
+            <h5 class="mb-0 mt-0"><a data-toggle="collapse" href="#collapseFour" aria-expanded="false"
                 aria-controls="collapseFive" class="collapsed"> 4. Why are you more expensive than others?</a></h5>
           </div>
-          <div id="collapseFive" role="tabpanel" aria-labelledby="headingFour" data-parent="#accordion"
+          <div id="collapseFour" role="tabpanel" aria-labelledby="headingFour" data-parent="#accordion"
             class="collapse">
             <div class="card-body">
               <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
@@ -390,10 +367,10 @@
         </div>
         <div class="card card-primary">
           <div id="headingFive" role="tab" class="card-header">
-            <h5 class="mb-0 mt-0"><a data-toggle="collapse" href="#collapseThree" aria-expanded="false"
-                aria-controls="collapseThree" class="collapsed"> 5. Another important question</a></h5>
+            <h5 class="mb-0 mt-0"><a data-toggle="collapse" href="#collapseFive" aria-expanded="false"
+                aria-controls="collapseFive" class="collapsed"> 5. Another important question</a></h5>
           </div>
-          <div id="collapseThree" role="tabpanel" aria-labelledby="headingFive" data-parent="#accordion"
+          <div id="collapseFive" role="tabpanel" aria-labelledby="headingFive" data-parent="#accordion"
             class="collapse">
             <div class="card-body">
               <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.

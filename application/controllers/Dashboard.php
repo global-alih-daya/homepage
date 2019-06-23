@@ -213,7 +213,7 @@ Email	: info@gad.co.id</p>
 				$this->email->send();
 
 				//pesan berhasil
-				echo $this->session->set_flashdata('message', '<div role="alert" class="alert alert-success alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Selamat! Anda telah berhasil mendaftar. Anda akan dihubungi dalam waktu dekat.</div>');
+				echo $this->session->set_flashdata('message', '<div role="alert" class="alert alert-success alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Selamat! Anda telah berhasil mendaftar. Anda akan dihubungi dalam waktu dekat (Salinan data telah kami kirimkan melalui email anda).</div>');
 				
 				//simpan ke model untuk di input ke db
 				$save =$this->M_Registrasi->save('registrasi_baru',$data);
