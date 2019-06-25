@@ -45,7 +45,7 @@
                 <textarea id="address" name="address" class="form-control"></textarea>
               </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="provinsi">Provinsi</label>
                 <select name="provinsi" id="provinsi" class="custom-select">
@@ -57,7 +57,7 @@
                 </select>
               </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="kota">Kota</label>
                 <select name="kota" id="kota" class="custom-select">
@@ -68,11 +68,11 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label for="job_interested">Pekerjaan yang diinginkan</label>
-                <select id="job_interested" name="job_interested" class="custom-select" onchange="getText(this)">
-                  <option value="1" selected>Inbound</option>
-                  <option value="2">Outbound</option>
+                <select id="job_interested" name="job_interested" class="custom-select">
+                  <option value="Inbound">Inbound Contact Center</option>
+                  <option value="Outbound">Outbound Contact Center</option>
+                  <option value="IT">IT</option>
                 </select>
-                <input type="hidden" name="txt_holder" id="txt_holder">
               </div>
             </div>
             <div class="col-md-12">

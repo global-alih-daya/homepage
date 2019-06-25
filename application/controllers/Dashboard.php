@@ -167,32 +167,32 @@ Berikut sebagian salinan data anda yang telah kami rekam :</p>
 <tr style="height: 21px;">
 <td style="width: 187px; height: 21px;">Nama Lengkap</td>
 <td style="width: 10px; height: 21px;">:</td>
-<td style="width: 741.2px; height: 21px;">&nbsp; ' . $firstname . ' ' . $lastname . '</td>
+<td style="width: 741.2px; height: 21px;">' . $firstname . ' ' . $lastname . '</td>
 </tr>
 <tr style="height: 22px;">
 <td style="width: 187px; height: 22px;">Email</td>
 <td style="width: 10px; height: 22px;">:</td>
-<td style="width: 741.2px; height: 22px;">&nbsp; ' . $email . '</td>
+<td style="width: 741.2px; height: 22px;">' . $email . '</td>
 </tr>
 <tr style="height: 22px;">
 <td style="width: 187px; height: 22px;">No HP/Whatsapp&nbsp;</td>
 <td style="width: 10px; height: 22px;">:</td>
-<td style="width: 741.2px; height: 22px;">&nbsp; ' . $no_hp . '</td>
+<td style="width: 741.2px; height: 22px;">' . $no_hp . '</td>
 </tr>
 <tr style="height: 14.6px;">
 <td style="width: 187px; height: 14.6px;">Alamat Tempat tinggal&nbsp;</td>
 <td style="width: 10px; height: 14.6px;">:</td>
-<td style="width: 741.2px; height: 14.6px;">&nbsp; ' . $address . '</td>
+<td style="width: 741.2px; height: 14.6px;">' . $address . '</td>
 </tr>
 <tr style="height: 22px;">
 <td style="width: 187px; height: 22px;">Pekerjaan dipilih</td>
 <td style="width: 10px; height: 22px;">:</td>
-<td style="width: 741.2px; height: 22px;">&nbsp; ' . $job_interested . '</td>
+<td style="width: 741.2px; height: 22px;">' . $job_interested . '</td>
 </tr>
 <tr style="height: 22px;">
 <td style="width: 187px; height: 22px;">Ref ID&nbsp;</td>
 <td style="width: 10px; height: 22px;">:&nbsp;</td>
-<td style="width: 741.2px; height: 22px;">&nbsp; ' . $refid . '</td>
+<td style="width: 741.2px; height: 22px;">' . $refid . '</td>
 </tr>
 </tbody>
 </table>

@@ -30,10 +30,10 @@
                   <div class="col-lg-3 col-md-6">
                     <h5>Partner</h5>
                     <ul class="list-unstyled mb-3">
-                      <li class="nav-item"><a href="#InboundRegModal" class="nav-link" data-toggle="modal">Inbound</a>
+                      <li class="nav-item"><a href="#InboundRegModal" class="nav-link" data-toggle="modal">Karir</a>
                       </li>
-                      <li class="nav-item"><a href="#OutboundRegModal" class="nav-link" data-toggle="modal">Outbound</a>
-                      </li>
+                      <!-- <li class="nav-item"><a href="#OutboundRegModal" class="nav-link" data-toggle="modal">Outbound</a>
+                      </li> -->
                     </ul>
                   </div>
                   <div class="col-lg-3 col-md-6">

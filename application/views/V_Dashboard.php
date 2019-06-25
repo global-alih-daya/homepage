@@ -3,8 +3,8 @@
 
 <?=$header;?>
 
-	<body data-spy="scroll" data-target="#navigation" data-offset="50">
-		<div id="all">
+	<body>
+		<div id="all" data-spy="scroll" data-target="#navigation" data-offset="0" class="scrollspy-example">
 		
 			<!-- Header -->
 			

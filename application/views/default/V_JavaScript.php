@@ -48,9 +48,18 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 });
 </script>
 
-<script>
-function getText(element) {
-  var textHolder = element.options[element.selectedIndex].text
-  document.getElementById("txt_holder").value = textHolder;
+<!-- simpen hasil pilihan ke local storage -->
+<script language="JavaScript" type="text/javascript">
+  function simpan() {		
+    var storage = document.getElementById('kerjaan').value;
+    localStorage.setItem('kerjaan_val',storage);
   }
+</script>
+
+<!-- ambil hasil pilihan setiap halaman di load -->
+<script language="JavaScript" type="text/javascript">
+  $(function() {
+    var tampilval = localStorage.getItem('kerjaan_val');
+    $('#job_interested').val(tampilval);
+  });
 </script>
