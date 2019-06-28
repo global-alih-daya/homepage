@@ -27,7 +27,7 @@
     <!-- Animate on Scroll -->
     <link href="//unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Fontawesome Kit -->
-    <script src="//kit.fontawesome.com/5266ee2b11.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!-- Flaticon stylesheet -->
     <link rel="stylesheet" href="<?=base_url()?>/assets/vendor/flaticon/flaticon.css">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
