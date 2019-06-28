@@ -20,9 +20,11 @@
 
 <script>
 $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di load)
+
+  $("#daftarregis").prop( "disabled", true );
     
-    $("#kota").prop( "disabled", true ); // Sembunyikan dulu combobox kota nya
-    $("#provinsi").change(function(){ // Ketika user mengganti atau memilih data provinsi
+  $("#kota").prop( "disabled", true ); // Sembunyikan dulu combobox kota nya
+  $("#provinsi").change(function(){ // Ketika user mengganti atau memilih data provinsi
     
     $.ajax({
         type: "POST", // Method pengiriman data bisa dengan GET atau POST
@@ -44,7 +46,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
         alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError); // Munculkan alert error
         }
     });
-    });
+  });
 });
 </script>
 
@@ -62,4 +64,18 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
     var tampilval = localStorage.getItem('kerjaan_val');
     $('#job_interested').val(tampilval);
   });
+</script>
+
+<script language="Javascript" type="text/javascript">
+  function enableBtnDaftar(){
+    $("#daftarBtn").removeClass('disabled');
+  }
+
+  $('#InboundRegModal').on('hidden.bs.modal', function () {
+    $("#daftarBtn").addClass('disabled');
+  })
+
+  function enableregisbutton() {
+    $("#daftarregis").removeAttr('disabled');
+  }
 </script>

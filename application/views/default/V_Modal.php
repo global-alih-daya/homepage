@@ -7,16 +7,17 @@
           <div class="col">
             <div class="row">
               <div class="heading">
-                <h6>Contact Center</h6>
+                <h6>karir</h6>
               </div>
               <p>Silahkan pilih pekerjaan dibawah ini yang sesuai dengan bidang dan kemampuan anda.</p>
-              <select class="custom-select" style="margin-bottom: 20px;" id="kerjaan">
-                <option selected>Pilih pekerjaan</option>
+              <select class="custom-select" style="margin-bottom: 20px;" id="kerjaan" onChange="enableBtnDaftar()">
+                <!-- <option selected>Pilih pekerjaan</option> -->
                 <option value="Inbound">Inbound Contact Center</option>
                 <option value="Outbound">Outbound Contact Center</option>
-                <option value="IT">IT</option>
+                <option value="IT - Application Web Developer">IT - Application Web Developer</option>
+                <option value="Recruitment">Recruitment</option>
               </select>
-              <a href="<?php base_url();?>registrasi" class="btn btn-outline-info btn-block" onClick="simpan()">Daftar</a>
+              <a href="<?php base_url();?>registrasi" class="btn btn-outline-info btn-block disabled" onClick="simpan()" id="daftarBtn">Daftar</a>
             </div>
           </div>
         </div>

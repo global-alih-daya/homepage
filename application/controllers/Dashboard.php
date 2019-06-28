@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dashboard extends CI_Controller {
 
-	//test
 	private $m_dashboard;
 	private $m_provinces;
 	private $m_cities;
@@ -118,7 +117,7 @@ class Dashboard extends CI_Controller {
 			$provinsi=$this->input->post('provinsi');
 			$kota=$this->input->post('kota');
 			$job_interested=$this->input->post('job_interested');
-			$refid = 'GADPTR-' . mt_rand() . '-' . $job_interested . '-' . uniqid();
+			$refid = 'PTR-' . mt_rand() . '-' . uniqid(5);
 
 			//konfigurasi upload file untuk CV
 			$config['upload_path']          = APPPATH. '../assets/uploads/userregistration/';
@@ -145,7 +144,8 @@ class Dashboard extends CI_Controller {
 					'address' => $address,
 					'provinsi' => $provinsi,
 					'kota' => $kota,
-					'job_interested' => $job_interested
+					'job_interested' => $job_interested,
+					'refid' => $refid
 				);
 
 				//upload file dari hasil input ke folder assets/uploads/userregistration
@@ -175,12 +175,12 @@ Berikut sebagian salinan data anda yang telah kami rekam :</p>
 <td style="width: 741.2px; height: 22px;">' . $email . '</td>
 </tr>
 <tr style="height: 22px;">
-<td style="width: 187px; height: 22px;">No HP/Whatsapp&nbsp;</td>
+<td style="width: 187px; height: 22px;">No HP/Whatsapp</td>
 <td style="width: 10px; height: 22px;">:</td>
 <td style="width: 741.2px; height: 22px;">' . $no_hp . '</td>
 </tr>
 <tr style="height: 14.6px;">
-<td style="width: 187px; height: 14.6px;">Alamat Tempat tinggal&nbsp;</td>
+<td style="width: 187px; height: 14.6px;">Alamat Tempat tinggal</td>
 <td style="width: 10px; height: 14.6px;">:</td>
 <td style="width: 741.2px; height: 14.6px;">' . $address . '</td>
 </tr>
@@ -190,8 +190,8 @@ Berikut sebagian salinan data anda yang telah kami rekam :</p>
 <td style="width: 741.2px; height: 22px;">' . $job_interested . '</td>
 </tr>
 <tr style="height: 22px;">
-<td style="width: 187px; height: 22px;">Ref ID&nbsp;</td>
-<td style="width: 10px; height: 22px;">:&nbsp;</td>
+<td style="width: 187px; height: 22px;">Ref ID</td>
+<td style="width: 10px; height: 22px;">:</td>
 <td style="width: 741.2px; height: 22px;">' . $refid . '</td>
 </tr>
 </tbody>

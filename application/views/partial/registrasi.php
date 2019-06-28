@@ -71,7 +71,8 @@
                 <select id="job_interested" name="job_interested" class="custom-select">
                   <option value="Inbound">Inbound Contact Center</option>
                   <option value="Outbound">Outbound Contact Center</option>
-                  <option value="IT">IT</option>
+                  <option value="IT - Application Web Developer">IT - Application Web Developer</option>
+                  <option value="Recruitment">Recruitment</option>
                 </select>
               </div>
             </div>
@@ -83,7 +84,7 @@
             </div>
             <div class="col-md-12" style="padding-bottom: 20px;">
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" name="syaratcheck" id="syaratcheck">
+                <input type="checkbox" class="custom-control-input" name="syaratcheck" id="syaratcheck" onClick="enableregisbutton()">
                 <label class="custom-control-label lead" for="syaratcheck">Dengan mengklik tombol Daftar atau
                   menggunakan layanan kami,
                   Anda setuju untuk terikat oleh Ketentuan Penggunaan dan Kebijakan Privasi kami, yang menetapkan
@@ -92,7 +93,7 @@
               </div>
             </div>
             <div class="col-md-12 text-center">
-              <button type="submit" class="btn btn-info btn-block" value="Save"><i class="fa fa-envelope-o"></i>
+              <button type="submit" class="btn btn-info btn-block" value="Save" id="daftarregis"><i class="fa fa-envelope-o"></i>
                 Daftar</button>
             </div>
           </div>
