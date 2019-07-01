@@ -71,8 +71,6 @@
                 <select id="job_interested" name="job_interested" class="custom-select">
                   <option value="Inbound">Inbound Contact Center</option>
                   <option value="Outbound">Outbound Contact Center</option>
-                  <option value="IT - Application Web Developer">IT - Application Web Developer</option>
-                  <option value="Recruitment">Recruitment</option>
                 </select>
               </div>
             </div>
