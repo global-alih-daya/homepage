@@ -157,7 +157,7 @@ class Dashboard extends CI_Controller {
 				$subject = 'GAD Partner Registration';
 				$message = 
 				/*-----------email body starts-----------*/
-'<h3>Terimakasih telah mendaftar menjadi partner kami, '.$firstname.'!</h3>
+'<h3>Terimakasih telah mendaftar menjadi bagian dari partner kami, '.$firstname.'!</h3>
 </br>		  
 <p>Anda akan dihubungi oleh tim kami untuk verifikasi data dalam waktu dekat,<br>
 Berikut sebagian salinan data anda yang telah kami rekam :</p>

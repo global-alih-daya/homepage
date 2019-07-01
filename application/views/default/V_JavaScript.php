@@ -55,6 +55,13 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
   function simpan() {		
     var storage = document.getElementById('kerjaan').value;
     localStorage.setItem('kerjaan_val',storage);
+
+    if($('#kerjaan').find('option:selected').val() == "Inbound" || $('#kerjaan').find('option:selected').val() == "Outbound" ) {
+      $('#InboundRegModal').modal('hide');
+      $('#tncmodal').modal('show');
+    } else {
+      $(location).attr('href', '<?php base_url();?>registrasi');
+    }
   }
 </script>
 
@@ -77,5 +84,11 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 
   function enableregisbutton() {
     $("#daftarregis").removeAttr('disabled');
+  }
+</script>
+
+<script>
+  function enableBTNReg() {
+    $('#btnAcceptTNC').removeClass('disabled');
   }
 </script>

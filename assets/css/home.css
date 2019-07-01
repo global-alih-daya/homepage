@@ -109,3 +109,10 @@ iframe {
     -moz-border-radius: 0px !important;
     border-radius: 0px !important; 
 }
+
+#tnctext{
+    background-color:#FFF !important;
+    border-style: none; 
+    border-color: Transparent; 
+    overflow: auto;  
+}

@@ -1,4 +1,4 @@
-<section style="background: url('https://www.gad.co.id/assets/img/bg-slide.jpg') center center repeat; background-size: cover;" class="relative-positioned">
+<section style="background: url('https://www.gad.co.id/assets/img/slide01.jpg') center center repeat; background-size: cover;" class="relative-positioned">
   <!-- Carousel Start-->
   <div class="home-carousel">
     <div class="dark-mask mask-primary"></div>
@@ -7,23 +7,43 @@
         <div class="item">
           <div class="row">
             <div class="col-md-5 text-right">
-              <!-- <p><img src="<?php //echo base_url() ?>/assets/img/logo.png" alt="" class="ml-auto"></p> -->
-              <h1>Made for modern teams</h1>
-              <p>A computer, a headset, and an internet connection are all you need to start talking today.</p>
+            <h2>Siapa bilang kerja itu mesti ngantor?</h2>
+              <ul class="list-unstyled">
+                <li>masih jaman kerja seharian?</li>
+                <li>buat generasi milenial,</li>
+                <li>sekarang bisa kerja kapan saja, dimana saja,</li>
+                <li>bahkan bisa dibayar perjam loh...</li>
+              </ul>
             </div>
-            <div class="col-md-7 text-center"><img src="<?=base_url()?>/assets/img/distribution.png" alt="" class="img-fluid"></div>
+            <div class="col-md-7 text-center"><img src="<?=base_url()?>/assets/img/bg-slide6.png" alt="" class="img-fluid"></div>
           </div>
         </div>
         <div class="item">
           <div class="row">
-            <div class="col-md-7 text-center"><img src="<?=base_url()?>/assets/img/slidea-1.png" alt="" class="img-fluid"></div>
+            <div class="col-md-7 text-center"><img src="<?=base_url()?>/assets/img/bg-slide4.png" alt="" class="img-fluid"></div>
             <div class="col-md-5">
-              <h2>Agen berbasis rumah</h2>
-              <ul class="list-unstyled">
-                <li>Biaya lebih rendah</li>
-                <li>Berkualitas Tinggi</li>
-                <li>Tersedia dimanapun dan kapanpun</li>
-                <li>24/7 sesuai kebutuhan</li>
+              <h2>Syaratnya mudah kok!</h2>
+              <ul class="list-styled">
+                <li>Laptop minimal i3 atau setara,</li>
+                <li>tinggalnya jangan di goa ya, karena butuh akses intenet,</li>
+                <li>gak gaptek sama gadget,</li>
+                <li>suka ngobrol,</li>
+                <li>sabar, ulet, dan bersemangat!</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="row">
+            <div class="col-md-7 text-center"><img src="<?=base_url()?>/assets/img/bg-slide5.png" alt="" class="img-fluid"></div>
+            <div class="col-md-5">
+              <h2>Terus kamu dapat apa?</h2>
+              <ul class="list-styled">
+                <li>Kamu bebas tentuin jam kerja, tempat kerja sama system pembayaran,</li>
+                <li>kamu bebas cari kerja sampingan yang lain,</li>
+                <li>komisi menarik,</li>
+                <li>bonus lumayan,</li>
+                <li>bahkan pulsa bisa dibayarin loh!</li>
               </ul>
             </div>
           </div>
