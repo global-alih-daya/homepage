@@ -16,7 +16,6 @@
                 <option value="Inbound">Inbound Contact Center</option>
                 <option value="Outbound">Outbound Contact Center</option>
                 <option value="IT - Application Web Developer">IT - Application Web Developer</option>
-                <option value="Recruitment">Recruitment</option>
               </select>
               <a href="#" class="btn btn-outline-info btn-block disabled" onClick="simpan()" id="daftarBtn">Daftar</a>
             </div>
