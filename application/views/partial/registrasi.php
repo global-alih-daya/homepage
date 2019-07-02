@@ -69,6 +69,7 @@
               <div class="form-group">
                 <label for="job_interested">Pekerjaan yang diinginkan</label>
                 <select id="job_interested" name="job_interested" class="custom-select">
+                <option>Silahkan pilih pekerjaan</option>
                   <option value="Inbound">Inbound Contact Center</option>
                   <option value="Outbound">Outbound Contact Center</option>
                 </select>

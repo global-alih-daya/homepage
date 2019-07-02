@@ -16,7 +16,7 @@
                 <option value="Inbound">Inbound Contact Center</option>
                 <option value="Outbound">Outbound Contact Center</option>
               </select>
-              <a href="#" class="btn btn-outline-info btn-block disabled" onClick="simpan()" id="daftarBtn">Daftar</a>
+              <a href="<?php base_url();?>registrasi" class="btn btn-outline-info btn-block disabled" onClick="simpan()" id="daftarBtn">Daftar</a>
             </div>
           </div>
         </div>
@@ -62,10 +62,10 @@ Hubungi kami
 Jika Anda memiliki pertanyaan tentang Ketentuan ini, silakan hubungi kami.
               </textarea>
               <div class="custom-control custom-checkbox" style="padding-top: 15px; padding-bottom: 15px;">
-                <input type="checkbox" class="custom-control-input" id="customCheck1" onClick="enableBTNReg()">
+                <input type="checkbox" class="custom-control-input" id="customCheck1" onClick="enablebtntnc()">
                 <label class="custom-control-label" for="customCheck1">Setuju dengan syarat dan ketentuan kami.</label>
               </div>
-              <a href="<?php base_url();?>registrasi" class="btn btn-outline-info btn-block disabled" id="btnAcceptTNC">Daftar</a>
+              <button type="button" class="btn btn-outline-primary btn-block" id="btnAcceptTNC" onClick="setujuTNC()" disabled>Setuju</button>
             </div>
           </div>
         </div>

@@ -118,6 +118,7 @@ class Dashboard extends CI_Controller {
 			$kota=$this->input->post('kota');
 			$job_interested=$this->input->post('job_interested');
 			$refid = 'PTR-' . mt_rand() . '-' . uniqid(5);
+			$input_date = date('Y-m-d H:i:s');
 
 			//konfigurasi upload file untuk CV
 			$config['upload_path']          = APPPATH. '../assets/uploads/userregistration/';
@@ -145,7 +146,8 @@ class Dashboard extends CI_Controller {
 					'provinsi' => $provinsi,
 					'kota' => $kota,
 					'job_interested' => $job_interested,
-					'refid' => $refid
+					'refid' => $refid,
+					'input_date' => $input_date
 				);
 
 				//upload file dari hasil input ke folder assets/uploads/userregistration
@@ -292,7 +294,7 @@ Email	: info@gad.co.id</p>
             $this->form_validation->set_message('getResponseCaptcha', '%s is required.' );
             return false;
         }
-    }
+	}
 	
 }
 

@@ -22,6 +22,14 @@
 $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di load)
 
   $("#daftarregis").prop( "disabled", true );
+  
+  $('#job_interested').change(function () {
+    if($('#job_interested').val() == "Inbound" || $('#job_interested').val() == "Outbound" ) {
+      $('#tncmodal').modal({backdrop: 'static', keyboard: false});
+    } else {
+      $('#daftarregis').attr("disabled", "disabled");
+    }
+  })
     
   $("#kota").prop( "disabled", true ); // Sembunyikan dulu combobox kota nya
   $("#provinsi").change(function(){ // Ketika user mengganti atau memilih data provinsi
@@ -50,45 +58,27 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 });
 </script>
 
-<!-- simpen hasil pilihan ke local storage -->
-<script language="JavaScript" type="text/javascript">
-  function simpan() {		
-    var storage = document.getElementById('kerjaan').value;
-    localStorage.setItem('kerjaan_val',storage);
-
-    if($('#kerjaan').find('option:selected').val() == "Inbound" || $('#kerjaan').find('option:selected').val() == "Outbound" ) {
-      $('#InboundRegModal').modal('hide');
-      $('#tncmodal').modal('show');
-    } else {
-      $(location).attr('href', '<?php base_url();?>registrasi');
-    }
-  }
-</script>
-
-<!-- ambil hasil pilihan setiap halaman di load -->
-<script language="JavaScript" type="text/javascript">
-  $(function() {
-    var tampilval = localStorage.getItem('kerjaan_val');
-    $('#job_interested').val(tampilval);
-  });
-</script>
-
 <script language="Javascript" type="text/javascript">
   function enableBtnDaftar(){
     $("#daftarBtn").removeClass('disabled');
   }
 
-  $('#InboundRegModal').on('hidden.bs.modal', function () {
-    $("#daftarBtn").addClass('disabled');
-  })
-
   function enableregisbutton() {
     $("#daftarregis").removeAttr('disabled');
   }
-</script>
 
-<script>
-  function enableBTNReg() {
-    $('#btnAcceptTNC').removeClass('disabled');
+  function enablebtntnc() {
+    if ($('#customCheck1').is(":checked"))
+    {
+      $('#btnAcceptTNC').removeAttr('disabled');
+    } else {
+      $('#btnAcceptTNC').attr("disabled", "disabled");
+    }
+  }
+
+  function setujuTNC() {
+    $('#tncmodal').modal('hide');
+    $("#customCheck1").prop("checked", false);
+    $('#btnAcceptTNC').attr("disabled", "disabled");
   }
 </script>
