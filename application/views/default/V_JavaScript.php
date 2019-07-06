@@ -13,6 +13,7 @@
 <script src="//blackrockdigital.github.io/startbootstrap-scrolling-nav/vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="//unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="<?=base_url()?>/assets/js/gad.js"></script>
+<script type="text/javascript" src="<?=base_url()?>/assets/js/jquery.smartWizard.js"></script>
 
 <script>
   AOS.init();
@@ -81,4 +82,12 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
     $("#customCheck1").prop("checked", false);
     $('#btnAcceptTNC').attr("disabled", "disabled");
   }
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+      $('#smartwizard').smartWizard();
+
+  });
 </script>

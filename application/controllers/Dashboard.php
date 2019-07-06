@@ -18,6 +18,8 @@ class Dashboard extends CI_Controller {
 		//load model M_Cities
 		$this->load->model('M_Cities');
 
+		$this->load->model('M_Ujian');
+
 		$this->load->model('M_Registrasi');
 		$this->load->library(array('recaptcha','form_validation'));
 
@@ -25,8 +27,8 @@ class Dashboard extends CI_Controller {
 
 	public function index() {
 		$data = generate_page('Dashboard', 'beranda');//Dahsboard akan menjadi title dalam design,dashbooard akan menjadi uri, nama pegawai berpengaruh untuk huruf besar dan kecil
-			//print_r($data);die;
-			$data_content['h_project1'] = $this->m_dashboard->practices_area();
+		//print_r($data);die;
+		$data_content['h_project1'] = $this->m_dashboard->practices_area();
 		$data['content'] = $this->load->view('partial/beranda',$data_content,true);//akan di lempar ke conten
 		//print_r($data['content']);die;
 		$this->load->view('V_Dashboard', $data);
@@ -53,7 +55,56 @@ class Dashboard extends CI_Controller {
 		$this->load->view('V_Dashboard', $data);
 	}
 
-	//get cities from province by id
+	public function ujian()
+	{
+		//$data = generate_page('Ujian', 'ujian');
+		$data['soal_ujian'] = $this->M_Ujian->tampil_data()->result();
+		//$data['content'] = $this->load->view('partial/ujian',$data_content, true);
+		$this->load->view('V_Ujian', $data);
+	}
+
+	public function jawab_ujian()
+	{
+		$this->form_validation->set_rules('nama', 'nama', 'required|alpha|xss_clean');
+		$this->form_validation->set_rules('refid', 'refid', 'required|xss_clean');
+
+		if($this->form_validation->run() != FALSE) {
+			echo $this->session->set_flashdata('message','<div role="alert" class="alert alert-danger alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Kesalahan! Mohon periksa kembali jawaban atau data yang anda masukan.</div><br>');
+			redirect(base_url('ujian'));
+		}
+
+		$nama= $_POST['nama'];
+		$refid= $_POST['refid'];
+		$jam_mulai = $_POST['jam_mulai'];
+		date_default_timezone_set('Asia/Jakarta');
+		$jam_selesai = date('Y-m-d H:i:s');
+
+		$i=1;
+		while(isset($_POST['jawaban'.$i]))
+		{
+			$array_jawaban[] = $_POST['jawaban'.$i];
+			$i++;
+		}
+		//simpan hasil jawaban kedalam json
+		$jawaban_json = json_encode($array_jawaban);
+
+		$data = array(
+			'nama' => $nama,
+			'id_peserta' => $refid,
+			'jawaban' => $jawaban_json,
+			'jam_mulai' => $jam_mulai,
+			'jam_selesai' => $jam_selesai,
+		);
+
+		//print_r($data);die;
+		echo $this->session->set_flashdata('message', '<div role="alert" class="alert alert-success alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Jawaban anda berhasil disimpan.</div>');
+		$save = $this->M_Ujian->save('jawaban_mbti', $data);
+
+		redirect(base_url('ujian'));
+
+	}
+
+	//mendapatkan nama kota berdasarkan id
     public function ListKota()
     {
         //ambil data id provinsi yang dikirim via ajax post
@@ -192,16 +243,21 @@ Berikut sebagian salinan data anda yang telah kami rekam :</p>
 <td style="width: 741.2px; height: 22px;">' . $job_interested . '</td>
 </tr>
 <tr style="height: 22px;">
-<td style="width: 187px; height: 22px;">Ref ID</td>
+<td style="width: 187px; height: 22px;">ID Peserta</td>
 <td style="width: 10px; height: 22px;">:</td>
 <td style="width: 741.2px; height: 22px;">' . $refid . '</td>
+</tr>
+<tr style="height: 22px;">
+<td style="width: 187px; height: 22px;">Tanggal/Jam Mendaftar</td>
+<td style="width: 10px; height: 22px;">:</td>
+<td style="width: 741.2px; height: 22px;">' . $input_date . '</td>
 </tr>
 </tbody>
 </table>
 <p>Silahkan hubungi kami melalui kontak dibawah ini jika ada pertanyaan :</p>
 </br>
 <p>Telp 	: 021 - xxxxxxx<br>
-Email	: info@gad.co.id</p>
+Email	: recruitment@gad.co.id</p>
 </br>
 </br>
 </br>
@@ -228,6 +284,9 @@ Email	: info@gad.co.id</p>
 
 	public function add_company()
 	{
+		$this->load->library('email');
+		$this->load->config('email');
+
 		$pic_name=$this->input->post('pic_name');
 		$company_name=$this->input->post('company_name');
 		$email=$this->input->post('email');
@@ -235,6 +294,8 @@ Email	: info@gad.co.id</p>
 		$company_address=$this->input->post('company_address');
 		$provinsi=$this->input->post('provinsi');
 		$kota=$this->input->post('kota');
+		$refid = 'TRL-' . mt_rand() . '-' . uniqid(5);
+		$input_date = date('Y-m-d H:i:s');
 	
 		$data = array(
 			'pic_name' => $pic_name,
@@ -244,6 +305,8 @@ Email	: info@gad.co.id</p>
 			'company_address' => $company_address,
 			'provinsi' => $provinsi,
 			'kota' => $kota,
+			'refid' => $refid,
+			'input_date' => $input_date
 		);
 
 		$this->form_validation->set_rules('pic_name', 'pic_name', 'required|alpha',
@@ -276,6 +339,72 @@ Email	: info@gad.co.id</p>
 			redirect(base_url('ujicoba'));
 			//$this->load->view('recaptcha');
 		} else {
+			$from = $this->config->item('smtp_user');
+			$to = $email;
+			$subject = 'GAD Client Trial Registration';
+			$message = 
+			/*-----------email body starts-----------*/
+'<h3>Terimakasih telah mendaftar menjadi bagian dari klien kami.</h3>
+</br>		  
+<p>Anda akan dihubungi oleh tim kami untuk verifikasi data dalam waktu dekat,<br>
+Berikut sebagian salinan data anda yang telah kami rekam :</p>
+</br>
+<table style="width: 769.2px;">
+<tbody>
+<tr style="height: 21px;">
+<td style="width: 187px; height: 21px;">Nama PIC</td>
+<td style="width: 10px; height: 21px;">:</td>
+<td style="width: 741.2px; height: 21px;">' . $pic_name . '</td>
+</tr>
+<tr style="height: 22px;">
+<td style="width: 187px; height: 22px;">Email PIC</td>
+<td style="width: 10px; height: 22px;">:</td>
+<td style="width: 741.2px; height: 22px;">' . $email . '</td>
+</tr>
+<tr style="height: 22px;">
+<td style="width: 187px; height: 22px;">No HP/Whatsapp PIC</td>
+<td style="width: 10px; height: 22px;">:</td>
+<td style="width: 741.2px; height: 22px;">' . $no_hp . '</td>
+</tr>
+<tr style="height: 14.6px;">
+<td style="width: 187px; height: 14.6px;">Perusahaan</td>
+<td style="width: 10px; height: 14.6px;">:</td>
+<td style="width: 741.2px; height: 14.6px;">' . $company_name . '</td>
+</tr>
+<tr style="height: 22px;">
+<td style="width: 187px; height: 22px;">Alamat Perusahaan</td>
+<td style="width: 10px; height: 22px;">:</td>
+<td style="width: 741.2px; height: 22px;">' . $company_address . '</td>
+</tr>
+<tr style="height: 22px;">
+<td style="width: 187px; height: 22px;">ID Pendaftaran</td>
+<td style="width: 10px; height: 22px;">:</td>
+<td style="width: 741.2px; height: 22px;">' . $refid . '</td>
+</tr>
+<tr style="height: 22px;">
+<td style="width: 187px; height: 22px;">Tanggal/Jam Mendaftar</td>
+<td style="width: 10px; height: 22px;">:</td>
+<td style="width: 741.2px; height: 22px;">' . $input_date . '</td>
+</tr>
+</tbody>
+</table>
+<p>Silahkan hubungi kami melalui kontak dibawah ini jika ada pertanyaan :</p>
+</br>
+<p>Telp 	: 021 - xxxxxxx<br>
+Email	: marketing@gad.co.id</p>
+</br>
+</br>
+</br>
+<p>Terima kasih,<br>
+<b>PT. Global Alih Daya</b></p>';
+			/*-----------email body ends-----------*/
+
+			$this->email->from($from, 'GAD Client Trial Registration');
+			$this->email->to($email);
+			$this->email->subject($subject);
+			$this->email->message($message);
+			$this->email->send();
+
 			echo $this->session->set_flashdata('message', '<div role="alert" class="alert alert-success alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Selamat! Anda telah berhasil mendaftar program uji coba. Anda akan dihubungi dalam waktu dekat.</div>');
 			$save =$this->M_Registrasi->save('registrasi_ujicoba',$data);
 			redirect(base_url('ujicoba'));

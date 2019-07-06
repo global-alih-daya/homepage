@@ -72,6 +72,8 @@
                 <option>Silahkan pilih pekerjaan</option>
                   <option value="Inbound">Inbound Contact Center</option>
                   <option value="Outbound">Outbound Contact Center</option>
+                  <option value="IT">Information Technology</option>
+                  <option value="Others">Lainnya</option>
                 </select>
               </div>
             </div>

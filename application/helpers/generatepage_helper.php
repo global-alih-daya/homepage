@@ -50,32 +50,19 @@ if( !function_exists('generate_page') ) {
 if( !function_exists('generate_page') ) {
 
 	function generate_page($title_page, $path_page) {
-		//print_r($user_type);die;
+		
 		$ci =& get_instance();
-		//print_r($ci);die;
 		$data = array();
 
-			$data_header['title_page'] = $title_page;
-			//print_r($data_header['title_page']);die();
+		$data_header['title_page'] = $title_page;
 		$data['header'] = $ci->load->view('default/V_Header', $data_header, true);
 
-			$data_navbar['user_name'] = $ci->session->userdata('user_name');
-			$data_navbar['user_avatar'] = $ci->session->userdata('user_avatar');
+		$data_navbar['user_name'] = $ci->session->userdata('user_name');
+		$data_navbar['user_avatar'] = $ci->session->userdata('user_avatar');
 		$data['navbar'] = $ci->load->view('default/V_Navbar', $data_navbar, true);
-
-			//print_r($path_page);die;
-			//$user_type = $ci->session->userdata('user_type');
-			$data_menu['path_page'] = $path_page;
-			/* $data_menu['user_name'] = $ci->session->userdata('user_name');
-			$data_menu['user_avatar'] = $ci->session->userdata('user_avatar');
-			$data_menu['jabatan'] = $ci->session->userdata('user_nama_jabatan');
-			$data_menu['bidang'] = $ci->session->userdata('user_nama_bidang'); */
-
-			//print_r($data_menu);die;
-			//print_r($user_type);die;
+		$data_menu['path_page'] = $path_page;
 		$data['menu'] = $ci->load->view('default/V_Menu' ,$data_menu, true);
 		$data['modal'] = $ci->load->view('default/V_Modal', '', true);
-		//print_r($data['menu']);die;
 		$data['footer'] = $ci->load->view('default/V_Footer', '', true);
 		$data['javascript'] = $ci->load->view('default/V_JavaScript', '', true);
 		$data['menu_abouts'] = $ci->load->view('default/menu_about', '', true);

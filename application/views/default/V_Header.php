@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="<?=base_url()?>/assets/vendor/owl.carousel/assets/owl.theme.default.css">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="<?=base_url()?>/assets/css/style.lightblue.css" id="theme-stylesheet">
+    <link href="<?=base_url()?>/assets/css/smart_wizard.css" rel="stylesheet" type="text/css" />
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="<?=base_url()?>/assets/css/home.css">
     <!-- Favicon and apple touch icons-->
