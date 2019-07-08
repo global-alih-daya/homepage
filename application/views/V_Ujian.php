@@ -29,155 +29,82 @@
   </style>
 </head>
 
-<body style="padding-top: 5rem;">
-
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">GAD Live Exam</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-      </ul>
-    </div>
-  </nav>
+<body style="height: 100%;">
 
   <div class="container" style="padding-top:20px;">
-    <!-- <div class="row align-items-center h-100">
-      <div class="col-lg-12 my-auto mx-auto">
+    <div class="h-100 row align-items-center">
+      <div class="col-lg-12">
         <?php echo $this->session->flashdata('message');?>
-        <form action="<?php echo base_url('Dashboard/jawab_ujian') ?>" method="post">
-          <div class="card"
-            style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); padding-bottom: 20px;">
-            <div class="card-header text-center">
-              PT. Global Alih Daya Live Exam Test
-            </div>
-            <div class="card-body">
-              <p class="card-text">Silahkan masukkan nama dan ID peserta anda pada kolom dibawah ini sebelum memulai
-                ujian.</p>
-              <div class="row">
-                <div class="col">
-                  <input type="text" class="form-control" placeholder="Nama Lengkap" id="nama" name="nama"
-                    data-validation="required" data-validation-error-msg="Mohon isi nama anda">
-                </div>
-                <div class="col">
-                  <input type="text" class="form-control" placeholder="ID Peserta" id="refid" name="refid"
-                    data-validation="required" data-validation-error-msg="Mohon isi ID/Nomor peserta anda">
-                </div>
-                <input type="hidden" name="jam_mulai" value="">
-              </div>
-            </div>
+        <br>
+        <div class="card text-center">
+          <div class="card-body">
+            <h3 class="text-center display-1 text-info"><strong>
+                <span id="spnSeconds" data-time="1510000">00:00</span>
+              </strong></h3>
+            <hr>
+            <p class="lead text-danger"><strong>Perhatian! Setelah waktu habis, ujian akan otomatis tersubmit.</strong></p>
           </div>
-          <br>
-          <div class="card"
-            style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); padding-bottom: 20px;">
-            <div class="card-header text-center">
-              jawablah soal dibawah ini sesuai dengan diri anda
-            </div>
-            <div class="card-body">
-              <table class="table table-borderless">
-                <tbody>
-                  <?php 
-                        $i=1;
-                        $no=1;
-                        foreach($soal_ujian as $su){ 
-                      ?>
-                  <?php $soal = array($su->soal_1,$su->soal_2); ?>
-                  <tr>
-                    <td class="text-center">
-                      <div class="btn-group btn-group-toggle btn-block btn-lg" data-toggle="buttons">
-                        <label class="btn btn-outline-dark">
-                          <input type="radio" name="jawaban<?=$i?>" value="1" autocomplete="off"
-                            data-validation="required"> <?=$soal[0]?>
-                        </label>
-                        <label class="btn btn-outline-dark">
-                          <input type="radio" name="jawaban<?=$i?>" value="2" autocomplete="off"
-                            data-validation="required"> <?=$soal[1]?>
-                        </label>
-                      </div>
-                    </td>
-                  </tr>
-                  <?php $i++; $no++;} ?>
-                </tbody>
-              </table>
-            </div>
-            <div class="card-footer text-muted">
-              <button type="submit" class="btn btn-primary btn-block">Selesai</button>
+        </div>
+        <br>
+        <form action="<?php echo base_url('Dashboard/jawab_ujian') ?>" method="post">
+          <div id="smartwizard" class="swMain">
+            <ul>
+              <li><a href="#step-1" style="display: none;">Exam Test<br /><small></small></a></li>
+              <?php 
+                $i=1;
+                $q=2;
+                foreach($soal_ujian as $su){ 
+                ?>
+              <li><a href="#step-<?=$q?>" style="display: none;"><?=$i?><br /><small></small></a></li>
+              <?php $i++; $q++;} ?>
+            </ul>
+            <div>
+              <div id="step-1">
+                <p class="lead">Silahkan masukkan nama dan ID peserta anda pada kolom dibawah ini sebelum
+                  memulai
+                  ujian.</p>
+                <div class="row">
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="Nama Lengkap" id="nama" name="nama"
+                      data-validation="required" data-validation-error-msg="Mohon isi nama anda" oninput="hello()">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="ID Peserta" id="refid" name="refid"
+                      data-validation="required" data-validation-error-msg="Mohon isi ID/Nomor peserta anda" oninput="hello()">
+                  </div>
+                  <input type="hidden" name="jam_mulai" value="">
+                </div>
+              </div>
+              <?php 
+                $i=1;
+                $q=2;
+                foreach($soal_ujian as $su){ 
+              ?>
+              <?php $soal = array($su->soal_1,$su->soal_2); ?>
+              <div id="step-<?=$q?>" class="text-center">
+                <p class="lead">Silahkah pilih salah satu yang sesuai dengan diri anda</p>
+                <div class="btn-group-vertical btn-group-toggle btn-block" data-toggle="buttons">
+                  <label class="btn btn-outline-dark btn-lg" id="btngroupwiz">
+                    <input type="radio" name="jawaban<?=$i?>" value="1" autocomplete="off"
+                      data-validation="required"> <?=$soal[0]?>
+                  </label>
+                  <label class="btn btn-outline-dark btn-lg">
+                    <input type="radio" name="jawaban<?=$i?>" value="2" autocomplete="off"
+                      data-validation="required""> <?=$soal[1]?>
+                  </label>
+                </div>
+              </div>
+              <?php $i++; $q++;} ?>
             </div>
           </div>
         </form>
-      </div>
-    </div>
-    <br> -->
-    <div class="row align-items-center h-100">
-      <div class="col-lg-12 my-auto mx-auto">
-        <h3>PT. Global Alih Daya Live Exam</h3>
-        <?php echo $this->session->flashdata('message');?>
-        <div class="card">
-          <div class="card-body">
-            <form action="<?php echo base_url('Dashboard/jawab_ujian') ?>" method="post">
-              <div id="smartwizard" class="swMain">
-                <ul>
-                  <li><a href="#step-1">Exam Test<br /><small></small></a></li>
-                  <?php 
-                    $i=1;
-                    $q=2;
-                    foreach($soal_ujian as $su){ 
-                    ?>
-                  <li><a href="#step-<?=$q?>" style="display: none;"><?=$i?><br /><small></small></a></li>
-                  <?php $i++; $q++;} ?>
-                </ul>
-                <div>
-                  <div id="step-1">
-                    <p class="lead">Silahkan masukkan nama dan ID peserta anda pada kolom dibawah ini sebelum
-                      memulai
-                      ujian.</p>
-                    <div class="row">
-                      <div class="col">
-                        <input type="text" class="form-control" placeholder="Nama Lengkap" id="nama" name="nama"
-                          data-validation="required" data-validation-error-msg="Mohon isi nama anda">
-                      </div>
-                      <div class="col">
-                        <input type="text" class="form-control" placeholder="ID Peserta" id="refid" name="refid"
-                          data-validation="required" data-validation-error-msg="Mohon isi ID/Nomor peserta anda">
-                      </div>
-                      <input type="hidden" name="jam_mulai" value="">
-                    </div>
-                  </div>
-                  <?php 
-                    $i=1;
-                    $q=2;
-                    foreach($soal_ujian as $su){ 
-                  ?>
-                  <?php $soal = array($su->soal_1,$su->soal_2); ?>
-                  <div id="step-<?=$q?>" class="text-center">
-                    <p class="lead">Silahkah pilih salah satu yang sesuai dengan diri anda</p>
-                    <div class="btn-group-vertical btn-group-toggle btn-block" data-toggle="buttons">
-                      <label class="btn btn-outline-dark btn-lg">
-                        <input type="radio" name="jawaban<?=$i?>" value="1" autocomplete="off"
-                          data-validation="required"> <?=$soal[0]?>
-                      </label>
-                      <label class="btn btn-outline-dark btn-lg">
-                        <input type="radio" name="jawaban<?=$i?>" value="2" autocomplete="off"
-                          data-validation="required"> <?=$soal[1]?>
-                      </label>
-                    </div>
-                  </div>
-                  <?php $i++; $q++;} ?>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
       </div>
     </div>
     <br>
   </div>
 
   <script src="<?=base_url()?>/assets/vendor/jquery/jquery.min.js"></script>
-  <script src="<?=base_url()?>/assets/vendor/popper.js/umd/popper.min.js"> </script>
+  <script src="<?=base_url()?>/assets/vendor/popper.js/umd/popper.min.js"></script>
   <script src="<?=base_url()?>/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
   <script type="text/javascript" src="<?=base_url()?>/assets/js/jquery.smartWizard.js"></script>
@@ -192,22 +119,11 @@
     });
   </script>
 
-  <script>
-    $.validate({
-      lang: 'en',
-      modules: 'toggleDisabled',
-      disabledFormFilter: 'form.toggle-disabled',
-      borderColorOnError: '#FFF',
-      addValidClassOnAll: true,
-      errorMessagePosition: 'top'
-    });
-  </script>
-
   <script type="text/javascript">
     $(document).ready(function () {
 
       // variabel untuk membuat extra button pada smartwizard
-      var btnFinish = $('<button></button>').text('Selesai')
+      var btnFinish = $('<button id="submit"></button>').text('Selesai')
         .addClass('btn btn-success');
 
       $('#smartwizard').smartWizard({
@@ -237,13 +153,12 @@
 
       $("#smartwizard").on("showStep", function (e, anchorObject, stepNumber, stepDirection) {
         if ($('button.sw-btn-next').hasClass('disabled')) {
-          $('.button.sw-btn-next').hide(); //sembunyikan tombol next
+          $('.sw-btn-next').hide(); //sembunyikan tombol next
           $('.sw-btn-group-extra').show(); //tampilkan tombol selesai
         } else {
           $('.sw-btn-group-extra').hide();
           $('.sw-btn-group-next').show();
         }
-
       });
     });
   </script>
@@ -252,6 +167,45 @@
     //Disable extra button pada smartwizard pada saat page load
     $(document).ready(function () {
       $('.sw-btn-group-extra').hide();
+      $('.sw-btn-next').prop("disabled", true);
+      $('.sw-btn-next').click(function () {
+        $(this).prop("disabled", true);
+      });
+      $('.btn-group-vertical').click(function (event) {
+        //Process button click event
+        $('.sw-btn-next').prop("disabled", false);
+      });
+    });
+  </script>
+
+  <script>
+  function hello() {
+    if ($('#nama').val == "" || $('#refid').val == "") {
+      $('.sw-btn-next').prop("disabled", true)
+    } else {
+      $('.sw-btn-next').prop("disabled", false)
+    }
+  }
+  </script>
+
+  <script>
+    function pad(num, size) {
+      var s = "000000000" + num;
+      return s.substr(s.length - size);
+    }
+
+    $(document).ready(function () {
+      window.setInterval(function () {
+        var iTimeRemaining = $("#spnSeconds").data('time');
+        iTimeRemaining = ~~iTimeRemaining;
+        if (iTimeRemaining == 0) {
+          $('#submit').trigger('click');
+        } else {
+          var mins = ~~(iTimeRemaining / 60000);
+          $("#spnSeconds").html(mins + ":" + pad(~~(iTimeRemaining / 1000 % 60), 2));
+          $("#spnSeconds").data('time', iTimeRemaining - 1000);
+        }
+      }, 1000);
     });
   </script>
 
