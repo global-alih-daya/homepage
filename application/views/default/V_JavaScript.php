@@ -37,7 +37,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
     
     $.ajax({
         type: "POST", // Method pengiriman data bisa dengan GET atau POST
-        url: "<?php echo base_url("Dashboard/ListKota"); ?>", // Isi dengan url/path file php yang dituju
+        url: "https://www.gad.co.id/Dashboard/ListKota", // Isi dengan url/path file php yang dituju
         data: {province_id : $("#provinsi").val()}, // data yang akan dikirim ke file yang dituju
         dataType: "json",
         beforeSend: function(e) {
