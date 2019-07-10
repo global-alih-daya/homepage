@@ -52,6 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Dashboard';
 $route['registrasi'] = 'Dashboard/registrasi';
 $route['ujicoba'] = 'Dashboard/ujicoba' ;
-$route['psikotes'] = 'Dashboard/ujian';
+$route['psikotes'] = 'Ujian/mbti';
 $route['404_override'] = 'error_404';
 $route['translate_uri_dashes'] = FALSE;

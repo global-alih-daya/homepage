@@ -18,8 +18,6 @@ class Dashboard extends CI_Controller {
 		//load model M_Cities
 		$this->load->model('M_Cities');
 
-		$this->load->model('M_Ujian');
-
 		$this->load->model('M_Registrasi');
 		$this->load->library(array('recaptcha','form_validation'));
 
@@ -53,55 +51,6 @@ class Dashboard extends CI_Controller {
 		$data['content'] = $this->load->view('partial/uji_coba',$data_content, true);
 		//print_r($data['content']);die;
 		$this->load->view('V_Dashboard', $data);
-	}
-
-	public function ujian()
-	{
-		//$data = generate_page('Ujian', 'ujian');
-		$data['soal_ujian'] = $this->M_Ujian->tampil_data()->result();
-		//$data['content'] = $this->load->view('partial/ujian',$data_content, true);
-		$this->load->view('V_Ujian', $data);
-	}
-
-	public function jawab_ujian()
-	{
-		$this->form_validation->set_rules('nama', 'nama', 'required|alpha|xss_clean');
-		$this->form_validation->set_rules('refid', 'refid', 'required|xss_clean');
-
-		if($this->form_validation->run() != FALSE) {
-			echo $this->session->set_flashdata('message','<div role="alert" class="alert alert-danger alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Kesalahan! Mohon periksa kembali jawaban atau data yang anda masukan.</div><br>');
-			redirect(base_url('ujian'));
-		}
-
-		$nama= $_POST['nama'];
-		$refid= $_POST['refid'];
-		$jam_mulai = $_POST['jam_mulai'];
-		date_default_timezone_set('Asia/Jakarta');
-		$jam_selesai = date('Y-m-d H:i:s');
-
-		$i=1;
-		while(isset($_POST['jawaban'.$i]))
-		{
-			$array_jawaban[] = $_POST['jawaban'.$i];
-			$i++;
-		}
-		//simpan hasil jawaban kedalam json
-		$jawaban_json = json_encode($array_jawaban);
-
-		$data = array(
-			'nama' => $nama,
-			'id_peserta' => $refid,
-			'jawaban' => $jawaban_json,
-			'jam_mulai' => $jam_mulai,
-			'jam_selesai' => $jam_selesai,
-		);
-
-		//print_r($data);die;
-		echo $this->session->set_flashdata('message', '<div role="alert" class="alert alert-success alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Jawaban anda berhasil disimpan.</div>');
-		$save = $this->M_Ujian->save('jawaban_mbti', $data);
-
-		redirect(base_url('ujian'));
-
 	}
 
 	//mendapatkan nama kota berdasarkan id

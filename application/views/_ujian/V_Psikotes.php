@@ -14,7 +14,7 @@
   <link rel="apple-touch-icon" href="<?=base_url()?>/assets/img/apple-touch-icon.png">
   <link rel="apple-touch-icon" sizes="57x57" href="<?=base_url()?>/assets/img/apple-touch-icon-57x57.png">
 
-  <title>Live Exam</title>
+  <title>GAD - Psikotes</title>
   <style>
     .zoome {
       zoom: 85%;
@@ -47,7 +47,7 @@
           </div>
         </div>
         <br>
-        <form action="<?php echo base_url('Dashboard/jawab_ujian') ?>" method="post">
+        <form action="<?php echo base_url('Ujian/jawab_mbti') ?>" method="post">
           <div id="smartwizard" class="swMain">
             <ul>
               <li><a href="#step-1" style="display: none;">Exam Test<br /><small></small></a></li>
@@ -61,7 +61,7 @@
             </ul>
             <div>
               <div id="step-1">
-                <p class="lead">Silahkan masukkan nama dan ID peserta anda pada kolom dibawah ini sebelum
+                <p class="lead">Silahkan masukkan Nama dan No HP anda pada kolom dibawah ini sebelum
                   memulai
                   ujian.</p>
                 <div class="row">
@@ -70,8 +70,8 @@
                       data-validation="required" data-validation-error-msg="Mohon isi nama anda" oninput="hello()">
                   </div>
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="ID Peserta" id="refid" name="refid"
-                      data-validation="required" data-validation-error-msg="Mohon isi ID/Nomor peserta anda" oninput="hello()">
+                    <input type="text" class="form-control" placeholder="No HP" id="refid" name="refid"
+                      data-validation="required" data-validation-error-msg="Mohon isi nomor HP anda" oninput="hello()">
                   </div>
                   <input type="hidden" name="jam_mulai" value="">
                 </div>
