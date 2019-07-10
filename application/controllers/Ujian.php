@@ -47,11 +47,7 @@ class Ujian extends CI_Controller
 			'jam_mulai' => $jam_mulai,
 			'jam_selesai' => $jam_selesai,
 		);
-
-		//print_r($data);die;
-		echo $this->session->set_flashdata('message', '<div role="alert" class="alert alert-success alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Jawaban anda berhasil disimpan.</div>');
+		
 		$save = $this->M_Ujian->save('jawaban_mbti', $data);
-
-		redirect(base_url('psikotes'));
 	}
 }
