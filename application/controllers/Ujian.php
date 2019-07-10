@@ -22,7 +22,7 @@ class Ujian extends CI_Controller
 
 		if($this->form_validation->run() != FALSE) {
 			echo $this->session->set_flashdata('message','<div role="alert" class="alert alert-danger alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Kesalahan! Mohon periksa kembali jawaban atau data yang anda masukan.</div><br>');
-			redirect(base_url('ujian'));
+			redirect(base_url('jawaban_mbti'));
 		}
 
 		$nama= $_POST['nama'];
@@ -49,5 +49,41 @@ class Ujian extends CI_Controller
 		);
 		
 		$save = $this->M_Ujian->save('jawaban_mbti', $data);
+	}
+
+	public function psikotes()
+	{
+		$data['psikotes'] = $this->M_Ujian->tampil_data_2()->result();
+		$this->load->view('_ujian/V_Psikotes', $data);
+	}
+
+	public function jawab_psikotes()
+	{
+		$nama = $_POST['nama'];
+		$no_hp = $_POST['no_hp'];
+		$refid = $_POST['refid'];
+		$jam_mulai = $_POST['jam_mulai'];
+		date_default_timezone_set('Asia/Jakarta');
+		$jam_selesai = date('Y-m-d H:i:s');
+
+		$i=1;
+		while(isset($_POST['jawaban'.$i]))
+		{
+			$array_jawaban[] = $_POST['jawaban'.$i];
+			$i++;
+		}
+
+		$jawaban_json = json_encode($array_jawaban);
+
+		$data = array(
+			'nama' => $nama,
+			'no_hp' => $no_hp,
+			'refid' => $refid,
+			'jawaban' => $jawaban_json,
+			'jam_mulai' => $jam_mulai,
+			'jam_selesai' => $jam_selesai
+		);
+
+		$save = $this->M_Ujian->save('jawaban_psikotes', $data);
 	}
 }

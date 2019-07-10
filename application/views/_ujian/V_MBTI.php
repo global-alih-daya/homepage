@@ -58,10 +58,10 @@
 
   <div class="hasil">
     <div class="col-lg-12">
-      <h1 class="display-6 text-center">Selamat anda telah melakukan psikotes!</h1>
+      <h1 class="display-6 text-center">Terimakasih telah melakukan psikotes!</h1>
       <p class="lead text-center">Anda akan dihubungi oleh kami kembali</p>
       <br>
-      <p>Anda akan diarahkan menuju halaman utama kami dalam 10 detik</p>
+      <p class="text-center">Anda akan diarahkan menuju halaman utama kami dalam 10 detik</p>
     </div>
   </div>
 
@@ -142,7 +142,7 @@
   <script src="<?=base_url()?>/assets/vendor/popper.js/umd/popper.min.js"></script>
   <script src="<?=base_url()?>/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
-  <script type="text/javascript" src="<?=base_url()?>/assets/js/jquery.smartWizard.js"></script>
+  <script src="<?=base_url()?>/assets/js/jquery.smartWizard.js"></script>
 
   <!-- SmartWizard -->
   <script type="text/javascript">
@@ -193,10 +193,12 @@
       $("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
          if(stepNumber == "0") { 
           intervalsx();
+          JamStart();
           };
       });
     });
   </script>
+
   <!-- Timer -->
   <script>
     function pad(num, size) {
@@ -218,22 +220,9 @@
         }
       }, 1000);
     }
-
-    $('#submit').trigger('click');
   </script>
 
   <script>
-    $(document).ready(function () {
-      localStorage.removeItem("fulldate");
-      var d = new Date($.now());
-      var fulldate = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
-      localStorage.setItem("fulldate", fulldate);
-      $('input[name="jam_mulai"]').val(localStorage.getItem("fulldate"));
-    });
-  </script>
-
-  <script>
-    //Disable extra button pada smartwizard pada saat page load
     $(document).ready(function () {
       $('.sw-btn-group-extra').hide();
       $('.sw-btn-next').prop("disabled", true);
@@ -247,14 +236,22 @@
   </script>
 
   <script>
-  function hello() {
-    var textBox =  $.trim( $('input[type=text]').val() )
-    if (textBox == "") {
-      $('.sw-btn-next').prop("disabled", true)
-    } else {
-      $('.sw-btn-next').prop("disabled", false)
+    function hello() {
+      var textBox =  $.trim( $('input[type=text]').val() )
+      if (textBox == "") {
+        $('.sw-btn-next').prop("disabled", true)
+      } else {
+        $('.sw-btn-next').prop("disabled", false)
+      }
     }
-  }
+
+    function JamStart(){
+      localStorage.removeItem("fulldate");
+      var d = new Date($.now());
+      var fulldate = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+      localStorage.setItem("fulldate", fulldate);
+      $('input[name="jam_mulai"]').val(localStorage.getItem("fulldate"));
+    }
   </script>
 
   <script>
@@ -274,6 +271,7 @@
         url : "<?php echo base_url('Ujian/jawab_mbti')?>",
         type : "POST",
         data: $("#mbtiForm").serialize(),
+          //jika sukses maka tampilkan div hasil dan arahkan ke halaman utama
           success: function(data){
             $(function() {
               $("#konten").fadeOut(1000, function() {
