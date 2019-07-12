@@ -382,7 +382,7 @@
         } else {
           $.ajax({
             type: "POST",
-            url: "<?php echo base_url('Ujian/get_refid_exist') ?>",
+            url: "https://www.gad.co.id/typingtest",
             data: $("#typingtestForm").serialize(),
             dataType: "html",
             cache: false,
