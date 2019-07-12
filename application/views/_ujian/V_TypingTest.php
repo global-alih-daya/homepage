@@ -358,7 +358,7 @@
 
         $('.sw-btn-group-extra').hide();
         $.ajax({
-          url: "<?php echo base_url('Ujian/jawab_typingtest')?>",
+          url: "https://www.gad.co.id/Ujian/jawab_typingtest",
           type: "POST",
           data: $("#typingtestForm").serialize(),
           success: function (data) {
