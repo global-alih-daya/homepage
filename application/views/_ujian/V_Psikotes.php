@@ -63,9 +63,9 @@
   <div class="hasil">
     <div class="col-lg-12">
       <h1 class="display-6 text-center">Terimakasih telah melakukan psikotes!</h1>
-      <p class="lead text-center">Anda akan dihubungi oleh kami kembali</p>
+      <p class="lead text-center">Jika Anda lolos, Anda akan dihubungi oleh kami kembali untuk proses selanjutnya.</p>
       <br>
-      <p class="text-center">Anda akan diarahkan menuju halaman utama kami dalam 10 detik</p>
+      <p class="text-center">Anda akan diarahkan menuju halaman utama kami dalam 10 detik.</p>
     </div>
   </div>
 
@@ -100,7 +100,7 @@
             </ul>
             <div>
               <div id="step-1">
-                <p class="lead">Silahkan masukkan Nama dan No HP anda pada kolom dibawah ini sebelum
+                <p class="lead">Silahkan masukkan Nama, Nomor HP, dan ID Peserta anda pada kolom dibawah ini sebelum
                   memulai
                   psikotes.</p>
                 <div class="row">
@@ -129,7 +129,7 @@
               ?>
               <?php $jwb = array($su->jawaban_1,$su->jawaban_2,$su->jawaban_3,$su->jawaban_4); ?>
               <div id="step-<?=$q?>">
-                <p class="lead"><strong><?php echo $su->soal ?> ?</strong></p>
+                <h4><strong><?=$i?>. <?php echo $su->soal ?> ?</strong></h4>
                 <hr>
                 <div class="form-group">
                   <div class="custom-control custom-radio">
@@ -307,7 +307,7 @@
                 $(".hasil").fadeIn(500);
               });
               window.setTimeout(function () {
-                window.location.href = 'https://www.gad.co.id/';
+                window.location.href = '<?php echo base_url() ?>';
               }, 10000);
             });
           }

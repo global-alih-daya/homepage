@@ -14,21 +14,24 @@
   <link rel="apple-touch-icon" href="<?=base_url()?>/assets/img/apple-touch-icon.png">
   <link rel="apple-touch-icon" sizes="57x57" href="<?=base_url()?>/assets/img/apple-touch-icon-57x57.png">
 
-  <title>GAD - Psikotes (Bagian 1)</title>
+  <title>GAD - TypingTest</title>
   <style>
     .zoome {
       zoom: 85%;
     }
+
     .btn-xl {
       padding: 10px 20px;
       font-size: 20px;
       border-radius: 10px;
       width: 50%;
     }
+
     #konten {
       display: none;
     }
-    .preload { 
+
+    .preload {
       display: inline-block;
       position: fixed;
       top: 0;
@@ -39,7 +42,8 @@
       height: 100px;
       margin: auto;
     }
-    .hasil { 
+
+    .hasil {
       display: none;
       position: fixed;
       top: 0;
@@ -50,16 +54,28 @@
       height: 100px;
       margin: auto;
     }
+
+    .vl {
+      border-left: 2px solid rgb(179, 176, 176);
+      height: auto;
+    }
+
+    .highlight {
+      background-color: #FFFF88;
+    }
   </style>
 </head>
 
-<body style="height: 100%;">
+<body style="height: 100%;" oncontextmenu="return false">
   <div class="preload"><img src="<?php echo base_url('assets/img/Spinner-1s-200px.gif')?>"></div>
 
   <div class="hasil">
     <div class="col-lg-12">
-      <h1 class="display-6 text-center">Terimakasih telah melakukan psikotes!</h1>
-      <p class="lead text-center">Anda akan diarahkan menuju halaman psikotes selanjutnya dalam 10 detik.</p>
+      <h1 class="display-6 text-center">Terimakasih telah melakukan TypingTest!</h1>
+      <p class="lead text-center">Jika Anda lolos, Anda akan dihubungi oleh kami kembali untuk proses selanjutnya.
+      </p>
+      <br>
+      <p class="text-center">Anda akan diarahkan menuju halaman utama kami dalam 10 detik.</p>
     </div>
   </div>
 
@@ -70,30 +86,39 @@
         <br>
         <div class="card text-center">
           <div class="card-body">
-            <!-- Tampilkan Timer -->
-            <h3 class="text-center display-1 text-info"><strong>
-                <span id="spnSeconds" data-time="899000">15:00</span>
-              </strong></h3>
-            <hr>
-            <p class="lead text-danger"><strong>Perhatian! Setelah waktu habis, jawaban psikotes langsung tersubmit.</strong></p>
+            <div class="row">
+              <div class="col">
+                <p>Waktu</p>
+                <h4 class="text-center">
+                  <span id="spnSeconds" data-time="300000" class="text-info">10:00</span>
+                </h4>
+              </div>
+              <div class="vl"></div>
+              <div class="col">
+                <p>Jumlah/Total Karakter</p>
+                <h4><span id="characters" name="characters">0</span>/<span id="characters2" class="text-success"></span>
+                </h4>
+              </div>
+            </div>
           </div>
         </div>
         <br>
-        <form id="mbtiForm">
+        <form id="typingtestForm">
           <div id="smartwizard" class="swMain">
             <ul>
               <li><a href="#step-1" style="display: none;">Exam Test<br /><small></small></a></li>
               <?php 
                 $i=1;
                 $q=2;
-                foreach($soal_ujian as $su){ 
+                foreach($typingtest as $su){ 
                 ?>
               <li><a href="#step-<?=$q?>" style="display: none;"><?=$i?><br /><small></small></a></li>
               <?php $i++; $q++;} ?>
             </ul>
             <div>
               <div id="step-1">
-                <p class="lead">Silahkan masukkan Nama, Nomor HP, dan ID Peserta anda pada kolom dibawah ini sebelum
+                <p class="lead">Silahkan masukkan Nama, Nomor HP, dan ID Peserta anda pada kolom dibawah
+                  ini sebelum
                   memulai
                   psikotes.</p>
                 <div class="row">
@@ -106,6 +131,8 @@
                       data-validation="required" data-validation-error-msg="Mohon isi nomor HP anda" oninput="hello()">
                   </div>
                   <input type="hidden" name="jam_mulai" value="">
+                  <input type="hidden" name="symbolCount" id="symbolCount" value="">
+                  <input type="hidden" name="timerHitung" id="timerHitung" value="">
                 </div>
                 <br>
                 <div class="row">
@@ -118,20 +145,25 @@
               <?php 
                 $i=1;
                 $q=2;
-                foreach($soal_ujian as $su){ 
+                foreach($typingtest as $su){ 
               ?>
-              <?php $soal = array($su->soal_1,$su->soal_2); ?>
-              <div id="step-<?=$q?>" class="text-center">
-                <p class="lead">Silahkah pilih salah satu yang sesuai dengan diri anda</p>
-                <div class="btn-group-vertical btn-group-toggle btn-block" data-toggle="buttons">
-                  <label class="btn btn-outline-dark btn-lg" id="btngroupwiz">
-                    <input type="radio" name="jawaban<?=$i?>" value="1" autocomplete="off"
-                      data-validation="required"> <?=$soal[0]?>
-                  </label>
-                  <label class="btn btn-outline-dark btn-lg">
-                    <input type="radio" name="jawaban<?=$i?>" value="2" autocomplete="off"
-                      data-validation="required""> <?=$soal[1]?>
-                  </label>
+              <div id="step-<?=$q?>">
+                <div class="row">
+                  <div class="col">
+                    <p class="lead text-center">Ketik kembali teks dibawah ini</hp>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <p class="text-justify" id="soal" onmousedown='return false;' onselectstart='return false;'
+                      ondragstart="return false" oncopy="return false" onpaste="return false"><?php echo $su->soal ?>
+                    </p>
+                    <hr>
+                    <div class="form-group">
+                      <textarea class="form-control" id="words" rows="6"></textarea>
+                    </div>
+                  </div>
                 </div>
               </div>
               <?php $i++; $q++;} ?>
@@ -148,6 +180,7 @@
   <script src="<?=base_url()?>/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
   <script src="<?=base_url()?>/assets/js/jquery.smartWizard.js"></script>
+  <script src="<?=base_url()?>/assets/js/jquery.highlight.js"></script>
 
   <!-- SmartWizard -->
   <script type="text/javascript">
@@ -160,7 +193,7 @@
       $('#smartwizard').smartWizard({
         selected: 0,  // Initial selected step, 0 = first step 
         cycleSteps: false,
-        keyNavigation: true,
+        keyNavigation: false,
         useURLhash: false,
         showStepURLhash: false,
         transitionEffect: 'fade',
@@ -186,8 +219,11 @@
       //fungsi showStep pada smartwizard
       $("#smartwizard").on("showStep", function (e, anchorObject, stepNumber, stepDirection) {
         if ($('button.sw-btn-next').hasClass('disabled')) {
-          $('.sw-btn-next').hide(); //sembunyikan tombol next
+          $('.sw-btn-group').hide(); //sembunyikan tombol next
           $('.sw-btn-group-extra').show(); //tampilkan tombol selesai
+          $('#words').bind("cut copy paste", function (e) {
+            e.preventDefault();
+          });
         } else {
           $('.sw-btn-group-extra').hide();
           $('.sw-btn-group-next').show();
@@ -195,11 +231,17 @@
       });
 
       //Jika user pada step 0 / soal pertama maka timer akan dimulai
-      $("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
-         if(stepNumber == "0") { 
+      $("#smartwizard").on("leaveStep", function (e, anchorObject, stepNumber, stepDirection) {
+        if (stepNumber == "0") {
+          $('#words').focus();
           intervalsx();
           JamStart();
-          };
+          var start = new Date;
+
+          stopTimer = setInterval(function () {
+            $('#timerHitung').val((Math.round((new Date - start) / 1000, 0)));
+          }, 1000);
+        };
       });
     });
   </script>
@@ -217,7 +259,6 @@
         iTimeRemaining = ~~iTimeRemaining;
         if (iTimeRemaining == 0) {
           $("#spnSeconds").data('time', iTimeRemaining + 10000000000);
-          $('#spnSeconds').css("display", "none");
           $('#submit').trigger('click');
         } else {
           var mins = ~~(iTimeRemaining / 60000);
@@ -235,15 +276,39 @@
       $('.sw-btn-next').click(function () {
         $(this).prop("disabled", true);
       });
-      $('.btn-group-vertical').click(function (event) {
+      $('.custom-radio').click(function (event) {
         $('.sw-btn-next').prop("disabled", false);
       });
+
+      $('textarea').keyup(updateCount);
+      $('textarea').keydown(updateCount);
+
+      function updateCount() {
+
+        var cs = $(this).val().length;
+        var aa = $(this).val();
+
+        $('#characters').text(cs);
+
+        if (!$(this).val().match(/[$-/:-?{-~!"^_`\[\]]/g)) {
+          $('#symbolCount').val('0');
+        } else {
+          var regsym = $(this).val().match(/[$-/:-?{-~@#()!"^_`\[\]]/g).length;
+          $('#symbolCount').val(regsym);
+        }
+
+      }
+
+      var text = document.querySelector('#soal').innerText;
+      var textlengthx = text.trim().length;
+
+      $('#characters2').text(textlengthx);
     });
   </script>
 
   <script>
     function hello() {
-      var textBox =  $.trim( $('input[type=text]').val() )
+      var textBox = $.trim($('input[type=text]').val())
       if (textBox == "") {
         $('.sw-btn-next').prop("disabled", true)
       } else {
@@ -251,7 +316,7 @@
       }
     }
 
-    function JamStart(){
+    function JamStart() {
       localStorage.removeItem("fulldate");
       var d = new Date($.now());
       var fulldate = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
@@ -261,41 +326,41 @@
   </script>
 
   <script>
-    $(function() {
-      $(".preload").fadeOut(2000, function() {
-          $("#konten").fadeIn(1000);        
+    $(function () {
+      $(".preload").fadeOut(2000, function () {
+        $("#konten").fadeIn(1000);
       });
     });
   </script>
 
-<script>
-  $(document).ready(function() {
-    $('#submit').click(function(){
+  <script>
+    $(document).ready(function () {
+      $('#submit').click(function () {
 
-      $('.sw-btn-group-extra').hide();
-      $.ajax({
-        url : "<?php echo base_url('Ujian/jawab_mbti')?>",
-        type : "POST",
-        data: $("#mbtiForm").serialize(),
-          //jika sukses maka tampilkan div hasil dan arahkan ke halaman utama
-          success: function(data){
-            $(function() {
-              $("#konten").fadeOut(1000, function() {
-                  $(".hasil").fadeIn(500);        
+        $('.sw-btn-group-extra').hide();
+        $.ajax({
+          url: "<?php echo base_url('Ujian/jawab_typingtest')?>",
+          type: "POST",
+          data: $("#typingtestForm").serialize(),
+          success: function (data) {
+            $(function () {
+              clearInterval(stopTimer);
+              $("#konten").fadeOut(1000, function () {
+                $(".hasil").fadeIn(500);
               });
-              window.setTimeout(function() {
-                  window.location.href = '<?php echo base_url('Ujian/psikotes2') ?>';
+              window.setTimeout(function () {
+                window.location.href = '<?php echo base_url() ?>';
               }, 10000);
             });
           }
 
+        });
+
+        return false;
+
       });
-
-      return false;
-
-    }); 
-  });
-</script>
+    });
+  </script>
 
 </body>
 

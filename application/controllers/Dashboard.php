@@ -117,7 +117,7 @@ class Dashboard extends CI_Controller {
 			$provinsi=$this->input->post('provinsi');
 			$kota=$this->input->post('kota');
 			$job_interested=$this->input->post('job_interested');
-			$refid = 'PTR-' . mt_rand() . '-' . uniqid(5);
+			$refid = strtoupper('PTR' . mt_rand() . uniqid(5));
 			$input_date = date('Y-m-d H:i:s');
 
 			//konfigurasi upload file untuk CV
@@ -131,7 +131,7 @@ class Dashboard extends CI_Controller {
 			//cek apakah file berhasil di upload
 			if ( ! $this->upload->do_upload('cv_file')){
 				$error = array('error' => $this->upload->display_errors());
-				//print_r($error);die;
+
 				echo $this->session->set_flashdata('message','<div role="alert" class="alert alert-danger alert-dismissible"><button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Kesalahan! Mohon masukkan CV anda.</div>');
 				redirect(base_url('registrasi'));
 				//$this->load->view('recaptcha');
