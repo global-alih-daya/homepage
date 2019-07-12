@@ -2,11 +2,12 @@
 
 class Ujian extends CI_Controller
 {
+
     function __construct()
     {
         parent::__construct();
         $this->load->model('M_Ujian');
-    }
+	}
 
 	//Psikotes Bagian 1 (MBTI)
     public function mbti()
@@ -121,5 +122,20 @@ class Ujian extends CI_Controller
 
 		$save = $this->M_Ujian->save('hasil_typingtest', $data);
 
+	}
+
+	function get_refid_exist() {
+		if (isset($_POST['refid'])) {
+			$refid = $_POST['refid'];
+			//print_r($refid);die;
+			$results = $this->M_Ujian->get_refid($refid);
+			if ($results === TRUE) {
+				echo '<div class="alert alert-danger" role="alert">ID Peserta tidak ditemukan</div>';
+			} else {
+				echo '<div class="alert alert-success" role="alert"><strong>ID Peserta ditemukan!</strong> Silahkan klik tombol selanjutnya.</div>';
+			}
+		} else {
+			echo '<div class="alert alert-danger" role="alert">ID Peserta wajib diisi.</div>';
+		}
 	}
 }

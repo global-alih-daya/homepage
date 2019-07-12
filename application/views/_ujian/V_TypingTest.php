@@ -59,10 +59,6 @@
       border-left: 2px solid rgb(179, 176, 176);
       height: auto;
     }
-
-    .highlight {
-      background-color: #FFFF88;
-    }
   </style>
 </head>
 
@@ -123,18 +119,15 @@
             </ul>
             <div>
               <div id="step-1">
-                <p class="lead">Silahkan masukkan Nama, Nomor HP, dan ID Peserta anda pada kolom dibawah
-                  ini sebelum
-                  memulai
-                  psikotes.</p>
+                <p class="lead">Silahkan masukkan Nama, Nomor HP :</p>
                 <div class="row">
                   <div class="col">
                     <input type="text" class="form-control" placeholder="Nama Lengkap" id="nama" name="nama"
-                      data-validation="required" data-validation-error-msg="Mohon isi nama anda" oninput="hello()">
+                      data-validation="required" data-validation-error-msg="Mohon isi nama anda">
                   </div>
                   <div class="col">
                     <input type="text" class="form-control" placeholder="No HP" id="no_hp" name="no_hp"
-                      data-validation="required" data-validation-error-msg="Mohon isi nomor HP anda" oninput="hello()">
+                      data-validation="required" data-validation-error-msg="Mohon isi nomor HP anda">
                   </div>
                   <input type="hidden" name="jam_mulai" value="">
                   <input type="hidden" name="symbolCount" id="symbolCount" value="">
@@ -144,8 +137,11 @@
                 <br>
                 <div class="row">
                   <div class="col">
+                    <label for="refid" class="lead">Silahkan isi ID Peserta yang anda dapatkan dari email :</label>
                     <input type="text" class="form-control" placeholder="ID Peserta" id="refid" name="refid"
-                      data-validation="required" data-validation-error-msg="Mohon ID Peserta anda" oninput="hello()">
+                      data-validation="required" data-validation-error-msg="Mohon ID Peserta anda">
+                    <br>
+                    <div id="msg"></div>
                   </div>
                 </div>
               </div>
@@ -187,7 +183,6 @@
   <script src="<?=base_url()?>/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
   <script src="<?=base_url()?>/assets/js/jquery.smartWizard.js"></script>
-  <script src="<?=base_url()?>/assets/js/jquery.highlight.js"></script>
 
   <!-- SmartWizard -->
   <script type="text/javascript">
@@ -293,9 +288,6 @@
       $('.sw-btn-next').click(function () {
         $(this).prop("disabled", true);
       });
-      $('.custom-radio').click(function (event) {
-        $('.sw-btn-next').prop("disabled", false);
-      });
 
       $('textarea').keyup(updateCount);
       $('textarea').keydown(updateCount);
@@ -379,6 +371,46 @@
         return false;
 
       });
+    });
+  </script>
+
+  <script>
+    $(document).ready(function () {
+      $("#refid").on("input propertychange paste", function (e) {
+        if ($('#refid').val() == null || $('#refid').val() == "") {
+          $('#msg').show();
+        } else {
+          $.ajax({
+            type: "POST",
+            url: "<?php echo base_url('Ujian/get_refid_exist') ?>",
+            data: $("#typingtestForm").serialize(),
+            dataType: "html",
+            cache: false,
+            success: function (msg) {
+              $('#msg').show();
+              $("#msg").html(msg);
+              if ($('#msg').text() == "ID Peserta ditemukan! Silahkan klik tombol selanjutnya.") {
+                $('.sw-btn-next').prop("disabled", false);
+              } else {
+                $('.sw-btn-next').prop("disabled", true);
+              }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+              $('#msg').show();
+              $("#msg").html("<div class=\"alert alert-secondary\" role=\"alert\">" + textStatus + " " + errorThrown + "<\div>");
+            }
+          });
+        }
+      });
+    });
+  </script>
+
+  <script>
+    $(document).keydown(function (e) {
+      if (e.which === 123) {
+
+        return false;
+      }
     });
   </script>
 

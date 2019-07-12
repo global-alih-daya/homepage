@@ -57,7 +57,7 @@
   </style>
 </head>
 
-<body style="height: 100%;">
+<body style="height: 100%;" oncontextmenu="return false">
   <div class="preload"><img src="<?php echo base_url('assets/img/Spinner-1s-200px.gif')?>"></div>
 
   <div class="hasil">
@@ -317,6 +317,17 @@
         return false;
 
       });
+    });
+  </script>
+
+  <script>
+    $(document).keydown(function (e) {
+      if (e.which === 123) {
+
+        return false;
+
+      }
+
     });
   </script>
 
