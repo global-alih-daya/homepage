@@ -90,14 +90,20 @@
               <div class="col">
                 <p>Waktu</p>
                 <h4 class="text-center">
-                  <span id="spnSeconds" data-time="300000" class="text-info">10:00</span>
+                  <span id="spnSeconds" data-time="60000" class="text-info">1:00</span>
                 </h4>
               </div>
               <div class="vl"></div>
               <div class="col">
-                <p>Jumlah/Total Karakter</p>
-                <h4><span id="characters" name="characters">0</span>/<span id="characters2" class="text-success"></span>
+                <p>Jumlah / Total Karakter</p>
+                <h4><span id="characters" name="characters">0</span> / <span id="characters2"
+                    class="text-success"></span>
                 </h4>
+              </div>
+              <div class="vl"></div>
+              <div class="col">
+                <p>WPM</p>
+                <h4><span id="wpmshow" name="wpmshow">00.00</span>
               </div>
             </div>
           </div>
@@ -133,6 +139,7 @@
                   <input type="hidden" name="jam_mulai" value="">
                   <input type="hidden" name="symbolCount" id="symbolCount" value="">
                   <input type="hidden" name="timerHitung" id="timerHitung" value="">
+                  <input type="hidden" name="jumlah_karakter" id="jumlah_karakter" value="">
                 </div>
                 <br>
                 <div class="row">
@@ -264,6 +271,16 @@
           var mins = ~~(iTimeRemaining / 60000);
           $("#spnSeconds").html(mins + ":" + pad(~~(iTimeRemaining / 1000 % 60), 2));
           $("#spnSeconds").data('time', iTimeRemaining - 1000);
+
+          if (!$('#characters').text() == "") {
+            var cs = $('#characters').text();
+            var as = $('#timerHitung').val();
+
+            var bb = parseFloat(cs / 5 / (as / 60));
+            var ahs = bb.toFixed(2);
+          }
+
+          $('#wpmshow').text(ahs);
         }
       }, 1000);
     }
@@ -289,6 +306,8 @@
         var aa = $(this).val();
 
         $('#characters').text(cs);
+        $('#jumlah_karakter').val(cs);
+
 
         if (!$(this).val().match(/[$-/:-?{-~!"^_`\[\]]/g)) {
           $('#symbolCount').val('0');
@@ -345,6 +364,7 @@
           success: function (data) {
             $(function () {
               clearInterval(stopTimer);
+              $('#words').attr("disabled", "disabled");
               $("#konten").fadeOut(1000, function () {
                 $(".hasil").fadeIn(500);
               });

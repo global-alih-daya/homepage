@@ -8,7 +8,7 @@ class M_Ujian extends CI_Model {
 		return $this->db->get($table);
 	}
 
-	public function typingtest_random($table)
+	public function random_query($table)
 	{
 		$this->db->select('*');
 		$this->db->from($table);

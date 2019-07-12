@@ -85,7 +85,7 @@ class Ujian extends CI_Controller
 	//Typingtest
 	public function TypingTestView()
 	{
-		$data['typingtest'] = $this->M_Ujian->typingtest_random('soal_typingtest');
+		$data['typingtest'] = $this->M_Ujian->random_query('soal_typingtest');
 		$this->load->view('_ujian/V_TypingTest', $data);
 	}
 
@@ -94,31 +94,30 @@ class Ujian extends CI_Controller
 
 		date_default_timezone_set('Asia/Jakarta');
 
-		//Word Per Second Calc number chars / seconds
-		$calcWPS = $_POST['characters'] / $_POST['timerHitung'];
+		$th = $this->input->post('timerHitung');
+		$cr = $this->input->post('jumlah_karakter');
 
-		$nama = $_POST['nama'];
-		$no_hp = $_POST['no_hp'];
-		$refid = $_POST['refid'];
-		$jumlah_kata = $_POST['characters'];
-		$jumlah_symbol = $_POST['symbolCount'];
-		$match = $_POST['match'];
-		$WPS = $calcWPS;
-		$jam_mulai = $_POST['jam_mulai'];
+		//Word Per Minute : Num of Chars / 5 / Minutes
+		$calcWPM = $cr / 5 / ($th/60);
+
+		$nama = $this->input->post('nama');
+		$no_hp = $this->input->post('no_hp');
+		$refid = $this->input->post('refid');
+		$jumlah_symbol = $this->input->post('symbolCount');
+		$WPM = $calcWPM;
+		$jam_mulai = $this->input->post('jam_mulai');
 		$jam_selesai = date('Y-m-d H:i:s');
 
 		$data = array(
 			'nama' => $nama,
 			'no_hp' => $no_hp,
 			'refid' => $refid,
-			'jumlah_kata' => $jumlah_kata,
+			'jumlah_kata' => $cr,
 			'jumlah_symbol' => $jumlah_symbol,
-			'match' => $match,
+			'WPM' => $WPM,
 			'jam_mulai' => $jam_mulai,
 			'jam_selesai' => $jam_selesai
 		);
-
-		print_r($data);die;
 
 		$save = $this->M_Ujian->save('hasil_typingtest', $data);
 
