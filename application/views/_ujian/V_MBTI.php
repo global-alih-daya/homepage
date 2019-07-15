@@ -268,7 +268,7 @@
 
       $('.sw-btn-group-extra').hide();
       $.ajax({
-        url : "<?=base_url()?>Ujian/jawab_mbti",
+        url : "<?=base_url()?>Ujian/jawab_mbti".replace("http://", "https://"),
         type : "POST",
         data: $("#mbtiForm").serialize(),
           //jika sukses maka tampilkan div hasil dan arahkan ke halaman utama
@@ -278,7 +278,7 @@
                   $(".hasil").fadeIn(500);        
               });
               window.setTimeout(function() {
-                  window.location.href = '<?=base_url()?>psikotes2';
+                  window.location.href = '<?=base_url()?>psikotes2'.replace("http://", "https://");
               }, 10000);
             });
           }

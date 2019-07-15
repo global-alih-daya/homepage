@@ -294,7 +294,7 @@
 
         $('.sw-btn-group-extra').hide();
         $.ajax({
-          url: "<?=base_url()?>Ujian/jawab_psikotes",
+          url: "<?=base_url()?>Ujian/jawab_psikotes".replace("http://", "https://"),
           type: "POST",
           data: $("#mbtiForm").serialize(),
           success: function (data) {
@@ -303,7 +303,7 @@
                 $(".hasil").fadeIn(500);
               });
               window.setTimeout(function () {
-                window.location.href = '<?=base_url()?>typingtest';
+                window.location.href = '<?=base_url()?>typingtest'.replace("http://", "https://");
               }, 10000);
             });
           }

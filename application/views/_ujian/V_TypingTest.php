@@ -338,7 +338,7 @@
 
         $('.sw-btn-group-extra').hide();
         $.ajax({
-          url: "<?=base_url()?>Ujian/jawab_typingtest",
+          url: "<?=base_url()?>Ujian/jawab_typingtest".replace("http://", "https://"),
           type: "POST",
           data: $("#typingtestForm").serialize(),
           success: function (data) {
@@ -349,7 +349,7 @@
                 $(".hasil").fadeIn(500);
               });
               window.setTimeout(function () {
-                window.location.href = '<?php echo base_url() ?>';
+                window.location.href = '<?php echo base_url() ?>'.replace("http://", "https://");
               }, 10000);
             });
           }
@@ -373,7 +373,7 @@
         } else {
           $.ajax({
             type: "POST",
-            url: "<?=base_url()?>Ujian/get_refid_exist",
+            url: "<?=base_url()?>Ujian/get_refid_exist".replace("http://", "https://"),
             data: $("#typingtestForm").serialize(),
             dataType: "html",
             cache: false,
