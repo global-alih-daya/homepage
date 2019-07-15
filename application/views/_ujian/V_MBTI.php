@@ -302,7 +302,7 @@
       } else {
         $.ajax({
           type: "POST",
-          url: "<?=base_url()?>Ujian/get_refid_exist",
+          url: "<?=base_url('Ujian/get_refid_exist')?>".replace("http://", "https://"),
           data: $("#mbtiForm").serialize(),
           dataType: "html",
           cache: false,
