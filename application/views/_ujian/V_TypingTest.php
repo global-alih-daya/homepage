@@ -56,13 +56,13 @@
     }
 
     .vl {
-      border-left: 2px solid rgb(179, 176, 176);
+      border-left: 1px solid rgb(179, 176, 176);
       height: auto;
     }
   </style>
 </head>
 
-<body style="height: 100%;" oncontextmenu="return false">
+<body style="height: 100%;">
   <div class="preload"><img src="<?php echo base_url('assets/img/Spinner-1s-200px.gif')?>"></div>
 
   <div class="hasil">
@@ -139,7 +139,7 @@
                   <div class="col">
                     <label for="refid" class="lead">Silahkan isi ID Peserta yang anda dapatkan dari email :</label>
                     <input type="text" class="form-control" placeholder="ID Peserta" id="refid" name="refid"
-                      data-validation="required" data-validation-error-msg="Mohon ID Peserta anda">
+                      data-validation="required">
                     <br>
                     <div id="msg"></div>
                   </div>
@@ -223,9 +223,6 @@
         if ($('button.sw-btn-next').hasClass('disabled')) {
           $('.sw-btn-group').hide(); //sembunyikan tombol next
           $('.sw-btn-group-extra').show(); //tampilkan tombol selesai
-          $('#words').bind("cut copy paste", function (e) {
-            e.preventDefault();
-          });
         } else {
           $('.sw-btn-group-extra').hide();
           $('.sw-btn-group-next').show();
@@ -318,15 +315,6 @@
   </script>
 
   <script>
-    function hello() {
-      var textBox = $.trim($('input[type=text]').val())
-      if (textBox == "") {
-        $('.sw-btn-next').prop("disabled", true)
-      } else {
-        $('.sw-btn-next').prop("disabled", false)
-      }
-    }
-
     function JamStart() {
       localStorage.removeItem("fulldate");
       var d = new Date($.now());
@@ -350,7 +338,7 @@
 
         $('.sw-btn-group-extra').hide();
         $.ajax({
-          url: "https://www.gad.co.id/Ujian/jawab_typingtest",
+          url: "<?=base_url()?>Ujian/jawab_typingtest",
           type: "POST",
           data: $("#typingtestForm").serialize(),
           success: function (data) {
@@ -376,13 +364,16 @@
 
   <script>
     $(document).ready(function () {
-      $("#refid").on("input propertychange paste", function (e) {
-        if ($('#refid').val() == null || $('#refid').val() == "") {
+      $("#refid").on("input propertychange", function (e) {
+
+        if ($('#refid').val().length <= 20) {
           $('#msg').show();
+          $("#msg").html("<div class=\"alert alert-danger\" role=\"alert\">ID Peserta tidak ditemukan atau tidak terdaftar</div>");  
+          return false;
         } else {
           $.ajax({
             type: "POST",
-            url: "https://www.gad.co.id/Ujian/get_refid_exist",
+            url: "<?=base_url()?>Ujian/get_refid_exist",
             data: $("#typingtestForm").serialize(),
             dataType: "html",
             cache: false,
@@ -401,6 +392,7 @@
             }
           });
         }
+
       });
     });
   </script>
@@ -408,7 +400,6 @@
   <script>
     $(document).keydown(function (e) {
       if (e.which === 123) {
-
         return false;
       }
     });

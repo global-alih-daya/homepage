@@ -117,12 +117,13 @@ class Dashboard extends CI_Controller {
 			$provinsi=$this->input->post('provinsi');
 			$kota=$this->input->post('kota');
 			$job_interested=$this->input->post('job_interested');
-			$refid = strtoupper('PTR' . mt_rand() . uniqid(5));
+			$refid = strtoupper('GAD' . uniqid(2));
+			print_r($refid);die;
 			$input_date = date('Y-m-d H:i:s');
 
 			//konfigurasi upload file untuk CV
 			$config['upload_path']          = APPPATH. '../assets/uploads/userregistration/';
-			$config['allowed_types']        = 'pdf|jpg|docx';
+			$config['allowed_types']        = 'pdf|jpg|docx|jpeg';
 			$config['max_size']             = 0;
 
 			//load library upload
@@ -190,11 +191,6 @@ Berikut sebagian salinan data anda yang telah kami rekam :</p>
 <td style="width: 187px; height: 22px;">Pekerjaan dipilih</td>
 <td style="width: 10px; height: 22px;">:</td>
 <td style="width: 741.2px; height: 22px;">' . $job_interested . '</td>
-</tr>
-<tr style="height: 22px;">
-<td style="width: 187px; height: 22px;">ID Peserta</td>
-<td style="width: 10px; height: 22px;">:</td>
-<td style="width: 741.2px; height: 22px;">' . $refid . '</td>
 </tr>
 <tr style="height: 22px;">
 <td style="width: 187px; height: 22px;">Tanggal/Jam Mendaftar</td>
@@ -324,11 +320,6 @@ Berikut sebagian salinan data anda yang telah kami rekam :</p>
 <td style="width: 187px; height: 22px;">Alamat Perusahaan</td>
 <td style="width: 10px; height: 22px;">:</td>
 <td style="width: 741.2px; height: 22px;">' . $company_address . '</td>
-</tr>
-<tr style="height: 22px;">
-<td style="width: 187px; height: 22px;">ID Pendaftaran</td>
-<td style="width: 10px; height: 22px;">:</td>
-<td style="width: 741.2px; height: 22px;">' . $refid . '</td>
 </tr>
 <tr style="height: 22px;">
 <td style="width: 187px; height: 22px;">Tanggal/Jam Mendaftar</td>

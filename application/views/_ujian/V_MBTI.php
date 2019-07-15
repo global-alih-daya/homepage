@@ -58,7 +58,7 @@
 
   <div class="hasil">
     <div class="col-lg-12">
-      <h1 class="display-6 text-center">Terimakasih telah melakukan psikotes!</h1>
+      <h1 class="display-6 text-center">Terimakasih telah melakukan tes MBTI!</h1>
       <p class="lead text-center">Anda akan diarahkan menuju halaman psikotes selanjutnya dalam 10 detik.</p>
     </div>
   </div>
@@ -72,7 +72,7 @@
           <div class="card-body">
             <!-- Tampilkan Timer -->
             <h3 class="text-center display-1 text-info"><strong>
-                <span id="spnSeconds" data-time="899000">15:00</span>
+                <span id="spnSeconds" data-time="420000">7:00</span>
               </strong></h3>
             <hr>
             <p class="lead text-danger"><strong>Perhatian! Setelah waktu habis, jawaban psikotes langsung tersubmit.</strong></p>
@@ -99,11 +99,11 @@
                 <div class="row">
                   <div class="col">
                     <input type="text" class="form-control" placeholder="Nama Lengkap" id="nama" name="nama"
-                      data-validation="required" data-validation-error-msg="Mohon isi nama anda" oninput="hello()">
+                      data-validation="required" data-validation-error-msg="Mohon isi nama anda">
                   </div>
                   <div class="col">
                     <input type="text" class="form-control" placeholder="No HP" id="no_hp" name="no_hp"
-                      data-validation="required" data-validation-error-msg="Mohon isi nomor HP anda" oninput="hello()">
+                      data-validation="required" data-validation-error-msg="Mohon isi nomor HP anda">
                   </div>
                   <input type="hidden" name="jam_mulai" value="">
                 </div>
@@ -111,7 +111,9 @@
                 <div class="row">
                   <div class="col">
                     <input type="text" class="form-control" placeholder="ID Peserta" id="refid" name="refid"
-                      data-validation="required" data-validation-error-msg="Mohon ID Peserta anda" oninput="hello()">
+                      data-validation="required" data-validation-error-msg="Mohon ID Peserta anda">
+                      <br>
+                      <div id="msg"></div>
                   </div>
                 </div>
               </div>
@@ -242,14 +244,6 @@
   </script>
 
   <script>
-    function hello() {
-      var textBox =  $.trim( $('input[type=text]').val() )
-      if (textBox == "") {
-        $('.sw-btn-next').prop("disabled", true)
-      } else {
-        $('.sw-btn-next').prop("disabled", false)
-      }
-    }
 
     function JamStart(){
       localStorage.removeItem("fulldate");
@@ -274,7 +268,7 @@
 
       $('.sw-btn-group-extra').hide();
       $.ajax({
-        url : "<?php echo base_url('Ujian/jawab_mbti')?>",
+        url : "<?=base_url()?>Ujian/jawab_mbti",
         type : "POST",
         data: $("#mbtiForm").serialize(),
           //jika sukses maka tampilkan div hasil dan arahkan ke halaman utama
@@ -284,7 +278,7 @@
                   $(".hasil").fadeIn(500);        
               });
               window.setTimeout(function() {
-                  window.location.href = '<?php echo base_url('Ujian/psikotes2') ?>';
+                  window.location.href = '<?=base_url()?>psikotes2';
               }, 10000);
             });
           }
@@ -294,6 +288,41 @@
       return false;
 
     }); 
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+    $("#refid").on("input propertychange", function (e) {
+
+      if ($('#refid').val().length <= 20) {
+        $('#msg').show();
+        $("#msg").html("<div class=\"alert alert-danger\" role=\"alert\">ID Peserta salah atau tidak terdaftar</div>");
+        return false;
+      } else {
+        $.ajax({
+          type: "POST",
+          url: "<?=base_url()?>Ujian/get_refid_exist",
+          data: $("#mbtiForm").serialize(),
+          dataType: "html",
+          cache: false,
+          success: function (msg) {
+            $('#msg').show();
+            $("#msg").html(msg);
+            if ($('#msg').text() == "ID Peserta ditemukan! Silahkan klik tombol selanjutnya.") {
+              $('.sw-btn-next').prop("disabled", false);
+            } else {
+              $('.sw-btn-next').prop("disabled", true);
+            }
+          },
+          error: function (jqXHR, textStatus, errorThrown) {
+            $('#msg').show();
+            $("#msg").html("<div class=\"alert alert-secondary\" role=\"alert\">" + textStatus + " " + errorThrown + "<\div>");
+          }
+        });
+      }
+
+    });
   });
 </script>
 

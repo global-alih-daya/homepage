@@ -63,9 +63,8 @@
   <div class="hasil">
     <div class="col-lg-12">
       <h1 class="display-6 text-center">Terimakasih telah melakukan psikotes!</h1>
-      <p class="lead text-center">Jika Anda lolos, Anda akan dihubungi oleh kami kembali untuk proses selanjutnya.</p>
       <br>
-      <p class="text-center">Anda akan diarahkan menuju halaman utama kami dalam 10 detik.</p>
+      <p class="text-center">Anda akan diarahkan menuju halaman Typingtest dalam 10 detik.</p>
     </div>
   </div>
 
@@ -78,7 +77,7 @@
           <div class="card-body">
             <!-- Tampilkan Timer -->
             <h3 class="text-center display-1 text-info"><strong>
-                <span id="spnSeconds" data-time="600000">10:00</span>
+                <span id="spnSeconds" data-time="420000">7:00</span>
               </strong></h3>
             <hr>
             <p class="lead text-danger"><strong>Perhatian! Setelah waktu habis, jawaban psikotes langsung
@@ -106,11 +105,11 @@
                 <div class="row">
                   <div class="col">
                     <input type="text" class="form-control" placeholder="Nama Lengkap" id="nama" name="nama"
-                      data-validation="required" data-validation-error-msg="Mohon isi nama anda" oninput="hello()">
+                      data-validation="required" data-validation-error-msg="Mohon isi nama anda">
                   </div>
                   <div class="col">
                     <input type="text" class="form-control" placeholder="No HP" id="no_hp" name="no_hp"
-                      data-validation="required" data-validation-error-msg="Mohon isi nomor HP anda" oninput="hello()">
+                      data-validation="required" data-validation-error-msg="Mohon isi nomor HP anda">
                   </div>
                   <input type="hidden" name="jam_mulai" value="">
                 </div>
@@ -118,7 +117,9 @@
                 <div class="row">
                   <div class="col">
                     <input type="text" class="form-control" placeholder="ID Peserta" id="refid" name="refid"
-                      data-validation="required" data-validation-error-msg="Mohon ID Peserta anda" oninput="hello()">
+                      data-validation="required">
+                    <br>
+                    <div id="msg"></div>
                   </div>
                 </div>
               </div>
@@ -133,28 +134,32 @@
                 <hr>
                 <div class="form-group">
                   <div class="custom-control custom-radio">
-                    <input type="radio" id="jawaban<?=$i?>" name="jawaban<?=$i?>" class="custom-control-input" value="A">
+                    <input type="radio" id="jawaban<?=$i?>" name="jawaban<?=$i?>" class="custom-control-input"
+                      value="A">
                     <label class="custom-control-label" for="jawaban<?=$i?>"><?=$jwb[0]?></label>
                   </div>
                 </div>
                 <hr>
                 <div class="form-group">
                   <div class="custom-control custom-radio">
-                    <input type="radio" id="jawaban<?=$i?>1" name="jawaban<?=$i?>" class="custom-control-input" value="B">
+                    <input type="radio" id="jawaban<?=$i?>1" name="jawaban<?=$i?>" class="custom-control-input"
+                      value="B">
                     <label class="custom-control-label" for="jawaban<?=$i?>1"><?=$jwb[1]?></label>
                   </div>
                 </div>
                 <hr>
                 <div class="form-group">
                   <div class="custom-control custom-radio">
-                    <input type="radio" id="jawaban<?=$i?>2" name="jawaban<?=$i?>" class="custom-control-input" value="C">
+                    <input type="radio" id="jawaban<?=$i?>2" name="jawaban<?=$i?>" class="custom-control-input"
+                      value="C">
                     <label class="custom-control-label" for="jawaban<?=$i?>2"><?=$jwb[2]?></label>
                   </div>
                 </div>
                 <hr>
                 <div class="form-group">
                   <div class="custom-control custom-radio">
-                    <input type="radio" id="jawaban<?=$i?>3" name="jawaban<?=$i?>" class="custom-control-input" value="D"> 
+                    <input type="radio" id="jawaban<?=$i?>3" name="jawaban<?=$i?>" class="custom-control-input"
+                      value="D">
                     <label class="custom-control-label" for="jawaban<?=$i?>3"><?=$jwb[3]?></label>
                   </div>
                 </div>
@@ -266,15 +271,6 @@
   </script>
 
   <script>
-    function hello() {
-      var textBox = $.trim($('input[type=text]').val())
-      if (textBox == "") {
-        $('.sw-btn-next').prop("disabled", true)
-      } else {
-        $('.sw-btn-next').prop("disabled", false)
-      }
-    }
-
     function JamStart() {
       localStorage.removeItem("fulldate");
       var d = new Date($.now());
@@ -298,7 +294,7 @@
 
         $('.sw-btn-group-extra').hide();
         $.ajax({
-          url: "<?php echo base_url('Ujian/jawab_psikotes')?>",
+          url: "<?=base_url()?>Ujian/jawab_psikotes",
           type: "POST",
           data: $("#mbtiForm").serialize(),
           success: function (data) {
@@ -307,7 +303,7 @@
                 $(".hasil").fadeIn(500);
               });
               window.setTimeout(function () {
-                window.location.href = '<?php echo base_url() ?>';
+                window.location.href = '<?=base_url()?>typingtest';
               }, 10000);
             });
           }
@@ -315,6 +311,41 @@
         });
 
         return false;
+
+      });
+    });
+  </script>
+
+  <script>
+    $(document).ready(function () {
+      $("#refid").on("input propertychange", function (e) {
+
+        if ($('#refid').val().length <= 20) {
+          $('#msg').show();
+          $("#msg").html("<div class=\"alert alert-danger\" role=\"alert\">ID Peserta salah atau tidak terdaftar</div>");
+          return false;
+        } else {
+          $.ajax({
+            type: "POST",
+            url: "<?=base_url()?>Ujian/get_refid_exist",
+            data: $("#mbtiForm").serialize(),
+            dataType: "html",
+            cache: false,
+            success: function (msg) {
+              $('#msg').show();
+              $("#msg").html(msg);
+              if ($('#msg').text() == "ID Peserta ditemukan! Silahkan klik tombol selanjutnya.") {
+                $('.sw-btn-next').prop("disabled", false);
+              } else {
+                $('.sw-btn-next').prop("disabled", true);
+              }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+              $('#msg').show();
+              $("#msg").html("<div class=\"alert alert-secondary\" role=\"alert\">" + textStatus + " " + errorThrown + "<\div>");
+            }
+          });
+        }
 
       });
     });

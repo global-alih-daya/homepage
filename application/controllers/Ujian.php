@@ -130,7 +130,7 @@ class Ujian extends CI_Controller
 			//print_r($refid);die;
 			$results = $this->M_Ujian->get_refid($refid);
 			if ($results === TRUE) {
-				echo '<div class="alert alert-danger" role="alert">ID Peserta tidak ditemukan</div>';
+				echo '<div class="alert alert-danger" role="alert">ID Peserta salah atau tidak terdaftar</div>';
 			} else {
 				echo '<div class="alert alert-success" role="alert"><strong>ID Peserta ditemukan!</strong> Silahkan klik tombol selanjutnya.</div>';
 			}
