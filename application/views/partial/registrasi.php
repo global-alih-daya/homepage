@@ -18,32 +18,32 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="firstname">Nama Awal</label>
-                <input id="firstname" name="firstname" type="text" class="form-control">
+                <input id="firstname" name="firstname" type="text" class="form-control" required>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label for="lastname">Nama Akhir</label>
-                <input id="lastname" name="lastname" type="text" class="form-control">
+                <input id="lastname" name="lastname" type="text" class="form-control" required>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label for="email">Email</label>
-                <input id="email" name="email" type="text" class="form-control">
+                <input id="email" name="email" type="text" class="form-control" required>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label for="no_hp">Nomor HP / Whatsapp</label>
-                <input id="no_hp" name="no_hp" type="text" class="form-control">
+                <input id="no_hp" name="no_hp" type="text" class="form-control" required>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label for="datepicker">Tanggal Lahir</label>
                 <div class="input-group date" data-provide="datepicker">
-                    <input type="text" class="form-control" name="tanggal_lahir" id="tanggal_lahir">
+                    <input type="text" class="form-control" name="tanggal_lahir" id="tanggal_lahir" required>
                     <div class="input-group-addon">
                       <i class="far fa-calendar-alt"></i>
                     </div>
@@ -53,10 +53,10 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="pengalaman">Pengalaman Bekerja</label>
-                  <select name="pengalaman" id="pengalaman" class="custom-select">
+                  <select name="pengalaman" id="pengalaman" class="custom-select" required>
                     <option selected>Silahkan pilih pekerjaan</option>
                     <?php foreach ($pengalaman as $lp) { ?>
-                    <option value="<?php echo $lp->id?>"><?php echo $lp->pengalaman?></option>
+                    <option value="<?php echo $lp->pengalaman?>"><?php echo $lp->pengalaman?></option>
                     <?php } ?>
                   </select>
               </div>
@@ -64,7 +64,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label for="address">Alamat</label>
-                <textarea id="address" name="address" class="form-control"></textarea>
+                <textarea id="address" name="address" class="form-control" required></textarea>
               </div>
             </div>
             <div class="col-md-6">
@@ -93,7 +93,7 @@
                 <select id="job_interested" name="job_interested" class="custom-select">
                 <option>Silahkan pilih pekerjaan</option>
                   <?php foreach ($list_minat as $lp) { ?>
-                    <option value="<?php echo $lp->id?>"><?php echo $lp->pekerjaan?></option>
+                    <option value="<?php echo $lp->deskripsi?>"><?php echo $lp->pekerjaan?></option>
                   <?php } ?>
                 </select>
               </div>

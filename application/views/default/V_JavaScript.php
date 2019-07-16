@@ -16,6 +16,7 @@
 <script type="text/javascript" src="<?=base_url()?>/assets/js/jquery.smartWizard.js"></script>
 <script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
 <script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.id.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
 
 <script>
   AOS.init();
@@ -24,6 +25,7 @@
 <script>
 $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di load)
 
+  $("#myForm").validate();
   $.fn.datepicker.defaults.format = "yyyy/mm/dd";
 
   $("#daftarregis").prop( "disabled", true );

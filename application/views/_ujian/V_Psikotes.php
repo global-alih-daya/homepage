@@ -320,7 +320,7 @@
     $(document).ready(function () {
       $("#refid").on("input propertychange", function (e) {
 
-        if ($('#refid').val().length <= 20) {
+        if ($('#refid').val().length <= 10) {
           $('#msg').show();
           $("#msg").html("<div class=\"alert alert-danger\" role=\"alert\">ID Peserta salah atau tidak terdaftar</div>");
           return false;
