@@ -39,6 +39,28 @@
                 <input id="no_hp" name="no_hp" type="text" class="form-control">
               </div>
             </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="datepicker">Tanggal Lahir</label>
+                <div class="input-group date" data-provide="datepicker">
+                    <input type="text" class="form-control" name="tanggal_lahir" id="tanggal_lahir">
+                    <div class="input-group-addon">
+                      <i class="far fa-calendar-alt"></i>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="pengalaman">Pengalaman Bekerja</label>
+                  <select name="pengalaman" id="pengalaman" class="custom-select">
+                    <option selected>Silahkan pilih pekerjaan</option>
+                    <?php foreach ($pengalaman as $lp) { ?>
+                    <option value="<?php echo $lp->id?>"><?php echo $lp->pengalaman?></option>
+                    <?php } ?>
+                  </select>
+              </div>
+            </div>
             <div class="col-md-12">
               <div class="form-group">
                 <label for="address">Alamat</label>
@@ -67,11 +89,12 @@
             </div>
             <div class="col-md-12">
               <div class="form-group">
-                <label for="job_interested">Pekerjaan yang diinginkan</label>
+                <label for="job_interested">Minat yang diinginkan</label>
                 <select id="job_interested" name="job_interested" class="custom-select">
                 <option>Silahkan pilih pekerjaan</option>
-                  <option value="Inbound">Inbound Contact Center (Customer Service)</option>
-                  <option value="Outbound">Outbound Contact Center (Telesales)</option>
+                  <?php foreach ($list_minat as $lp) { ?>
+                    <option value="<?php echo $lp->id?>"><?php echo $lp->pekerjaan?></option>
+                  <?php } ?>
                 </select>
               </div>
             </div>

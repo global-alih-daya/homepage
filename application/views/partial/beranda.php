@@ -60,7 +60,7 @@
     <div class="heading text-center">
       <h2>tentang kami</h2>
     </div>
-    <p class="lead text-center">PT. Global Alih Daya is subsidiary PT. Intelix Global Crossing, is local Software Development Company, since 2001, Jakarta (HO), Bandung, Surabaya offices. ISO 9001:2015 - Service Quality</p>
+    <p class="lead text-center">PT. Global Alih Daya is subsidiary from one bigger local Software Development Company, since 2001, Jakarta (HO), Bandung, Surabaya offices. ISO 9001:2015 - Service Quality</p>
     <div class="row">
       <div class="col-lg-6">
         <!-- Vision Text -->

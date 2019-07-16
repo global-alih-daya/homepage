@@ -8,4 +8,10 @@ class M_Registrasi extends CI_Model {
         $this->db->insert($table,$data);
     }
 
+    public function tampil_data($table)
+	{
+		return $this->db->get($table);
+	}
+    
+
 }

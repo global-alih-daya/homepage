@@ -26,7 +26,7 @@ class Dashboard extends CI_Controller {
 	public function index() {
 		$data = generate_page('Dashboard', 'beranda');//Dahsboard akan menjadi title dalam design,dashbooard akan menjadi uri, nama pegawai berpengaruh untuk huruf besar dan kecil
 		//print_r($data);die;
-		$data_content['h_project1'] = $this->m_dashboard->practices_area();
+		$data_content['h_project1'] = "test";
 		$data['content'] = $this->load->view('partial/beranda',$data_content,true);//akan di lempar ke conten
 		//print_r($data['content']);die;
 		$this->load->view('V_Dashboard', $data);
@@ -36,9 +36,12 @@ class Dashboard extends CI_Controller {
 		$data = generate_page('Registrasi', 'registrasi');
 		//print_r($data); die;
 		$data_content['provinces'] = $this->M_Provinces->view();
+		$data_content['list_minat'] = $this->M_Registrasi->tampil_data('list_pekerjaan')->result();
+		$data_content['pengalaman'] = $this->M_Registrasi->tampil_data('registrasi_pengalamankerja')->result();
+		//print_r($data_content);die;
 		$data_content['recaptcha_html'] = $this->recaptcha->render();
 		$data['content'] = $this->load->view('partial/registrasi',$data_content, true);
-		//print_r($data['content']);die;
+		//print_r($data['data_content']);die;
 		$this->load->view('V_Dashboard', $data);
 	}
 
@@ -83,6 +86,8 @@ class Dashboard extends CI_Controller {
 		$this->form_validation->set_rules('lastname', 'lastname', 'alpha|xss_clean');
 		$this->form_validation->set_rules('email', 'email', 'required|valid_email|trim|xss_clean');
 		$this->form_validation->set_rules('no_hp', 'no_hp', 'required|max_length[13]|min_length[9]|xss_clean');
+		$this->form_validation->set_rules('tanggal_lahir', 'tanggal_lahir', 'required|xss_clean');
+		$this->form_validation->set_rules('pengalaman', 'pengalaman', 'required');
 		$this->form_validation->set_rules('address', 'address', 'required|xss_clean');
 		$this->form_validation->set_rules('provinsi', 'provinsi', 'required|xss_clean');
 		$this->form_validation->set_rules('kota', 'kota', 'required|xss_clean');
@@ -113,12 +118,14 @@ class Dashboard extends CI_Controller {
 			$lastname=$this->input->post('lastname');
 			$email=$this->input->post('email');
 			$no_hp=$this->input->post('no_hp');
+			$tanggal_lahir=$this->input->post('tanggal_lahir');
+			$pengalaman=$this->input->post('pengalaman');
 			$address=$this->input->post('address');
 			$provinsi=$this->input->post('provinsi');
 			$kota=$this->input->post('kota');
 			$job_interested=$this->input->post('job_interested');
 			$refid = strtoupper('GAD' . uniqid(2));
-			print_r($refid);die;
+			//print_r($pengalaman . " " . $tanggal_lahir);die;
 			$input_date = date('Y-m-d H:i:s');
 
 			//konfigurasi upload file untuk CV
@@ -143,6 +150,8 @@ class Dashboard extends CI_Controller {
 					'lastname' => $lastname,
 					'email' => $email,
 					'no_hp' => $no_hp,
+					'tanggal_lahir' => $tanggal_lahir,
+					'pengalaman' => $pengalaman,
 					'address' => $address,
 					'provinsi' => $provinsi,
 					'kota' => $kota,

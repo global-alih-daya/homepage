@@ -134,9 +134,9 @@
                 <hr>
                 <div class="form-group">
                   <div class="custom-control custom-radio">
-                    <input type="radio" id="jawaban<?=$i?>" name="jawaban<?=$i?>" class="custom-control-input"
+                    <input type="radio" id="jawaban<?=$i?>x" name="jawaban<?=$i?>" class="custom-control-input"
                       value="A">
-                    <label class="custom-control-label" for="jawaban<?=$i?>"><?=$jwb[0]?></label>
+                    <label class="custom-control-label" for="jawaban<?=$i?>x"><?=$jwb[0]?></label>
                   </div>
                 </div>
                 <hr>

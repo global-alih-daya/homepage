@@ -14,6 +14,8 @@
 <script src="//unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="<?=base_url()?>/assets/js/gad.js"></script>
 <script type="text/javascript" src="<?=base_url()?>/assets/js/jquery.smartWizard.js"></script>
+<script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.id.min.js"></script>
 
 <script>
   AOS.init();
@@ -22,10 +24,12 @@
 <script>
 $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di load)
 
+  $.fn.datepicker.defaults.format = "yyyy/mm/dd";
+
   $("#daftarregis").prop( "disabled", true );
   
   $('#job_interested').change(function () {
-    if($('#job_interested').val() == "Inbound" || $('#job_interested').val() == "Outbound" ) {
+    if($('#job_interested').val() == "1" || $('#job_interested').val() == "2" ) {
       $('#tncmodal').modal({backdrop: 'static', keyboard: false});
     } else {
       $('#daftarregis').attr("disabled", "disabled");
@@ -89,5 +93,11 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 
       $('#smartwizard').smartWizard();
 
+  });
+</script>
+
+<script>
+  $('.datepicker').datepicker({
+      startDate: '-3d'
   });
 </script>
