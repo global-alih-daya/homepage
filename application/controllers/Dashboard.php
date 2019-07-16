@@ -131,7 +131,7 @@ class Dashboard extends CI_Controller {
 			//konfigurasi upload file untuk CV
 			$config['upload_path']          = APPPATH. '../assets/uploads/userregistration/';
 			$config['allowed_types']        = 'pdf|jpg|docx|jpeg';
-			$config['max_size']             = 0;
+			$config['max_size']             = 1024;
 
 			//load library upload
 			$this->load->library('upload', $config);

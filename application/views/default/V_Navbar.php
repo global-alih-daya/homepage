@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="row d-flex align-items-center">
 			<div class="col-md-6 d-md-block d-none">
-				<p>Contact us on +62 21 00000000 or info@gad.co.id.</p>
+				<p>Contact us on +62 21 799 7079 or info@gad.co.id.</p>
 			</div>
 		<div class="col-md-6">
 			<div class="d-flex justify-content-md-end justify-content-between">
