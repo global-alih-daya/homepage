@@ -152,9 +152,34 @@ class Ujian extends CI_Controller
 		$input = $_FILES['audio_data']['tmp_name']; //temporary name that PHP gave to the uploaded file
 		//print_r($input);die;
 		$output = $_FILES['audio_data']['name'].".wav"; //letting the client control the filename is a rather bad idea
-		//print_r($output);die;
+
+		$path = FCPATH. "/assets/uploads/voice/";
 
 		//move the file from temp name to local folder using $output name
-		move_uploaded_file($input, $output);
+		move_uploaded_file($input,"$path$output");
+	}
+
+	public function VoiceData()
+	{
+		date_default_timezone_set('Asia/Jakarta');
+
+		$nama = $this->input->post('nama');
+		$no_hp = $this->input->post('no_hp');
+		$refid = $this->input->post('refid');
+		$ss = $this->input->post('namafile');
+		//print_r($ss);die;
+		$namafile = base_url()."assets/uploads/voice/".$ss;
+		$jam_selesai = date('Y-m-d H:i:s');
+
+		$data = array(
+			'nama' => $nama,
+			'no_hp' => $no_hp,
+			'refid' => $refid,
+			'namafile' => $namafile,
+			'jam_selesai' => $jam_selesai
+		);
+
+		//print_r($data);die;
+		$save = $this->M_Ujian->save('hasil_voicerecord', $data);
 	}
 }

@@ -20,6 +20,8 @@ recordButton.addEventListener("click", startRecording);
 stopButton.addEventListener("click", stopRecording);
 
 function startRecording() {
+	intervalsx();
+	document.getElementById("recordButton").innerHTML = "Merekam...";
 	console.log("startRecording() called");
 
 	/*
@@ -127,7 +129,7 @@ function createDownloadLink(blob,encoding) {
 	var url = URL.createObjectURL(blob);
 	var au = document.createElement('audio');
 	var li = document.createElement('li');
-	var link = document.createElement('a');
+  var link = document.createElement('a'); 
 
 	//add controls to the <audio> element
 	au.controls = true;
@@ -140,16 +142,20 @@ function createDownloadLink(blob,encoding) {
 
 	//add the new audio and a elements to the li element
 	li.appendChild(au);
-	li.appendChild(link);
+    //li.appendChild(link);
 
-	//add the li element to the ordered list
-    recordingsList.appendChild(li);
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
     
-    var filename = new Date().toISOString();
+		var filename = document.getElementById("refid").value + "_" + dd + mm + yyyy;
+		$('#namafile').val(filename + ".wav");
     //filename to send to server without extension 
     //upload link 
     var upload = document.createElement('a');
     upload.href = "#";
+    upload.id = "upload_voice"
     upload.innerHTML = "Upload";
     upload.addEventListener("click", function(event) {
         var xhr = new XMLHttpRequest();
@@ -165,6 +171,10 @@ function createDownloadLink(blob,encoding) {
     })
     li.appendChild(document.createTextNode(" ")) //add a space in between 
     li.appendChild(upload) //add the upload link to li
+
+	//add the li element to the ordered list
+		recordingsList.appendChild(li);
+		document.getElementById('upload_voice').click();
 
 }
 

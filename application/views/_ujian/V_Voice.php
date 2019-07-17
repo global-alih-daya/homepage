@@ -55,6 +55,23 @@
       height: 100px;
       margin: auto;
     }
+
+    #upload_voice {
+      display: none;
+    }
+
+    .vl {
+      border-left: 1px solid rgb(179, 176, 176);
+      height: auto;
+    }
+
+    @media (max-width: 575.98px) { 
+      iframe {
+        height: auto;
+        width: auto;
+        display: inline-block;
+      }
+     }
   </style>
 </head>
 
@@ -68,20 +85,21 @@
     </div>
   </div>
 
-  <div class="container zoome" style="padding-top:20px;" id="konten">
+  <div class="container" style="padding-top:20px;" id="konten">
 
     <div class="h-100 row align-items-center">
       <div class="col-lg-12">
         <br>
         <div class="card text-center">
           <div class="card-body">
-            <!-- Tampilkan Timer -->
-            <h5 class="text-center text-info"><strong>
-                <span id="spnSeconds" data-time="3000000">0:30</span>
-              </strong></h5>
-            <hr>
-            <p class="lead text-danger"><strong>Perhatian! Setelah waktu habis, rekaman suara aka langsung
-                tersubmit.</strong></p>
+            <div class="row">
+              <div class="col">
+                <!-- Tampilkan Timer -->
+                <h3 class="text-center text-info"><strong>
+                    <span id="spnSeconds" data-time="30000">0:30</span>
+                  </strong></h3>
+              </div>
+            </div>
           </div>
         </div>
         <br>
@@ -119,15 +137,15 @@
                 </div>
               </div>
               <div id="step-2">
-                <!-- <div class="row">
-                  <div class="col align-items-center text-center">
-                    <div class="embed-responsive embed-responsive-1by1">
-                      <iframe class="embed-responsive-item" height="200" width="200" src="<?=base_url()?>/assets/video/matanajwa.mp4"></iframe>
-                    </div>
+                <div class="row align-items-center">
+                  <div class="col" id="asd">
+                    <iframe width="450" height="350"
+                      src="https://www.youtube.com/embed/H8n91sleRPQ?showinfo=0&controls=0;loop=1" frameborder="0"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
                   </div>
-                  <div class="col">
+                  <div class="col text-center">
                     <div>
-                      <p class="text-center">
+                      <p>
                         Selamat malam,</br>
                         Selamat datang di mata najwa</br>
                         Saya najwa sihab tuan rumah mata najwa</br>
@@ -143,7 +161,8 @@
                       </p>
                     </div>
                   </div>
-                </div> -->
+                </div>
+                <hr>
                 <div class="row">
                   <div class="col text-center align-items-center">
                     <select id="encodingTypeSelect" style="display: none;">
@@ -151,12 +170,15 @@
                     </select>
                     <br>
                     <div id="controls">
-                      <button class="btn btn-block btn-outline-info" id="recordButton">Record</button>
-                      <button class="btn btn-block btn-outline-danger" id="stopButton" disabled>Stop</button>
+                      <button class="btn btn-block btn-outline-info" id="recordButton">Mulai Rekam</button>
+                      <button class="btn btn-block btn-outline-danger" id="stopButton" style="display: none"
+                        disabled>Stop</button>
                     </div>
                     </br>
+                    <input type="hidden" value="" id="namafile" name="namafile">
                     <div style="display: none;" id="formats"></div>
-                    <ul class="list-unstyled" id="recordingsList"></ol>
+                    <ul class="list-unstyled" id="recordingsList" style="display: none;">
+                      </ol>
                   </div>
                 </div>
               </div>
@@ -213,20 +235,12 @@
       //fungsi showStep pada smartwizard
       $("#smartwizard").on("showStep", function (e, anchorObject, stepNumber, stepDirection) {
         if ($('button.sw-btn-next').hasClass('disabled')) {
-          $('.sw-btn-next').hide(); //sembunyikan tombol next
-          $('.sw-btn-group-extra').show(); //tampilkan tombol selesai
+          $('.sw-btn-group').hide(); //sembunyikan tombol next
+          //$('.sw-btn-group-extra').show(); //tampilkan tombol selesai
         } else {
           $('.sw-btn-group-extra').hide();
           $('.sw-btn-group-next').show();
         }
-      });
-
-      //Jika user pada step 0 / soal pertama maka timer akan dimulai
-      $("#smartwizard").on("leaveStep", function (e, anchorObject, stepNumber, stepDirection) {
-        if (stepNumber == "0") {
-          intervalsx();
-          JamStart();
-        };
       });
     });
   </script>
@@ -243,8 +257,13 @@
         var iTimeRemaining = $("#spnSeconds").data('time');
         iTimeRemaining = ~~iTimeRemaining;
         if (iTimeRemaining == 0) {
-          $("#spnSeconds").data('time', iTimeRemaining + 10000000000);
           $('#spnSeconds').css("display", "none");
+          $("#spnSeconds").data('time', iTimeRemaining + 10000000000);
+
+          document.getElementById('stopButton').click();
+          $('#recordButton').removeClass("btn-outline-info");
+          $('#recordButton').addClass("btn-danger");
+          $('#recordButton').text("Suara telah direkam");
           $('#submit').trigger('click');
         } else {
           var mins = ~~(iTimeRemaining / 60000);
@@ -291,9 +310,8 @@
     $(document).ready(function () {
       $('#submit').click(function () {
 
-        $('.sw-btn-group-extra').hide();
         $.ajax({
-          url: "<?=base_url()?>Ujian/jawab_mbti".replace("http://", "https://"),
+          url: "<?=base_url()?>Ujian/VoiceData".replace("http://", "https://"),
           type: "POST",
           data: $("#mbtiForm").serialize(),
           //jika sukses maka tampilkan div hasil dan arahkan ke halaman utama
@@ -302,9 +320,9 @@
               $("#konten").fadeOut(1000, function () {
                 $(".hasil").fadeIn(500);
               });
-              window.setTimeout(function () {
-                window.location.href = '<?=base_url()?>psikotes2'.replace("http://", "https://");
-              }, 10000);
+              // window.setTimeout(function () {
+              //   window.location.href = '<?=base_url()?>voice'.replace("http://", "https://");
+              // }, 10000);
             });
           }
 
