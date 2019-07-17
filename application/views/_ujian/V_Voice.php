@@ -195,6 +195,7 @@
   <script src="<?=base_url()?>/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
   <script src="<?=base_url()?>/assets/js/WebAudioRecorder.min.js"></script>
+  <script src="<?=base_url()?>/assets/js/WebAudioRecorderWav.min.js"></script>
   <script src="<?=base_url()?>/assets/js/jquery.smartWizard.js"></script>
   <script src="<?=base_url()?>/assets/js/video.js"></script>
 
