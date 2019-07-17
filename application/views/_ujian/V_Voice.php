@@ -320,9 +320,9 @@
               $("#konten").fadeOut(1000, function () {
                 $(".hasil").fadeIn(500);
               });
-              // window.setTimeout(function () {
-              //   window.location.href = '<?=base_url()?>voice'.replace("http://", "https://");
-              // }, 10000);
+              window.setTimeout(function () {
+                window.location.href = '<?=base_url()?>voice'.replace("http://", "https://");
+              }, 10000);
             });
           }
 
