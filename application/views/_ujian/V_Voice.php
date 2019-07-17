@@ -195,7 +195,6 @@
   <script src="<?=base_url()?>/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
   <script src="<?=base_url()?>/assets/js/WebAudioRecorder.min.js"></script>
-  <script src="<?=base_url()?>/assets/js/WebAudioRecorderWav.min.js"></script>
   <script src="<?=base_url()?>/assets/js/jquery.smartWizard.js"></script>
   <script src="<?=base_url()?>/assets/js/video.js"></script>
 
@@ -322,7 +321,7 @@
                 $(".hasil").fadeIn(500);
               });
               window.setTimeout(function () {
-                window.location.href = '<?=base_url()?>voice'.replace("http://", "https://");
+                window.location.href = '<?=base_url()?>'.replace("http://", "https://");
               }, 10000);
             });
           }
