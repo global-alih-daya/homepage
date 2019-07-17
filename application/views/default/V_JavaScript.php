@@ -25,7 +25,6 @@
 <script>
 $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di load)
 
-  $("#myForm").validate();
   $.fn.datepicker.defaults.format = "yyyy/mm/dd";
 
   $("#daftarregis").prop( "disabled", true );
@@ -66,13 +65,6 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 </script>
 
 <script language="Javascript" type="text/javascript">
-  function enableBtnDaftar(){
-    $("#daftarBtn").removeClass('disabled');
-  }
-
-  function enableregisbutton() {
-    $("#daftarregis").removeAttr('disabled');
-  }
 
   function enablebtntnc() {
     if ($('#customCheck1').is(":checked"))
@@ -88,14 +80,6 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
     $("#customCheck1").prop("checked", false);
     $('#btnAcceptTNC').attr("disabled", "disabled");
   }
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function(){
-
-      $('#smartwizard').smartWizard();
-
-  });
 </script>
 
 <script>

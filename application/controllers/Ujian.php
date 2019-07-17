@@ -124,6 +124,7 @@ class Ujian extends CI_Controller
 
 	}
 
+	//Validasi ID Peserta
 	function get_refid_exist() {
 		if (isset($_POST['refid'])) {
 			$refid = $_POST['refid'];
@@ -137,5 +138,23 @@ class Ujian extends CI_Controller
 		} else {
 			echo '<div class="alert alert-danger" role="alert">ID Peserta wajib diisi.</div>';
 		}
+	}
+
+	public function VoiceRec_View()
+	{
+		$data['hasil_voicerecord'] = $this->M_Ujian->tampil_data('hasil_voicerecord')->result();
+		$this->load->view('_ujian/V_Voice', $data);
+	}
+
+	public function VoiceUpload()
+	{
+		//print_r($_FILES);die;
+		$input = $_FILES['audio_data']['tmp_name']; //temporary name that PHP gave to the uploaded file
+		//print_r($input);die;
+		$output = $_FILES['audio_data']['name'].".wav"; //letting the client control the filename is a rather bad idea
+		//print_r($output);die;
+
+		//move the file from temp name to local folder using $output name
+		move_uploaded_file($input, $output);
 	}
 }

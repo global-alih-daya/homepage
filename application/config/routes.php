@@ -61,6 +61,7 @@ $route['ujicoba'] = 'Dashboard/ujicoba' ;
 $route['psikotes'] = 'Ujian/mbti';
 $route['psikotes2'] = 'Ujian/psikotes';
 $route['typingtest'] = 'Ujian/TypingTestView';
+$route['voice'] = 'Ujian/VoiceRec_View';
 
 //Others
 $route['404_override'] = 'error_404';
